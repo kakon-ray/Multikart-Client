@@ -1,0 +1,16 @@
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.548);
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 40%;
+  width: 100%;
+  /* left: 33%; */
+}

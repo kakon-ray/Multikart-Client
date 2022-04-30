@@ -15,7 +15,7 @@ const MetOurTem = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 md:px-20 my-30 my-28">
+    <div className="container mx-auto px-4 md:px-20 my-24">
       <div className="my-12 text-center">
         <h1 className="text-3xl mb-2 text-purple-600 font-bold">
           MEET OUR TEAM

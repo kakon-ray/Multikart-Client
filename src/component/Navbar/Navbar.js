@@ -4,12 +4,13 @@ import Button from "../Button";
 
 const Navbar = () => {
   let Links = [
-    { name: "HOME", link: "/" },
-    { name: "SERVICE", link: "/" },
-    { name: "ABOUT", link: "/" },
-    { name: "BLOG'S", link: "/" },
+    { name: "Home", link: "/" },
+    { name: "Service", link: "/" },
+    { name: "Blog", link: "/blog" },
 
-    { name: "CONTACT", link: "/" },
+    { name: "My Item", link: "/" },
+    { name: "Add Item", link: "/" },
+    { name: "Manage Item", link: "/manageitems" },
   ];
   let [open, setOpen] = useState(false);
   return (
@@ -43,10 +44,10 @@ const Navbar = () => {
           } md:shadow-none`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-20 text-x md:my-0 my-7">
+            <li key={link.name} className="md:ml-16 text-x md:my-0 my-7">
               <Link
                 to={link.link}
-                className="text-gray-800 hover:text-gray-400 duration-500 font-bold"
+                className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
               >
                 {link.name}
               </Link>
@@ -54,10 +55,10 @@ const Navbar = () => {
           ))}
         </ul>
         <Link to="login">
-          <Button>Loign</Button>
+          <Button>Sign in</Button>
         </Link>
         <Link to="registation">
-          <Button>Register</Button>
+          <Button>Sign up</Button>
         </Link>
       </div>
     </div>

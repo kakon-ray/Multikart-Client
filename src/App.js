@@ -7,6 +7,8 @@ import MetOurTem from "./component/Section/MetOurTem/MetOurTem";
 import Slider from "./component/Slider/Slider";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./component/Pages/Home/Home";
+import ManageItems from "./component/Pages/ManageItems/ManageItems";
+import Blog from "./component/Blog/Blog";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/" element={<Home></Home>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="registation" element={<Registaion></Registaion>} />
+        <Route path="manageitems" element={<ManageItems></ManageItems>} />
+        <Route path="blog" element={<Blog></Blog>} />
       </Routes>
       <Footer></Footer>
     </div>

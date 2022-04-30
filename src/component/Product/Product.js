@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-const Product = ({ title, text, img }) => {
+const Product = ({ title, text, img, btnText ,btnLink}) => {
   return (
     <>
       <div class="flex justify-center">
@@ -13,7 +13,7 @@ const Product = ({ title, text, img }) => {
             <h5 class="text-gray-900 text-xl font-medium mb-2">{title}</h5>
             <p class="text-gray-700 text-center mb-4">{text}</p>
             <div className="flex justify-center">
-              <Button>Product Details</Button>
+              <Button>{btnText ? btnText : "Update Now"}</Button>
             </div>
           </div>
         </div>

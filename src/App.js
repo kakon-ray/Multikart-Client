@@ -9,6 +9,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from "./component/Pages/Home/Home";
 import ManageItems from "./component/Pages/ManageItems/ManageItems";
 import Blog from "./component/Blog/Blog";
+import AddItem from "./component/AddItem/AddItem";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="registation" element={<Registaion></Registaion>} />
         <Route path="manageitems" element={<ManageItems></ManageItems>} />
         <Route path="blog" element={<Blog></Blog>} />
+        <Route path="add" element={<AddItem></AddItem>} />
       </Routes>
       <Footer></Footer>
     </div>

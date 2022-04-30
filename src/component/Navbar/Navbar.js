@@ -9,7 +9,7 @@ const Navbar = () => {
     { name: "Blog", link: "/blog" },
 
     { name: "My Item", link: "/" },
-    { name: "Add Item", link: "/" },
+    { name: "Add Item", link: "/add" },
     { name: "Manage Item", link: "/manageitems" },
   ];
   let [open, setOpen] = useState(false);

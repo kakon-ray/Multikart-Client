@@ -1,3 +1,4 @@
+import res from "express/lib/response";
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hook/useProducts";
@@ -5,15 +6,9 @@ import Button from "../Button";
 import PageBanner from "../PageBanner/PageBanner";
 
 const Update = () => {
-  const [updateProduct, setUpdateProduct] = useState("");
+  const [updateProduct, setUpdateProduct] = useState({});
   const [products, setProducts] = useProducts();
   const { id } = useParams();
-
-  const navigate = useNavigate();
-
-  const navigaton = () => {
-    navigate("/");
-  };
 
   useEffect(() => {
     fetch(`https://logika-warehouse.herokuapp.com/product/${id}`)
@@ -21,23 +16,64 @@ const Update = () => {
       .then((data) => setUpdateProduct(data));
   }, []);
 
+  const navigate = useNavigate();
+
+  const navigaton = () => {
+    navigate("/");
+  };
+
+  //   const deliverd = () => {
+  //     products.map((item) => {
+  //       const newquantity = item.quantity - 1;
+  //       if (item._id === id) {
+  //         setProducts([...products, { ...item, quantity: newquantity }]);
+  //         updateProduct.quantity = newquantity;
+  //       }
+  //     });
+  //   };
+
+  //    const onsubmitAdd = (e) => {
+  //      e.preventDefault();
+  //      const value = e.target.addquantity.value;
+
+  //      products.map((item) => {
+  //        const newquantity =
+  //          item.quantity + parseInt(value) ? parseInt(value) : item.quantity;
+  //        if (item._id === id) {
+  //          setProducts([...products, { ...item, quantity: newquantity }]);
+  //          updateProduct.quantity = newquantity;
+  //        }
+  //      });
+  //    };
+
+  //   remove one quantity
   const deliverd = () => {
     const newquantity = updateProduct.quantity - 1;
     setUpdateProduct({ ...updateProduct, quantity: newquantity });
+
+    // const update = { quantity: newquantity };
+    // fetch(`https://logika-warehouse.herokuapp.com/product/${id}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(update),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     alert("Quantity add successfully");
+    //   });
   };
 
+  //   add quantity to input filed
   const onsubmitAdd = (e) => {
     e.preventDefault();
-    const value = e.target.addquantity.value;
-
-    products.map((item) => {
-      const newquantity =
-        item.quantity + parseInt(value) ? parseInt(value) : item.quantity;
-      if (item._id === id) {
-        setProducts([...products, { ...item, quantity: newquantity }]);
-        updateProduct.quantity = newquantity;
-      }
-    });
+    const value = parseInt(e.target.addquantity.value);
+    const updateQuantity = parseInt(updateProduct.quantity);
+    const newquantity = value ? value + updateQuantity : updateQuantity;
+    setUpdateProduct({ ...updateProduct, quantity: newquantity });
+    e.target.addquantity.value = "";
   };
 
   return (
@@ -52,16 +88,16 @@ const Update = () => {
             alt=""
           />
           <div className="p-6 flex flex-col justify-start">
-            <h5 className="text-gray-900 text-xl font-medium mb-2">
+            <h5 className="text-gray-900  text-xl font-medium mb-2">
               {updateProduct?.name}
             </h5>
-            <h5 className="text-gray-900 text-sm font-medium mb-2">
+            <h5 className="text-gray-900  text-sm font-medium mb-2">
               Price: {updateProduct?.price}$
             </h5>
             <h5 className="text-gray-900 text-sm font-medium mb-2">
               Supplier: {updateProduct?.supplierName}
             </h5>
-            <h5 className="text-gray-900 font-bold text-x  mb-2">
+            <h5 className="text-gray-900 font-bold  text-x  mb-2">
               Total Quantity: {updateProduct?.quantity}
             </h5>
             <p className="text-gray-700 text-base mb-4">

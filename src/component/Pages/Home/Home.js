@@ -26,6 +26,9 @@ const Home = () => {
                 name={item.name}
                 img={item.img}
                 text={item.text}
+                price={item.price}
+                supplierName={item.supplierName}
+                id={item._id}
               ></Product>
             );
           })}

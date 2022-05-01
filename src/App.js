@@ -10,6 +10,7 @@ import Home from "./component/Pages/Home/Home";
 import ManageItems from "./component/Pages/ManageItems/ManageItems";
 import Blog from "./component/Blog/Blog";
 import AddItem from "./component/AddItem/AddItem";
+import Update from "./component/Update/Update";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="registation" element={<Registaion></Registaion>} />
         <Route path="manageitems" element={<ManageItems></ManageItems>} />
         <Route path="blog" element={<Blog></Blog>} />
+        <Route path="/:id" element={<Update></Update>} />
         <Route path="add" element={<AddItem></AddItem>} />
       </Routes>
       <Footer></Footer>

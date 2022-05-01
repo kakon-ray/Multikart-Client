@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hook/useProducts";
 import Button from "../Button";
@@ -8,7 +8,7 @@ const Update = () => {
   const [products, setProducts] = useProducts();
   const { id } = useParams();
 
-  const updateProduct = products.filter((item) => item._id === id);
+  let updateProduct = products.filter((item) => item._id === id);
 
   console.log(updateProduct);
 
@@ -18,35 +18,96 @@ const Update = () => {
     navigate("/");
   };
 
+  const deliverd = () => {
+    products.map((item) => {
+      const newquantity = item.quantity - 1;
+      if (item._id === id) {
+        setProducts([...products, { ...item, quantity: newquantity }]);
+        updateProduct[0].quantity = newquantity;
+      }
+    });
+  };
+
+  const onsubmitAdd = (e) => {
+    e.preventDefault();
+    const value = e.target.addquantity.value;
+
+    products.map((item) => {
+      const newquantity = item.quantity + parseInt(value);
+      if (item._id === id) {
+        setProducts([...products, { ...item, quantity: newquantity }]);
+        updateProduct[0].quantity = newquantity;
+      }
+    });
+  };
+
   return (
     <div>
       <PageBanner page="Update Inventory Item"></PageBanner>
 
-      <div class="flex justify-center my-5 mt-12">
-        <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+      <div className="flex justify-center my-5 mt-12">
+        <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
           <img
-            class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+            className=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
             src={updateProduct[0]?.img}
             alt=""
           />
-          <div class="p-6 flex flex-col justify-start">
-            <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
+          <div className="p-6 flex flex-col justify-start">
+            <h5 className="text-gray-900 text-center text-xl font-medium mb-2">
               {updateProduct[0]?.name}
             </h5>
-            <h5 class="text-gray-900 text-center text-sm font-medium mb-2">
+            <h5 className="text-gray-900 text-center text-sm font-medium mb-2">
               Price: {updateProduct[0]?.price}$
             </h5>
-            <h5 class="text-gray-900 text-center text-sm font-medium mb-2">
+            <h5 className="text-gray-900 text-center text-sm font-medium mb-2">
               Total Quantity: {updateProduct[0]?.quantity}
             </h5>
-            <h5 class="text-gray-900 font-bold text-center text-x  mb-2">
+            <h5 className="text-gray-900 font-bold text-center text-x  mb-2">
               Supplier: {updateProduct[0]?.supplierName}
             </h5>
-            <p class="text-gray-700 text-base mb-4">{updateProduct[0]?.text}</p>
-            <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
-            <div className="flex justify-center mt-12">
-              <Button>Add Quantity</Button>
-              <Button>Remove Quantity</Button>
+            <p className="text-gray-700 text-base mb-4">
+              {updateProduct[0]?.text}
+            </p>
+            <p className="text-gray-600 text-xs">Last updated 3 mins ago</p>
+            <div className="flex  mt-12">
+              <button
+                onClick={deliverd}
+                type="button"
+                className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              >
+                Deliverd
+              </button>
+              <form className="flex" onSubmit={onsubmitAdd}>
+                <input
+                  type="addquantity"
+                  name="addquantity"
+                  className="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                        
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
+                        "
+                  id="exampleTel0"
+                  placeholder="Phone input"
+                />
+                <button
+                  type="submit"
+                  className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                >
+                  Add
+                </button>
+              </form>
             </div>
           </div>
         </div>

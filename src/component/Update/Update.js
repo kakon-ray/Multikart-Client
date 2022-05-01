@@ -26,18 +26,14 @@ const Update = () => {
     setUpdateProduct({ ...updateProduct, quantity: newquantity });
   };
 
+  //   add quantity to input filed
   const onsubmitAdd = (e) => {
     e.preventDefault();
-    const value = e.target.addquantity.value;
-
-    products.map((item) => {
-      const newquantity =
-        item.quantity + parseInt(value) ? parseInt(value) : item.quantity;
-      if (item._id === id) {
-        setProducts([...products, { ...item, quantity: newquantity }]);
-        updateProduct.quantity = newquantity;
-      }
-    });
+    const value = parseInt(e.target.addquantity.value);
+    const updateQuantity = parseInt(updateProduct.quantity);
+    const newquantity = value ? value + updateQuantity : updateQuantity;
+    setUpdateProduct({ ...updateProduct, quantity: newquantity });
+    e.target.addquantity.value = "";
   };
 
   return (

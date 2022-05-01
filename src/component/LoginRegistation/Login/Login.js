@@ -1,7 +1,22 @@
 import React from "react";
 import PageBanner from "../../PageBanner/PageBanner";
-
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { Link } from "react-router-dom";
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const loginAccount = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInWithEmailAndPassword(email, password);
+    console.log(email, password);
+  };
+
   return (
     <div className="container mx-auto md:px:20">
       <PageBanner page="Login in your Account" />
@@ -17,11 +32,12 @@ const Login = () => {
               />
             </div>
             <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
-              <form>
+              <form onSubmit={loginAccount}>
                 <div className="mb-6"></div>
                 <div className="mb-6">
                   <input
                     type="text"
+                    name="email"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 border bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Email address"
                   />
@@ -30,6 +46,7 @@ const Login = () => {
                 <div className="mb-6">
                   <input
                     type="password"
+                    name="password"
                     className="form-control block w-full px-4 py-2 text-xl border font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Password"
                   />
@@ -67,9 +84,11 @@ const Login = () => {
                   Sign in
                 </button>
 
-                <p className="text-purple-500 text-center pt-4 cursor-pointer">
-                  Do not have a account! please register
-                </p>
+                <Link to="/registation">
+                  <p className="text-purple-500 text-center pt-4 cursor-pointer">
+                    Do not have a account! please register
+                  </p>
+                </Link>
 
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">OR</p>

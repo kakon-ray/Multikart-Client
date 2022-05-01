@@ -1,13 +1,20 @@
 import React from "react";
 import PageBanner from "../../PageBanner/PageBanner";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { Link } from "react-router-dom";
 
 const Registaion = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const createAccount = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    createUserWithEmailAndPassword(email, password).then();
     console.log(name, email, password);
   };
   return (
@@ -83,9 +90,11 @@ const Registaion = () => {
                   Sign in
                 </button>
 
-                <p className="text-purple-500 text-center pt-4 cursor-pointer">
-                  Already have a account! Please Register
-                </p>
+                <Link to="/login">
+                  <p className="text-purple-500 text-center pt-4 cursor-pointer">
+                    Already have a account! Please Login
+                  </p>
+                </Link>
 
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">OR</p>

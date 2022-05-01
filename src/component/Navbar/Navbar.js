@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import Button from "../Button";
 
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+
   let Links = [
     { name: "Home", link: "/" },
     { name: "Service", link: "/" },
@@ -13,6 +18,14 @@ const Navbar = () => {
     { name: "Manage Item", link: "/manageitems" },
   ];
   let [open, setOpen] = useState(false);
+
+  const navigation = useNavigate();
+
+  console.log(user);
+  const logOut = () => {
+    console.log("log out");
+    signOut(auth);
+  };
   return (
     <div className="shadow-md w-full fixed top-0 left-0 z-10">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
@@ -54,12 +67,20 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Link to="login">
-          <Button>Sign in</Button>
-        </Link>
-        <Link to="registation">
-          <Button>Sign up</Button>
-        </Link>
+
+        {!user ? (
+          <>
+            <Button onClick={() => navigation("/login")}>Sign in</Button>
+            <Button onClick={() => navigation("/registation")}>Sign up</Button>
+          </>
+        ) : (
+          <button
+            className="inline-block font-bold text-center  mr-2 px-6 py-2 border-2 border-purple-500 text-purple-500 font-medium text-xs leading-tight rounded-full hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            onClick={logOut}
+          >
+            Sign Out
+          </button>
+        )}
       </div>
     </div>
   );

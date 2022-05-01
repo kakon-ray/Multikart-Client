@@ -14,6 +14,7 @@ import Update from "./component/Update/Update";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import RequireAuth from "./component/RequireAuth/RequireAuth";
 const App = () => {
   return (
     <div>
@@ -21,12 +22,26 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home></Home>} />
+        <Route path="/:id" element={<Update></Update>} />
+        <Route path="blog" element={<Blog></Blog>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="registation" element={<Registaion></Registaion>} />
-        <Route path="manageitems" element={<ManageItems></ManageItems>} />
-        <Route path="blog" element={<Blog></Blog>} />
-        <Route path="/:id" element={<Update></Update>} />
-        <Route path="add" element={<AddItem></AddItem>} />
+        <Route
+          path="manageitems"
+          element={
+            <RequireAuth>
+              <ManageItems></ManageItems>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="add"
+          element={
+            <RequireAuth>
+              <AddItem></AddItem>
+            </RequireAuth>
+          }
+        />
       </Routes>
       <Footer></Footer>
       <ToastContainer position="top-center" />

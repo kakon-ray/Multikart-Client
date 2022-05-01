@@ -84,6 +84,9 @@ const Update = () => {
               {updateProduct?.name}
             </h5>
             <h5 className="text-gray-900 text-sm font-medium mb-2">
+              Product Id:{updateProduct?._id}
+            </h5>
+            <h5 className="text-gray-900 text-sm font-medium mb-2">
               Price: {updateProduct?.price}$
             </h5>
             <h5 className="text-gray-900 text-sm font-medium mb-2">

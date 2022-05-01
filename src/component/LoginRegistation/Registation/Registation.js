@@ -18,7 +18,7 @@ const Registaion = () => {
     console.log(name, email, password);
   };
   return (
-    <div className="container mx-auto md:px:20">
+    <div>
       <PageBanner page="Registation in your Account" />
       <section>
         <div className="container px-6 py-12 h-full">
@@ -30,7 +30,7 @@ const Registaion = () => {
                 alt="Phone"
               />
             </div>
-            <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+            <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
               <form onSubmit={createAccount}>
                 <div className="mb-6">
                   <input

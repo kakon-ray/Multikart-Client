@@ -18,7 +18,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto md:px:20">
+    <div>
       <PageBanner page="Login in your Account" />
 
       <section>

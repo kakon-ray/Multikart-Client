@@ -11,6 +11,7 @@ const Product = ({
   btnLink,
   supplierName,
   id,
+  quantity,
 }) => {
   return (
     <>
@@ -20,16 +21,25 @@ const Product = ({
             <img class="rounded-t-lg" src={img} alt="" />
           </a>
           <div class="p-6">
-            <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
+            <h5 className="text-center text-gray-900 text-xl font-medium mb-2">
               {name}
             </h5>
-            <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
-              $ {price}
+            <h5 className="text-center text-gray-900 font-bold text-x  mb-2">
+              Total Quantity: {quantity}
             </h5>
-            <h5 class="text-gray-900 font-bold text-center text-x  mb-2">
+            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
+              Price: {price}$
+            </h5>
+            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
               Supplier: {supplierName}
             </h5>
-            <p class="text-gray-700 text-center mb-4">{text}</p>
+
+            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
+              Product Id:{id}
+            </h5>
+            <p class="text-gray-700 text-center mb-4">
+              {text.split("").slice(0, 69)}...
+            </p>
             <div className="flex justify-center">
               <Link to={`${id}`}>
                 <Button>{btnText ? btnText : "Update Now"}</Button>

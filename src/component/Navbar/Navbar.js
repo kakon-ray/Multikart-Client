@@ -66,21 +66,25 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-        </ul>
 
-        {!user ? (
-          <>
-            <Button onClick={() => navigation("/login")}>Sign in</Button>
-            <Button onClick={() => navigation("/registation")}>Sign up</Button>
-          </>
-        ) : (
-          <button
-            className="inline-block font-bold text-center  mr-2 px-6 py-2 border-2 border-purple-500 text-purple-500 font-medium text-xs leading-tight rounded-full hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-            onClick={logOut}
-          >
-            Sign Out
-          </button>
-        )}
+          {!user ? (
+            <span className="md:ml-24">
+              <Link to="/login">
+                <Button>Sign in</Button>
+              </Link>
+              <Link to="/registation">
+                <Button>Sign up</Button>
+              </Link>
+            </span>
+          ) : (
+            <button
+              className="inline-block md:ml-44 font-bold text-center px-6 py-2 border-2 border-purple-500 text-purple-500 font-medium text-xs leading-tight rounded-full hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              onClick={logOut}
+            >
+              Sign Out
+            </button>
+          )}
+        </ul>
       </div>
     </div>
   );

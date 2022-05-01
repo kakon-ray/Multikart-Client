@@ -19,7 +19,7 @@ const Home = () => {
         <h1 className="text-3xl text-purple-600 font-bold uppercase text-center mx-auto mb-12">
           Stock Products
         </h1>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 sm:grid-cols-1  gap-4">
           {homeProdcuts?.map((item) => {
             return (
               <Product
@@ -29,6 +29,7 @@ const Home = () => {
                 price={item.price}
                 supplierName={item.supplierName}
                 id={item._id}
+                quantity={item.quantity}
               ></Product>
             );
           })}

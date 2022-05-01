@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hook/useProducts";
 import Button from "../Button";
 import PageBanner from "../PageBanner/PageBanner";
-
+import { ToastContainer, toast } from "react-toastify";
 const Update = () => {
   const [updateProduct, setUpdateProduct] = useState("");
   const [products, setProducts] = useProducts();
@@ -24,6 +24,21 @@ const Update = () => {
   const deliverd = () => {
     const newquantity = updateProduct.quantity - 1;
     setUpdateProduct({ ...updateProduct, quantity: newquantity });
+
+    // database related update
+    const update = { quantity: newquantity };
+    fetch(`https://logika-warehouse.herokuapp.com/product/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(update),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Quantity Deliverd Successfully");
+      });
   };
 
   //   add quantity to input filed
@@ -34,6 +49,22 @@ const Update = () => {
     const newquantity = value ? value + updateQuantity : updateQuantity;
     setUpdateProduct({ ...updateProduct, quantity: newquantity });
     e.target.addquantity.value = "";
+
+    // database related update
+
+    const update = { quantity: newquantity };
+    fetch(`https://logika-warehouse.herokuapp.com/product/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(update),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Quantity Deliverd Successfully");
+      });
   };
 
   return (

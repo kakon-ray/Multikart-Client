@@ -12,6 +12,8 @@ import Blog from "./component/Blog/Blog";
 import AddItem from "./component/AddItem/AddItem";
 import Update from "./component/Update/Update";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <div>
@@ -27,6 +29,7 @@ const App = () => {
         <Route path="add" element={<AddItem></AddItem>} />
       </Routes>
       <Footer></Footer>
+      <ToastContainer position="top-center" />
     </div>
   );
 };

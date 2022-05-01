@@ -60,10 +60,10 @@ const Update = () => {
               Price: {updateProduct[0]?.price}$
             </h5>
             <h5 className="text-gray-900 text-center text-sm font-medium mb-2">
-              Total Quantity: {updateProduct[0]?.quantity}
+              Supplier: {updateProduct[0]?.supplierName}
             </h5>
             <h5 className="text-gray-900 font-bold text-center text-x  mb-2">
-              Supplier: {updateProduct[0]?.supplierName}
+              Total Quantity: {updateProduct[0]?.quantity}
             </h5>
             <p className="text-gray-700 text-base mb-4">
               {updateProduct[0]?.text}
@@ -99,7 +99,7 @@ const Update = () => {
                             focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
                         "
                   id="exampleTel0"
-                  placeholder="Phone input"
+                  placeholder="Add quantity"
                 />
                 <button
                   type="submit"

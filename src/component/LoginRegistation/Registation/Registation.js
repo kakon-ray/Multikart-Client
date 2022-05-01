@@ -2,13 +2,21 @@ import React from "react";
 import PageBanner from "../../PageBanner/PageBanner";
 
 const Registaion = () => {
+  const createAccount = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log(name, email, password);
+  };
   return (
     <div className="container mx-auto md:px:20">
       <PageBanner page="Registation in your Account" />
-      <section className="h-screen">
+      <section>
         <div className="container px-6 py-12 h-full">
           <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-            <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+            <div className="md:w-2/5 lg:w-2/5 mb-12 md:mb-0">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                 className="w-full"
@@ -16,10 +24,11 @@ const Registaion = () => {
               />
             </div>
             <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
-              <form>
+              <form onSubmit={createAccount}>
                 <div className="mb-6">
                   <input
                     type="text"
+                    name="name"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 border bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Your Name"
                   />
@@ -27,6 +36,7 @@ const Registaion = () => {
                 <div className="mb-6">
                   <input
                     type="text"
+                    name="email"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 border bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Email address"
                   />
@@ -35,6 +45,7 @@ const Registaion = () => {
                 <div className="mb-6">
                   <input
                     type="password"
+                    name="password"
                     className="form-control block w-full px-4 py-2 text-xl border font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Password"
                   />

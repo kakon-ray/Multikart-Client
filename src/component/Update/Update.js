@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hook/useProducts";
 import Button from "../Button";
 import PageBanner from "../PageBanner/PageBanner";
@@ -16,7 +16,7 @@ const Update = () => {
   };
 
   useEffect(() => {
-    fetch(`https://logika-warehouse.herokuapp.com/product/${id}`)
+    fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => setUpdateProduct(data));
   }, []);
@@ -27,7 +27,7 @@ const Update = () => {
 
     // database related update
     const update = { quantity: newquantity };
-    fetch(`https://logika-warehouse.herokuapp.com/product/${id}`, {
+    fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -99,7 +99,8 @@ const Update = () => {
               {updateProduct?.text}
             </p>
             <p className="text-gray-600 text-xs">Last updated 3 mins ago</p>
-            <div className="flex  mt-12">
+
+            <div className="flex  mt-5">
               <button
                 onClick={deliverd}
                 type="button"
@@ -142,14 +143,26 @@ const Update = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center my-12 items-center">
-        <ion-icon name="play-back-outline"></ion-icon>
-        <span
-          onClick={navigaton}
-          className="cursor-pointer text-x text-purple-600 ml-1 hover:text-purple-800 "
-        >
-          Back To Home
-        </span>
+      <div className="flex justify-center">
+        <div className="flex justify-center my-12 items-center w-52">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span
+            onClick={navigaton}
+            className="cursor-pointer text-x text-purple-600 ml-1 hover:text-purple-800 "
+          >
+            Back To Home
+          </span>
+        </div>
+
+        <div className="flex justify-center my-12 items-center w-48">
+          <span
+            onClick={() => navigate("/manageitems")}
+            className="cursor-pointer text-x text-purple-600 ml-1 hover:text-purple-800 "
+          >
+            Manage Inventory
+          </span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </div>
       </div>
     </div>
   );

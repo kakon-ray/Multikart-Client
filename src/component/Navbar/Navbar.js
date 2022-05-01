@@ -4,18 +4,19 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Button from "../Button";
+import CustomLink from "../CustomeLink/CustomeLink";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
 
   let Links = [
     { name: "Home", link: "/" },
-    { name: "Service", link: "/" },
+    { name: "Service", link: "/service" },
     { name: "Blog", link: "/blog" },
 
-    { name: "My Item", link: "/" },
+    { name: "My Item", link: "/myitem" },
     { name: "Add Item", link: "/add" },
-    { name: "Manage Item", link: "/manageitems" },
+    { name: "Manage", link: "/manageitems" },
   ];
   let [open, setOpen] = useState(false);
 
@@ -57,12 +58,12 @@ const Navbar = () => {
         >
           {Links.map((link) => (
             <li key={link.name} className="md:ml-16 text-x md:my-0 my-7">
-              <Link
+              <CustomLink
                 to={link.link}
                 className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
               >
                 {link.name}
-              </Link>
+              </CustomLink>
             </li>
           ))}
 

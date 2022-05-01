@@ -41,7 +41,7 @@ const Product = ({
               {text.split("").slice(0, 69)}...
             </p>
             <div className="flex justify-center">
-              <Link to={`${id}`}>
+              <Link to={`/manageitems/${id}`}>
                 <Button>{btnText ? btnText : "Update Now"}</Button>
               </Link>
             </div>

@@ -20,37 +20,37 @@ const ManageItems = () => {
                     <tr>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 border-r"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
                         Name
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 border-r"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
                         Quantity
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 border-r"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
                         Price
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 border-r"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
                         Supplier
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 border-r"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
-                        Id
+                        ID
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4"
+                        class="text-x font-bold text-purple-900 uppercase px-6 py-4"
                       >
                         Manage Item
                       </th>
@@ -63,9 +63,7 @@ const ManageItems = () => {
                           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
                             {item.name}
                           </td>
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                            {item.name}
-                          </td>
+
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
                             {item.quantity}
                           </td>
@@ -74,6 +72,9 @@ const ManageItems = () => {
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace- border-r">
                             {item.supplierName}
+                          </td>
+                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                            {item._id}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
                             <button

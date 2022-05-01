@@ -33,7 +33,8 @@ const Update = () => {
     const value = e.target.addquantity.value;
 
     products.map((item) => {
-      const newquantity = item.quantity + parseInt(value);
+      const newquantity =
+        item.quantity + parseInt(value) ? parseInt(value) : item.quantity;
       if (item._id === id) {
         setProducts([...products, { ...item, quantity: newquantity }]);
         updateProduct[0].quantity = newquantity;

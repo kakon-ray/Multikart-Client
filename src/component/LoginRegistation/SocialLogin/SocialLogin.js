@@ -1,23 +1,29 @@
 import React from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const SocialLogin = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  const signinGoogle = () => {
+    signInWithGoogle();
+  };
   return (
     <div>
-      <a
+      <p
+        onClick={signinGoogle}
         className="px-7 py-3 text-white font-medium hover:rounded-full text-sm leading-snug uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
         style={{ backgroundColor: "#4285f4" }}
-        href="#!"
         role="button"
         data-mdb-ripple="true"
         data-mdb-ripple-color="light"
       >
         <ion-icon name="logo-google"></ion-icon>
         <span className="ml-3"> Continue with Google</span>
-      </a>
-      <a
+      </p>
+      <p
         className="px-7 py-3 text-white font-medium hover:rounded-full text-sm leading-snug uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
         style={{ backgroundColor: "#3b5998" }}
-        href="#!"
         role="button"
         data-mdb-ripple="true"
         data-mdb-ripple-color="light"
@@ -33,11 +39,10 @@ const SocialLogin = () => {
           />
         </svg>
         Continue with Facebook
-      </a>
-      <a
+      </p>
+      <p
         className="px-7 py-3 text-white font-medium hover:rounded-full text-sm leading-snug uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
         style={{ backgroundColor: "#55acee" }}
-        href="#!"
         role="button"
         data-mdb-ripple="true"
         data-mdb-ripple-color="light"
@@ -53,7 +58,7 @@ const SocialLogin = () => {
           />
         </svg>
         Continue with Twitter
-      </a>
+      </p>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import PageBanner from "../PageBanner/PageBanner";
 const MyItem = () => {
   const [data, setData] = useState([]);
   const [user, loading, error] = useAuthState(auth);
-  console.log(user.email);
+  // console.log(user.email);
   useEffect(() => {
     const getUserItems = async () => {
       const url = `https://still-gorge-24214.herokuapp.com/useritem?email=${user.email}`;
@@ -17,7 +17,7 @@ const MyItem = () => {
     getUserItems();
   }, [user]);
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <PageBanner page="My Items" />
@@ -70,7 +70,7 @@ const MyItem = () => {
                   <tbody>
                     {data.map((item) => {
                       return (
-                        <tr className="border-b">
+                        <tr className="border-b" key={item._id}>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
                             {item.name}
                           </td>

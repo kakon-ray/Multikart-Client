@@ -14,8 +14,16 @@ const AddItem = () => {
     const quantity = e.target.quantity.value;
     const price = e.target.price.value;
     const supplierName = e.target.supplier.value;
+    const img = e.target.img.value;
 
-    const addItemValue = { email, name, quantity, price, supplierName };
+    const addItemValue = {
+      email,
+      name,
+      quantity,
+      price,
+      supplierName,
+      img,
+    };
 
     fetch("https://still-gorge-24214.herokuapp.com/product", {
       method: "POST",
@@ -59,7 +67,7 @@ const AddItem = () => {
                             type="text"
                             name="name"
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="exampleFormControlInput2"
                             placeholder="Product Name"
                             required
                           />
@@ -69,7 +77,7 @@ const AddItem = () => {
                             type="text"
                             name="quantity"
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="exampleFormControlInput3"
                             placeholder="Quantity"
                             required
                           />
@@ -79,7 +87,7 @@ const AddItem = () => {
                             type="text"
                             name="price"
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="exampleFormControlInput4"
                             placeholder="Price"
                             required
                           />
@@ -89,8 +97,18 @@ const AddItem = () => {
                             type="text"
                             name="supplier"
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="exampleFormControlInput5"
                             placeholder="Supplier Name"
+                            required
+                          />
+                        </div>
+                        <div className="mb-4">
+                          <input
+                            type="text"
+                            name="img"
+                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleFormControlInput6"
+                            placeholder="Image Link"
                             required
                           />
                         </div>

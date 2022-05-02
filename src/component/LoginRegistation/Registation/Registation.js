@@ -7,7 +7,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Registaion = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   // redirect page
   let navigate = useNavigate();

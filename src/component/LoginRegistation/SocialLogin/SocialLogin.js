@@ -1,5 +1,6 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const SocialLogin = () => {
@@ -8,6 +9,15 @@ const SocialLogin = () => {
   const signinGoogle = () => {
     signInWithGoogle();
   };
+
+  // redirect page
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div>
       <p

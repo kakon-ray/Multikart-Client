@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Button from "../Button";
 import CustomLink from "../CustomeLink/CustomeLink";
-
+import img from "../../assets/img/user.png";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
 
@@ -101,7 +101,7 @@ const Navbar = () => {
                   aria-expanded="false"
                 >
                   <img
-                    src={user?.photoURL}
+                    src={user?.photoURL ? user?.photoURL : img}
                     className="rounded-full w-12 h-12 border-solid border-2 border-purple-500"
                     alt=""
                   />

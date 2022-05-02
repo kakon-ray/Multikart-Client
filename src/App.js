@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
+import ServicesPage from "./component/Pages/Services/ServicesPage";
 const App = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/" element={<Home></Home>} />
         <Route path="/manageitems/:id" element={<Update></Update>} />
         <Route path="blog" element={<Blog></Blog>} />
+        <Route path="services" element={<ServicesPage></ServicesPage>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="registation" element={<Registaion></Registaion>} />
         <Route

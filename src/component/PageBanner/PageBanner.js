@@ -12,7 +12,14 @@ export default function PageBanner({ page }) {
 
   return (
     <div style={myStyle} className="relative flex justify-center items-center">
-      <h1 style={{ color: "white", marginTop: "6%" }} className="shadow-md">
+      <h1
+        style={{
+          color: "white",
+          marginTop: "6%",
+          textShadow: "2px 2px #7307e6",
+        }}
+        className=" text-shadow-lg"
+      >
         {page}
       </h1>
       <div className="absolute page text-white pageStyle"> </div>

@@ -11,7 +11,7 @@ const Navbar = () => {
 
   let Links = [
     { name: "Home", link: "/" },
-    { name: "Service", link: "/service" },
+    { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
 
     { name: "My Item", link: "/myitem" },

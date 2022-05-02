@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../Button";
+
 const Delivery = () => {
   return (
     <div className="container mx-auto md:px-20 px-4 mt-24">

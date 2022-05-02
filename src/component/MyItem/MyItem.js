@@ -18,6 +18,24 @@ const MyItem = () => {
   }, [user]);
 
   // console.log(data);
+
+  const deleteItem = (id) => {
+    const proceed = window.confirm("Are you delete this item");
+
+    if (proceed) {
+      const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((userItem) => {
+          if (userItem.deletedCount > 0) {
+            const newData = data.filter((item) => item._id !== id);
+            setData(newData);
+          }
+        });
+    }
+  };
   return (
     <>
       <PageBanner page="My Items" />
@@ -89,6 +107,7 @@ const MyItem = () => {
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
                             <button
+                              onClick={() => deleteItem(item._id)}
                               type="submit"
                               className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                             >

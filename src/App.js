@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
 import ServicesPage from "./component/Pages/Services/ServicesPage";
+import Error from "./component/Pages/Error/Error";
 const App = () => {
   return (
     <div>
@@ -53,6 +54,7 @@ const App = () => {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<Error></Error>} />
       </Routes>
       <Footer></Footer>
       <ToastContainer position="top-center" />

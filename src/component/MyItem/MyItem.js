@@ -23,17 +23,37 @@ const MyItem = () => {
     const proceed = window.confirm("Are you delete this item");
 
     if (proceed) {
-      const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((userItem) => {
-          if (userItem.deletedCount > 0) {
+      async function fetchFunction() {
+        try {
+          const response = await fetch(
+            `https://still-gorge-24214.herokuapp.com/product/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
+          const json = await response.json();
+          if (json.deletedCount > 0) {
             const newData = data.filter((item) => item._id !== id);
             setData(newData);
           }
-        });
+        } catch (err) {
+          throw err;
+          console.log(err);
+        }
+      }
+      fetchFunction();
+
+      // const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
+      // fetch(url, {
+      //   method: "DELETE",
+      // })
+      //   .then((res) => res.json())
+      //   .then((userItem) => {
+      //     if (userItem.deletedCount > 0) {
+      //       const newData = data.filter((item) => item._id !== id);
+      //       setData(newData);
+      //     }
+      //   });
     }
   };
   return (
@@ -47,6 +67,12 @@ const MyItem = () => {
                 <table className="min-w-full border text-center">
                   <thead className="border-b">
                     <tr>
+                      <th
+                        scope="col"
+                        className="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
+                      >
+                        image
+                      </th>
                       <th
                         scope="col"
                         className="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
@@ -89,6 +115,9 @@ const MyItem = () => {
                     {data.map((item) => {
                       return (
                         <tr className="border-b" key={item._id}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+                            <img src={item.img} alt="" />
+                          </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
                             {item.name}
                           </td>

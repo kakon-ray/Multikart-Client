@@ -25,16 +25,38 @@ const AddItem = () => {
       img,
     };
 
-    fetch("https://still-gorge-24214.herokuapp.com/product", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addItemValue),
-    }).then((res) => {
-      console.log(res);
-      toast.success("Item Add Successfully");
-    });
+    async function fetchFunction() {
+      try {
+        const response = await fetch(
+          `https://still-gorge-24214.herokuapp.com/product`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(addItemValue),
+          }
+        );
+
+        toast.success("Item Add Successfully");
+      } catch (err) {
+        throw err;
+        console.log(err);
+      }
+    }
+
+    fetchFunction();
+
+    // fetch("https://still-gorge-24214.herokuapp.com/product", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(addItemValue),
+    // }).then((res) => {
+    //   console.log(res);
+    //   toast.success("Item Add Successfully");
+    // });
     e.target.reset();
   };
   return (

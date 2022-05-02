@@ -16,18 +16,38 @@ const ManageItems = () => {
     const proceed = window.confirm("Are you delete this item");
 
     if (proceed) {
-      const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            const newData = products.filter((item) => item._id != id);
+      async function fetchFunction() {
+        try {
+          const response = await fetch(
+            `https://still-gorge-24214.herokuapp.com/product/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
+          const json = await response.json();
+          if (json.deletedCount > 0) {
+            const newData = products.filter((item) => item._id !== id);
             setProducts(newData);
           }
-        });
+        } catch (err) {
+          throw err;
+          console.log(err);
+        }
+      }
+      fetchFunction();
+
+      // const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
+      // fetch(url, {
+      //   method: "DELETE",
+      // })
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //     if (data.deletedCount > 0) {
+      //       const newData = products.filter((item) => item._id != id);
+      //       setProducts(newData);
+      //     }
+      //   });
     }
   };
 
@@ -77,6 +97,12 @@ const ManageItems = () => {
                         scope="col"
                         className="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
                       >
+                        Image
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-x font-bold text-purple-900 uppercase px-6 py-4 border-r"
+                      >
                         Name
                       </th>
                       <th
@@ -115,6 +141,9 @@ const ManageItems = () => {
                     {products.map((item) => {
                       return (
                         <tr className="border-b" key={item._id}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+                            <img src={item.img} alt="" />
+                          </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
                             {item.name}
                           </td>

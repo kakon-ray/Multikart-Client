@@ -53,7 +53,7 @@ const Update = () => {
     // database related update
 
     const update = { quantity: newquantity };
-    fetch(`https://logika-warehouse.herokuapp.com/product/${id}`, {
+    fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

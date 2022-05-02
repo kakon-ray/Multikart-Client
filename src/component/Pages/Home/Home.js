@@ -9,7 +9,7 @@ import Button from "../../Button";
 const Home = () => {
   const [products, setProducts] = useProducts();
   const homeProdcuts = products.slice(0, 4);
-  console.log(homeProdcuts);
+  // console.log(homeProdcuts);
   return (
     <>
       <Slider></Slider>
@@ -23,6 +23,7 @@ const Home = () => {
           {homeProdcuts?.map((item) => {
             return (
               <Product
+                key={item._id}
                 name={item.name}
                 img={item.img}
                 text={item.text}

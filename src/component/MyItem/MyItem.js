@@ -10,7 +10,7 @@ const MyItem = () => {
   // console.log(user.email);
   useEffect(() => {
     const getUserItems = async () => {
-      const url = `https://still-gorge-24214.herokuapp.com/useritem?email=${user.email}`;
+      const url = `https://still-gorge-24214.herokuapp.com/userorder?email=${user.email}`;
       const { data } = await axios.get(url);
       setData(data);
     };

@@ -17,7 +17,7 @@ const AddItem = () => {
 
     const addItemValue = { email, name, quantity, price, supplierName };
 
-    fetch("https://still-gorge-24214.herokuapp.com/additem", {
+    fetch("https://still-gorge-24214.herokuapp.com/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

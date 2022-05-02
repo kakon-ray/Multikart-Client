@@ -15,6 +15,7 @@ import Update from "./component/Update/Update";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
+import MyItem from "./component/MyItem/MyItem";
 const App = () => {
   return (
     <div>
@@ -31,6 +32,14 @@ const App = () => {
           element={
             <RequireAuth>
               <ManageItems></ManageItems>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="myitem"
+          element={
+            <RequireAuth>
+              <MyItem></MyItem>
             </RequireAuth>
           }
         />

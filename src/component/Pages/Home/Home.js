@@ -8,7 +8,7 @@ import Button from "../../Button";
 
 const Home = () => {
   const [products, setProducts] = useProducts();
-  const homeProdcuts = products.slice(0, 4);
+  const homeProdcuts = products.slice(0, 6);
   // console.log(homeProdcuts);
   return (
     <>
@@ -19,7 +19,7 @@ const Home = () => {
         <h1 className="text-3xl text-purple-600 font-bold uppercase text-center mx-auto mb-12">
           Stock Products
         </h1>
-        <div className="grid md:grid-cols-4 sm:grid-cols-1  gap-4">
+        <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
           {homeProdcuts?.map((item) => {
             return (
               <Product

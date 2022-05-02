@@ -28,7 +28,7 @@ const AddItem = () => {
     async function fetchFunction() {
       try {
         const response = await fetch(
-          `https://still-gorge-24214.herokuapp.com/product`,
+          `https://still-gorge-24214.herokuapp.com/userproduct`,
           {
             method: "POST",
             headers: {

@@ -26,7 +26,7 @@ const MyItem = () => {
       async function fetchFunction() {
         try {
           const response = await fetch(
-            `https://still-gorge-24214.herokuapp.com/product/${id}`,
+            `https://still-gorge-24214.herokuapp.com/userproduct/${id}`,
             {
               method: "DELETE",
             }

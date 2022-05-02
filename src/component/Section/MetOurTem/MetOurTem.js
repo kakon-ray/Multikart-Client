@@ -25,7 +25,7 @@ const MetOurTem = () => {
       <div className="w-100">
         <Slider {...settings}>
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
+            <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2  gap-4">
               <div className="flex justify-center">
                 <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                   <img
@@ -73,7 +73,7 @@ const MetOurTem = () => {
             </div>
           </div>
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
+            <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2  gap-4">
               <div className="flex justify-center">
                 <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                   <img
@@ -121,7 +121,7 @@ const MetOurTem = () => {
             </div>
           </div>
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
+            <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2  gap-4">
               <div className="flex justify-center">
                 <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                   <img

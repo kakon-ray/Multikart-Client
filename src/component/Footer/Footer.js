@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="container mx-auto md:px-20 px-4 bg-gray-800 text-slate-400 pb-1 pt-1 sm:text-justify">
-      <div className="grid md:grid-cols-4 grid-cols-1 gap-12 my-20">
+      <div className="grid md:grid-cols-4 sm:grid-cols-1 xl:grid-cols-4  gap-12 my-20">
         <div>
           <h1 className="text-2xl mb- mt-3">Logika Warehouse</h1>
           <div className="border-2 border-b-red-500 w-16 my-5"></div>

@@ -7,7 +7,7 @@ const Delivery = () => {
       <h1 className="text-3xl text-purple-600 text-center font-bold mt-10">
         OUR SERVICES
       </h1>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 my-12 text-center ">
+      <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4 my-12 text-center ">
         <div className="hover:border hover:border-purple-500 border p-10 rounden">
           <h1 className="text-xl ">World Wide Transport</h1>
           <p className="text-sm  my-4 ">

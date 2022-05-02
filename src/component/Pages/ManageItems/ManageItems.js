@@ -6,78 +6,89 @@ import useProducts from "../../../Hook/useProducts";
 import Button from "../../Button";
 import PageBanner from "../../PageBanner/PageBanner";
 import Product from "../../Product/Product";
+import axios from "axios";
 
 const ManageItems = () => {
-  // const [addValue, setAddValue] = useState({});
+  const [addValue, setAddValue] = useState({});
   const [products, setProducts] = useProducts();
   const [user, loading, error] = useAuthState(auth);
 
-  const deleteItem = (id) => {
-    const proceed = window.confirm("Are you delete this item");
+  // const deleteItem = (id) => {
+  //   const proceed = window.confirm("Are you delete this item");
 
-    if (proceed) {
-      async function fetchFunction() {
-        try {
-          const response = await fetch(
-            `https://still-gorge-24214.herokuapp.com/product/${id}`,
-            {
-              method: "DELETE",
-            }
-          );
-          const json = await response.json();
-          if (json.deletedCount > 0) {
-            const newData = products.filter((item) => item._id !== id);
-            setProducts(newData);
-          }
-        } catch (err) {
-          throw err;
-          console.log(err);
-        }
-      }
-      fetchFunction();
+  //   if (proceed) {
+  //     async function fetchFunction() {
+  //       try {
+  //         const response = await fetch(
+  //           `https://still-gorge-24214.herokuapp.com/product/${id}`,
+  //           {
+  //             method: "DELETE",
+  //           }
+  //         );
+  //         const json = await response.json();
+  //         if (json.deletedCount > 0) {
+  //           const newData = products.filter((item) => item._id !== id);
+  //           setProducts(newData);
+  //         }
+  //       } catch (err) {
+  //         throw err;
+  //         console.log(err);
+  //       }
+  //     }
+  //     fetchFunction();
 
-      // const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
-      // fetch(url, {
-      //   method: "DELETE",
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //     if (data.deletedCount > 0) {
-      //       const newData = products.filter((item) => item._id != id);
-      //       setProducts(newData);
-      //     }
-      //   });
-    }
-  };
-
-  // const addItem = (id) => {
-  //   fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setAddValue(data);
-  //     });
-
-  //   const addItemValue = {
-  //     email: user.email,
-  //     name: addValue.name,
-  //     quantity: addValue.quantity,
-  //     price: addValue.price,
-  //     supplierName: addValue.supplierName,
-  //     img: addValue.img,
-  //   };
-
-  //   fetch("https://still-gorge-24214.herokuapp.com/product", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(addItemValue),
-  //   }).then((res) => {
-  //     console.log(res);
-  //     toast.success("Item Add Successfully");
-  //   });
+  //     // const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
+  //     // fetch(url, {
+  //     //   method: "DELETE",
+  //     // })
+  //     //   .then((res) => res.json())
+  //     //   .then((data) => {
+  //     //     console.log(data);
+  //     //     if (data.deletedCount > 0) {
+  //     //       const newData = products.filter((item) => item._id != id);
+  //     //       setProducts(newData);
+  //     //     }
+  //     //   });
+  //   }
   // };
+
+  const addItem = (id) => {
+    fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        async function fetchFunction() {
+          try {
+            const addItemValue = {
+              email: user.email,
+              name: data.name,
+              quantity: data.quantity,
+              price: data.price,
+              supplierName: data.supplierName,
+              img: data.img,
+            };
+
+            // console.log(addItemValue);
+
+            const response = await fetch(
+              `https://still-gorge-24214.herokuapp.com/userproduct`,
+              {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(addItemValue),
+              }
+            );
+
+            toast.success("Item Add Successfully");
+          } catch (err) {
+            throw err;
+            console.log(err);
+          }
+        }
+        fetchFunction();
+      });
+  };
 
   return (
     <>
@@ -170,11 +181,19 @@ const ManageItems = () => {
                             </button> */}
                             <button
                               type="button"
+                              onClick={() => addItem(item._id)}
+                              className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                            >
+                              Add to Myitem
+                            </button>
+                            <br></br>
+                            {/* <button
+                              type="button"
                               onClick={() => deleteItem(item._id)}
                               className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                             >
                               Delete Item
-                            </button>
+                            </button> */}
                           </td>
                         </tr>
                       );

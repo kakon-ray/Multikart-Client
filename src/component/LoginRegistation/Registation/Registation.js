@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PageBanner from "../../PageBanner/PageBanner";
 import {
   useCreateUserWithEmailAndPassword,
@@ -8,8 +8,10 @@ import {
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
 
 const Registaion = () => {
+  const [iserror, setisError] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, errorupdate] = useUpdateProfile(auth);
@@ -29,6 +31,18 @@ const Registaion = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    const re = new RegExp("^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$");
+    const isOk = re.test(password);
+
+    console.log(isOk);
+
+    if (!isOk) {
+      setisError(true);
+      return toast.error("Weak!provide strong password");
+    }
+
+    alert("You are successfully create account");
+
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName });
   };
@@ -47,7 +61,7 @@ const Registaion = () => {
             </div>
             <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
               <form onSubmit={createAccount}>
-                <div className="mb-6">
+                <div className="mb-2">
                   <input
                     type="text"
                     name="name"
@@ -55,7 +69,11 @@ const Registaion = () => {
                     placeholder="Your Name"
                   />
                 </div>
-                <div className="mb-6">
+                <div className="mb-2">
+                  <label className="text-sm text-red-600 pt-0 mt-0">
+                    {iserror &&
+                      "Password must Upper,Low,Num,special and minimum 8 characters"}
+                  </label>
                   <input
                     type="text"
                     name="email"
@@ -64,7 +82,11 @@ const Registaion = () => {
                   />
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-2">
+                  <label className="text-sm text-red-600 pt-0 mt-0">
+                    {iserror &&
+                      "Password must Upper,Low,Num,special and minimum 8 characters"}
+                  </label>
                   <input
                     type="password"
                     name="password"

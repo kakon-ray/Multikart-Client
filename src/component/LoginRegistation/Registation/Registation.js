@@ -1,6 +1,10 @@
 import React from "react";
 import PageBanner from "../../PageBanner/PageBanner";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -8,6 +12,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 const Registaion = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, errorupdate] = useUpdateProfile(auth);
 
   // redirect page
   let navigate = useNavigate();
@@ -18,14 +23,14 @@ const Registaion = () => {
     navigate(from, { replace: true });
   }
 
-  const createAccount = (e) => {
+  const createAccount = async (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
+    const displayName = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    createUserWithEmailAndPassword(email, password).then();
-    console.log(name, email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName });
   };
   return (
     <div>

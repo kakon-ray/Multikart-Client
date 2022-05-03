@@ -75,7 +75,6 @@ const ManageItems = () => {
             const response = await fetch(
               `https://still-gorge-24214.herokuapp.com/userproduct`,
               {
-                // mode: "no-cors",
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -99,14 +98,14 @@ const ManageItems = () => {
       <PageBanner page="Manage Your Inventory"></PageBanner>
 
       <div className="container mx-auto px-4 md:px-20 my-30 my-24">
-        <h1 className="text-xl text-purple-600 font-bold text-center uppercase mb-5">
+        <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
           Manage Inventory
         </h1>
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
               <div className="overflow-hidden">
-                <Table products={products} />
+                <Table products={products} addItem={addItem} />
               </div>
             </div>
           </div>

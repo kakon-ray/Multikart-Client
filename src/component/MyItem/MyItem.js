@@ -5,6 +5,7 @@ import axios from "axios";
 import PageBanner from "../PageBanner/PageBanner";
 import ManageItems from "../Pages/ManageItems/ManageItems";
 import Table from "../Table/Table";
+import { toast } from "react-toastify";
 
 const MyItem = () => {
   const [data, setData] = useState([]);
@@ -30,6 +31,7 @@ const MyItem = () => {
           const response = await fetch(
             `https://still-gorge-24214.herokuapp.com/userproduct/${id}`,
             {
+              // mode: "no-cors",
               method: "DELETE",
             }
           );
@@ -37,6 +39,7 @@ const MyItem = () => {
           if (json.deletedCount > 0) {
             const newData = data.filter((item) => item._id !== id);
             setData(newData);
+            toast.success("Item Delete Successfully");
           }
         } catch (err) {
           throw err;
@@ -44,29 +47,21 @@ const MyItem = () => {
         }
       }
       fetchFunction();
-
-      // const url = `https://still-gorge-24214.herokuapp.com/product/${id}`;
-      // fetch(url, {
-      //   method: "DELETE",
-      // })
-      //   .then((res) => res.json())
-      //   .then((userItem) => {
-      //     if (userItem.deletedCount > 0) {
-      //       const newData = data.filter((item) => item._id !== id);
-      //       setData(newData);
-      //     }
-      //   });
     }
   };
   return (
     <>
       <PageBanner page="My Items" />
       <div className="container mx-auto px-4 md:px-20 my-30 my-24 min-h-screen">
+        <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
+          My Items
+        </h1>
+
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
               <div className="overflow-hidden">
-                <Table products={data} />
+                <Table products={data} deleteItem={deleteItem} />
               </div>
             </div>
           </div>

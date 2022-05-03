@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PageBanner from "../../PageBanner/PageBanner";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -13,10 +16,13 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetPasError] =
+    useSendPasswordResetEmail(auth);
 
   // redirect page
   let navigate = useNavigate();
   let location = useLocation();
+  const emailRef = useRef("");
   let from = location.state?.from?.pathname || "/";
 
   const loginAccount = (e) => {
@@ -27,13 +33,25 @@ const Login = () => {
 
     if (!validator.isEmail(email)) {
       setLoginSuccess(true);
+    } else {
+      setLoginSuccess(false);
+    }
+
+    if (!user) {
+      setLoginSuccess(true);
+    } else {
+      setLoginSuccess(false);
     }
 
     signInWithEmailAndPassword(email, password);
     // console.log(email, password);
+  };
 
-    if (!user) {
-      setLoginSuccess(true);
+  const sendPasswordReset = () => {
+    const email = emailRef.current.value;
+    if (email) {
+      toast.success("Send Password Of Your Email");
+      sendPasswordResetEmail(email);
     }
   };
 
@@ -62,9 +80,7 @@ const Login = () => {
             </div>
             <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
               <p className="text-red-600 text-sm">
-                {loginSuccess
-                  ? "Login Faild! provide valid email and password"
-                  : ""}
+                {loginSuccess ? " provide Correct email and password" : ""}
               </p>
               <form onSubmit={loginAccount}>
                 <div className="mb-6"></div>
@@ -74,6 +90,7 @@ const Login = () => {
                     name="email"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 border bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Email address"
+                    ref={emailRef}
                   />
                 </div>
 
@@ -101,12 +118,12 @@ const Login = () => {
                       Remember me
                     </label>
                   </div>
-                  <a
-                    href="#!"
-                    className="text-red-600 hover:text-red-800 focus:text-red-700 active:text-red-800 duration-200 transition ease-in-out"
+                  <p
+                    onClick={sendPasswordReset}
+                    className="cursor-pointer text-red-600 hover:text-red-800 focus:text-red-600 active:text-red-800 duration-200 transition ease-in-out"
                   >
                     Forgot password?
-                  </a>
+                  </p>
                 </div>
 
                 <button

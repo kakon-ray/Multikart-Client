@@ -30,6 +30,7 @@ const AddItem = () => {
         const response = await fetch(
           `https://still-gorge-24214.herokuapp.com/userproduct`,
           {
+            // mode: "no-cors",
             method: "POST",
             headers: {
               "content-type": "application/json",

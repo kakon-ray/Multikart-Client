@@ -15,6 +15,7 @@ import validator from "validator";
 const Registaion = () => {
   const [emailError, setEmailError] = useState(false);
   const [iserror, setisError] = useState(false);
+  const [ceckBox, setCeckBox] = useState();
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -110,18 +111,19 @@ const Registaion = () => {
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <div className="form-group form-check">
+                  <div class="form-check mt-2">
                     <input
+                      class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                       type="checkbox"
-                      className="form-check-input appearance-none h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                      id="exampleCheck3"
-                      checked
+                      value=""
+                      id="flexCheckDefault"
+                      onChange={() => setCeckBox(!ceckBox)}
                     />
                     <label
-                      className="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
+                      class="form-check-label inline-block text-gray-800"
+                      for="flexCheckDefault"
                     >
-                      Remember me
+                      Default checkbox
                     </label>
                   </div>
                   <a
@@ -134,6 +136,7 @@ const Registaion = () => {
 
                 <button
                   type="submit"
+                  disabled={!ceckBox}
                   className="inline-block px-7 py-3 bg-purple-600 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"

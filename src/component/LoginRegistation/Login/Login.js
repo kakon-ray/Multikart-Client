@@ -37,12 +37,6 @@ const Login = () => {
       setLoginSuccess(false);
     }
 
-    if (!user) {
-      setLoginSuccess(true);
-    } else {
-      setLoginSuccess(false);
-    }
-
     signInWithEmailAndPassword(email, password);
     // console.log(email, password);
   };
@@ -80,7 +74,7 @@ const Login = () => {
             </div>
             <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
               <p className="text-red-600 text-sm">
-                {loginSuccess ? " provide Correct email and password" : ""}
+                {loginSuccess ? " Provide correct email and password" : ""}
               </p>
               <form onSubmit={loginAccount}>
                 <div className="mb-6"></div>
@@ -104,20 +98,6 @@ const Login = () => {
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <div className="form-group form-check">
-                    <input
-                      type="checkbox"
-                      className="form-check-input appearance-none h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                      id="exampleCheck3"
-                      checked
-                    />
-                    <label
-                      className="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
-                    >
-                      Remember me
-                    </label>
-                  </div>
                   <p
                     onClick={sendPasswordReset}
                     className="cursor-pointer text-red-600 hover:text-red-800 focus:text-red-600 active:text-red-800 duration-200 transition ease-in-out"

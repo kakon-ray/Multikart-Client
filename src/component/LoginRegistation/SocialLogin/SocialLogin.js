@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const SocialLogin = () => {
@@ -18,6 +19,12 @@ const SocialLogin = () => {
   if (user) {
     navigate(from, { replace: true });
   }
+  useEffect(() => {
+    if (error) {
+      toast.error("Login Faild");
+    }
+  }, [error]);
+
   return (
     <div>
       <p

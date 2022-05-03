@@ -6,6 +6,7 @@ import auth from "../../firebase.init";
 import Button from "../Button";
 import CustomLink from "../CustomeLink/CustomeLink";
 import img from "../../assets/img/user.png";
+import { toast } from "react-toastify";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
 
@@ -23,11 +24,10 @@ const Navbar = () => {
   const navigation = useNavigate();
 
   const logOut = () => {
-    console.log("log out");
+    toast.success("Logout Successfully");
     signOut(auth);
   };
 
-  console.log(user);
   return (
     <div className="shadow-md w-full fixed top-0 left-0 z-10">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">

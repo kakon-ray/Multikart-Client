@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageBanner from "../../PageBanner/PageBanner";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
+import validator from "validator";
+
 const Login = () => {
+  const [emailError, setEmailError] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(false);
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -13,19 +19,32 @@ const Login = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
-
   const loginAccount = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    if (!validator.isEmail(email)) {
+      setLoginSuccess(true);
+    }
+
     signInWithEmailAndPassword(email, password);
-    console.log(email, password);
+    // console.log(email, password);
+
+    if (!user) {
+      setLoginSuccess(true);
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      toast.success("Login Successd");
+      setTimeout(() => {
+        navigate(from, { replace: true });
+      }, 1000);
+    }
+  }, [user]);
 
   return (
     <div>
@@ -42,6 +61,11 @@ const Login = () => {
               />
             </div>
             <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
+              <p className="text-red-600 text-sm">
+                {loginSuccess
+                  ? "Login Faild! provide valid email and password"
+                  : ""}
+              </p>
               <form onSubmit={loginAccount}>
                 <div className="mb-6"></div>
                 <div className="mb-6">

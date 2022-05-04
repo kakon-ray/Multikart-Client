@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Loading from "../Loading/Loading";
 
 const Table = ({ products, addItem, deleteItem }) => {
   if (products.length == 0) {
     return <Loading />;
   }
+
   return (
     <div>
       <table className="min-w-full border text-center">
@@ -83,13 +86,14 @@ const Table = ({ products, addItem, deleteItem }) => {
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
                   {addItem ? (
-                    <button
-                      type="button"
-                      onClick={() => addItem(item._id)}
-                      className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                    >
-                      Add to Myitem
-                    </button>
+                    <Link to={`/add/${item._id}`}>
+                      <button
+                        type="button"
+                        className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                      >
+                        Add to Myitem
+                      </button>
+                    </Link>
                   ) : (
                     <button
                       type="button"

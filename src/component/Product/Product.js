@@ -16,34 +16,39 @@ const Product = ({
 }) => {
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center relative">
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
           <span data-mdb-ripple="true" data-mdb-ripple-color="light">
-            <img className="rounded-t-lg" src={img} alt="" />
+            <img className="rounded-t-lg " src={img} alt="" />
           </span>
-          <div className="p-6">
-            <h5 className="text-center text-gray-900 text-xl font-medium mb-2">
+          <div className="p-6 absolute left-0 right-0 top-0 bottom-0 bg-stone-900 bg-opacity-70">
+            <h5 className="text-center text-white text-xl font-medium mb-2 mt-16">
               {name}
             </h5>
-            <h5 className="text-center text-gray-900 font-bold text-x  mb-2">
+            <h5 className="text-center text-white font-bold text-x  mb-2">
               Total Quantity: {quantity}
             </h5>
-            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
+            <h5 className="text-center text-white text-sm font-medium mb-2">
               Price: {price}$
             </h5>
-            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
-              Supplier: {supplierName}
+            <h5 className="text-center text-white text-sm font-medium mb-2">
+              {supplierName}
             </h5>
 
-            <h5 className="text-center text-gray-900 text-sm font-medium mb-2">
-              Product Id:{id}
+            <h5 className="text-center text-white text-sm font-medium mb-2">
+              {id}
             </h5>
-            <p className="text-gray-700 text-center mb-4">
+            <p className="text-white text-center mb-4">
               {text.split("").slice(0, 10)}...
             </p>
             <div className="flex justify-center">
               <Link to={`/manageitems/${id}`}>
-                <Button>{btnText ? btnText : "Update Now"}</Button>
+                <button
+                  type="button"
+                  className="inline-block font-bold text-center  mr-2 px-6 py-2 border-2 border-white-500 text-white font-medium text-xs leading-tight rounded-full hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                >
+                  Update Now
+                </button>
               </Link>
             </div>
           </div>

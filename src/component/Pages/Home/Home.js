@@ -17,7 +17,7 @@ const Home = () => {
       <Delivery></Delivery>
 
       <div className="container mx-auto px-4 md:px-20 my-30 my-24">
-        <h1 className="text-3xl text-purple-600 font-bold uppercase text-center mx-auto mb-12">
+        <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12">
           Stock Products
         </h1>
 

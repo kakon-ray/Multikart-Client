@@ -47,16 +47,6 @@ const AddItem = () => {
 
     fetchFunction();
 
-    // fetch("https://still-gorge-24214.herokuapp.com/product", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(addItemValue),
-    // }).then((res) => {
-    //   console.log(res);
-    //   toast.success("Item Add Successfully");
-    // });
     e.target.reset();
   };
   return (
@@ -73,17 +63,7 @@ const AddItem = () => {
                       <div className="text-center"></div>
                       <form onSubmit={addItem}>
                         <p className="mb-4">Please Add Inventory</p>
-                        <div className="mb-4">
-                          <input
-                            type="email"
-                            name="email"
-                            value={user.email}
-                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
-                            placeholder={user.email}
-                            readOnly
-                          />
-                        </div>
+
                         <div className="mb-4">
                           <input
                             type="text"
@@ -163,11 +143,11 @@ const AddItem = () => {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
+                        Hello this is a warehouse consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
                       </p>
                     </div>
                   </div>

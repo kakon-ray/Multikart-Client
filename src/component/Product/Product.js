@@ -18,9 +18,9 @@ const Product = ({
     <>
       <div className="flex justify-center">
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
-          <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+          <span data-mdb-ripple="true" data-mdb-ripple-color="light">
             <img className="rounded-t-lg" src={img} alt="" />
-          </a>
+          </span>
           <div className="p-6">
             <h5 className="text-center text-gray-900 text-xl font-medium mb-2">
               {name}

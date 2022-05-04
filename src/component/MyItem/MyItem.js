@@ -14,7 +14,11 @@ const MyItem = () => {
   useEffect(() => {
     const getUserItems = async () => {
       const url = `https://still-gorge-24214.herokuapp.com/userorder?email=${user.email}`;
-      const { data } = await axios.get(url);
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       setData(data);
     };
     getUserItems();

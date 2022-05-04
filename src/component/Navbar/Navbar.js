@@ -26,6 +26,8 @@ const Navbar = () => {
   const logOut = () => {
     toast.success("Logout Successfully");
     signOut(auth);
+
+    // localStorage.removeItem("accessToken");
   };
 
   return (

@@ -11,6 +11,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
 import validator from "validator";
+import axios from "axios";
 
 const Registaion = () => {
   const [emailError, setEmailError] = useState(false);
@@ -53,6 +54,13 @@ const Registaion = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName });
+
+    // get data jwt web token and save token localstroge
+    const { data } = await axios.post(
+      "https://still-gorge-24214.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
   };
 
   useEffect(() => {
@@ -120,10 +128,11 @@ const Registaion = () => {
                       onChange={() => setCeckBox(!ceckBox)}
                     />
                     <label
-                      class="form-check-label inline-block text-gray-800"
+                      className={`form-check-label inline-block`}
                       for="flexCheckDefault"
+                      style={!ceckBox ? { color: "red" } : { color: "green" }}
                     >
-                      Default checkbox
+                      Allow all terms and contition
                     </label>
                   </div>
                   <a

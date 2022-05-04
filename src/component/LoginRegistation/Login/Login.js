@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
 import validator from "validator";
+import axios from "axios";
 
 const Login = () => {
   const [emailError, setEmailError] = useState(false);
@@ -25,7 +26,7 @@ const Login = () => {
   const emailRef = useRef("");
   let from = location.state?.from?.pathname || "/";
 
-  const loginAccount = (e) => {
+  const loginAccount = async (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -37,9 +38,24 @@ const Login = () => {
       setLoginSuccess(false);
     }
 
-    signInWithEmailAndPassword(email, password);
-    // console.log(email, password);
+    await signInWithEmailAndPassword(email, password);
+
+    // get data jwt web token and save token localstroge
+    const { data } = await axios.post(
+      "https://still-gorge-24214.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
   };
+
+  useEffect(() => {
+    if (user) {
+      toast.success("Login Successed");
+      setTimeout(() => {
+        navigate(from, { replace: true });
+      }, 1000);
+    }
+  }, [user]);
 
   const sendPasswordReset = () => {
     const email = emailRef.current.value;
@@ -48,15 +64,6 @@ const Login = () => {
       sendPasswordResetEmail(email);
     }
   };
-
-  useEffect(() => {
-    if (user) {
-      toast.success("Login Successd");
-      setTimeout(() => {
-        navigate(from, { replace: true });
-      }, 1000);
-    }
-  }, [user]);
 
   return (
     <div>

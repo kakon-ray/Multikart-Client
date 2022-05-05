@@ -1,0 +1,61 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.user {
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #b3e3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+  margin: 20px;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  transform: skew(10deg);
+  -webkit-transform: skew(10deg);
+  -moz-transform: skew(10deg);
+  -ms-transform: skew(10deg);
+  -o-transform: skew(10deg);
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+
+  border: 1px solid #a705eb;
+  color: #a705eb;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #a705eb;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #a705eb;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
+}
+.paginationDisabled a:hover {
+  color: grey;
+  background-color: grey;
+}

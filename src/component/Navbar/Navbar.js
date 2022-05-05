@@ -75,7 +75,7 @@ const Navbar = () => {
           ))}
 
           {!user ? (
-            <span className="md:ml-24">
+            <span className="md:ml-28">
               <Link to="/login">
                 <Button>Sign in</Button>
               </Link>
@@ -85,7 +85,7 @@ const Navbar = () => {
             </span>
           ) : (
             <>
-              <div className="dropdown relative xl:ml-52 md:ml-16">
+              <div className="dropdown relative xl:ml-60 md:ml-16">
                 <button
                   className="
                               dropdown-toggle

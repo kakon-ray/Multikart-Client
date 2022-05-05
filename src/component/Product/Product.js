@@ -22,23 +22,23 @@ const Product = ({
             <img className="rounded-t-lg " src={img} alt="" />
           </span>
           <div className="p-6 absolute left-0 right-0 top-0 bottom-0 bg-stone-900 bg-opacity-70">
-            <h5 className="text-center text-white text-xl font-medium mb-2 mt-16">
+            <h5 className="text-center text-amber-100 text-xl font-medium mb-2 mt-16">
               {name}
             </h5>
-            <h5 className="text-center text-white font-bold text-x  mb-2">
+            <h5 className="text-center text-gray-300 font-bold text-x  mb-2">
               Total Quantity: {quantity}
             </h5>
-            <h5 className="text-center text-white text-sm font-medium mb-2">
+            <h5 className="text-center text-gray-300 text-sm font-medium mb-2">
               Price: {price}$
             </h5>
-            <h5 className="text-center text-white text-sm font-medium mb-2">
+            <h5 className="text-center text-gray-300 text-sm font-medium mb-2">
               {supplierName}
             </h5>
 
-            <h5 className="text-center text-white text-sm font-medium mb-2">
+            <h5 className="text-center text-gray-300 text-sm font-medium mb-2">
               {id}
             </h5>
-            <p className="text-white text-center mb-4">
+            <p className="text-gray-300 text-center mb-4">
               {text.split("").slice(0, 10)}...
             </p>
             <div className="flex justify-center">

@@ -21,7 +21,7 @@ const Home = () => {
           Stock Products
         </h1>
 
-        {homeProdcuts.length === 0 ? (
+        {products.length === 0 ? (
           <div className="flex justify-center items-center space-x-2">
             <div
               className="

@@ -24,7 +24,7 @@ const MyItem = () => {
     getUserItems();
   }, [user]);
 
-  // console.log(data);
+  console.log(data);
 
   const deleteItem = (id) => {
     const proceed = window.confirm("Are you delete this item");

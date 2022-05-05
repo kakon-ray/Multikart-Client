@@ -3,6 +3,7 @@ import img1 from "../../assets/img/slider1.jpg";
 import img2 from "../../assets/img/slider2.jpg";
 import img3 from "../../assets/img/slider3.jpg";
 import "./Slider.css";
+import Zoom from "react-reveal/Zoom";
 const Slider = () => {
   return (
     <div className="relative">
@@ -34,66 +35,72 @@ const Slider = () => {
           ></button>
         </div>
         <div className="carousel-inner relative w-full overflow-hidden">
-          <div className="carousel-item active relative float-left w-full">
-            <img
-              src={img1}
-              className="block w-full"
-              alt="..."
-              style={{ height: "610px" }}
-            />
-            <div className="carousel-caption hidden md:block absolute text-center">
-              <div className="carousel-content">
-                <h5 className="text-2xl mb-2 w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS
-                </h5>
-                <p className="text-sm w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
-                  QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
-                  LOGISTC QUESTIONS
-                </p>
+          <Zoom>
+            <div className="carousel-item active relative float-left w-full">
+              <img
+                src={img1}
+                className="block w-full"
+                alt="..."
+                style={{ height: "610px" }}
+              />
+              <div className="carousel-caption hidden md:block absolute text-center">
+                <div className="carousel-content">
+                  <h5 className="text-2xl mb-2 w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS
+                  </h5>
+                  <p className="text-sm w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
+                    QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
+                    LOGISTC QUESTIONS
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item relative float-left w-full">
-            <img
-              src={img2}
-              className="block w-full"
-              style={{ height: "610px" }}
-              alt="..."
-            />
-            <div className="carousel-caption hidden md:block absolute text-center">
-              <div className="carousel-content">
-                <h5 className="text-2xl mb-2 w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS
-                </h5>
-                <p className="text-sm w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
-                  QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
-                  LOGISTC QUESTIONS
-                </p>
+          </Zoom>
+          <Zoom>
+            <div className="carousel-item relative float-left w-full">
+              <img
+                src={img2}
+                className="block w-full"
+                style={{ height: "610px" }}
+                alt="..."
+              />
+              <div className="carousel-caption hidden md:block absolute text-center">
+                <div className="carousel-content">
+                  <h5 className="text-2xl mb-2 w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS
+                  </h5>
+                  <p className="text-sm w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
+                    QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
+                    LOGISTC QUESTIONS
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item relative float-left w-full">
-            <img
-              src={img3}
-              className="block w-full"
-              style={{ height: "610px" }}
-              alt="..."
-            />
-            <div className="carousel-caption hidden md:block absolute text-center">
-              <div className="carousel-content">
-                <h5 className="text-2xl mb-2 w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS
-                </h5>
-                <p className="text-sm w-2/4 mx-auto">
-                  CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
-                  QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
-                  LOGISTC QUESTIONS
-                </p>
+          </Zoom>
+          <Zoom>
+            <div className="carousel-item relative float-left w-full">
+              <img
+                src={img3}
+                className="block w-full"
+                style={{ height: "610px" }}
+                alt="..."
+              />
+              <div className="carousel-caption hidden md:block absolute text-center">
+                <div className="carousel-content">
+                  <h5 className="text-2xl mb-2 w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS
+                  </h5>
+                  <p className="text-sm w-2/4 mx-auto">
+                    CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND LOGISTC
+                    QUESTIONS CHECK OUT OUR BEST OFFERS FOR YOUR TRANSPORT AND
+                    LOGISTC QUESTIONS
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </Zoom>
         </div>
         <button
           className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"

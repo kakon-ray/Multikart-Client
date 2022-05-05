@@ -6,7 +6,7 @@ import useProducts from "../../../Hook/useProducts";
 import Product from "../../Product/Product";
 import Button from "../../Button";
 import Loading from "../../Loading/Loading";
-
+import Zoom from "react-reveal/Zoom";
 const Home = () => {
   const [products, setProducts] = useProducts();
   const homeProdcuts = products.slice(0, 6);
@@ -37,16 +37,18 @@ const Home = () => {
           <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
             {homeProdcuts?.map((item) => {
               return (
-                <Product
-                  key={item._id}
-                  name={item.name}
-                  img={item.img}
-                  text={item.text}
-                  price={item.price}
-                  supplierName={item.supplierName}
-                  id={item._id}
-                  quantity={item.quantity}
-                ></Product>
+                <Zoom>
+                  <Product
+                    key={item._id}
+                    name={item.name}
+                    img={item.img}
+                    text={item.text}
+                    price={item.price}
+                    supplierName={item.supplierName}
+                    id={item._id}
+                    quantity={item.quantity}
+                  ></Product>
+                </Zoom>
               );
             })}
           </div>

@@ -18,6 +18,7 @@ import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
 import ServicesPage from "./component/Pages/Services/ServicesPage";
 import Error from "./component/Pages/Error/Error";
+import Allinventory from "./component/Pages/Allinventory/Allinventory";
 const App = () => {
   return (
     <div>
@@ -26,6 +27,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/manageitems/:id" element={<Update></Update>} />
+        <Route path="/allinventory" element={<Allinventory></Allinventory>} />
         <Route path="blog" element={<Blog></Blog>} />
         <Route path="services" element={<ServicesPage></ServicesPage>} />
         <Route path="login" element={<Login></Login>} />

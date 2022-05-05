@@ -18,13 +18,6 @@ const useProducts = () => {
       }
     }
     fetchFunction();
-    // try {
-    //   fetch("https://still-gorge-24214.herokuapp.com/product")
-    //     .then((res) => res.json())
-    //     .then((data) => setProducts(data));
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }, []);
 
   return [products, setProducts];

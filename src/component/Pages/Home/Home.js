@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Delivery from "../../Section/Service/Service";
 import MetOurTem from "../../Section/MetOurTem/MetOurTem";
 import Slider from "../../Slider/Slider";
@@ -8,11 +8,29 @@ import Button from "../../Button";
 import Loading from "../../Loading/Loading";
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
-
+import { Link } from "react-router-dom";
+import LightSpeed from "react-reveal/LightSpeed";
 const Home = () => {
-  const [products, setProducts] = useProducts();
-  const homeProdcuts = products.slice(0, 6);
-  // console.log(homeProdcuts);
+  const [products, setProducts] = useState();
+
+  // limit data load serverside
+  useEffect(() => {
+    async function fetchFunction() {
+      try {
+        const response = await fetch(
+          `https://still-gorge-24214.herokuapp.com/homeproduct`
+        );
+        const json = await response.json();
+        setProducts(json);
+      } catch (err) {
+        throw err;
+        console.log(err);
+      }
+    }
+    fetchFunction();
+  }, []);
+
+  console.log(products);
   return (
     <>
       <Slider></Slider>
@@ -21,7 +39,7 @@ const Home = () => {
         <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12">
           Stock Products
         </h1>
-        {products.length === 0 ? (
+        {products?.length === 0 ? (
           <div className="flex justify-center items-center space-x-2">
             <div
               className="
@@ -35,7 +53,7 @@ const Home = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
-            {homeProdcuts?.map((item) => {
+            {products?.map((item) => {
               return (
                 <Zoom>
                   <Product
@@ -54,9 +72,18 @@ const Home = () => {
           </div>
         )}
 
-        {/* <div className="flex justify-center mt-12">
-          <Button>Update All Inventory</Button>
-        </div> */}
+        <LightSpeed>
+          <div className="flex justify-center mt-12">
+            <Link to="/allinventory">
+              <button
+                type="button"
+                className="inline-block  bg-lime-600 font-bold text-center mr-2 px-10 py-3 skew-y-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              >
+                See all Inventory
+              </button>
+            </Link>
+          </div>
+        </LightSpeed>
       </div>
       <Delivery></Delivery>
       <div

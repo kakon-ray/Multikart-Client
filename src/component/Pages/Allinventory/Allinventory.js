@@ -54,10 +54,10 @@ const Allinventory = () => {
   };
 
   return (
-    <div>
+    <div className="py-12 dark:bg-black">
       <PageBanner page="All Inventory" />
-      <div className="container mx-auto px-4 md:px-20 my-30 my-24">
-        <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12">
+      <div className="container mx-auto px-4 md:px-20 py-30 dark:bg-black">
+        <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12 dark:text-slate-200 pt-8">
           All Products
         </h1>
         {products?.length === 0 ? (
@@ -114,7 +114,7 @@ const Allinventory = () => {
             <Link to="/manageitems">
               <button
                 type="button"
-                className="inline-block  bg-black font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                className="inline-block  bg-black dark:bg-purple-600 dark:hover:bg-red-600 font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               >
                 Manage Inventory
               </button>

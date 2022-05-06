@@ -20,7 +20,7 @@ const ManageItems = () => {
     <>
       <PageBanner page="Manage Your Inventory"></PageBanner>
 
-      <div className="container mx-auto px-4 md:px-20 my-30 my-24">
+      <div className="container mx-auto px-4 md:px-20 py-24 dark:bg-black">
         <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
           Manage Inventory
         </h1>

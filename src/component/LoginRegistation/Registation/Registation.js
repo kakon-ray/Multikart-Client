@@ -75,7 +75,7 @@ const Registaion = () => {
     <div>
       <PageBanner page="Registation in your Account" />
       <section>
-        <div className="container px-6 py-12 h-full">
+        <div className="container px-6 py-12 h-full dark:bg-black">
           <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div className="md:w-2/5 lg:w-2/5 mb-12 md:mb-0">
               <img

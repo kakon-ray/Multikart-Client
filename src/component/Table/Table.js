@@ -68,20 +68,20 @@ const Table = ({ products, addItem, deleteItem }) => {
                     style={{ width: "40px", height: "50px" }}
                   />
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
                   {item.name}
                 </td>
 
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
                   {item.quantity}
                 </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
                   {item.price}
                 </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace- border-r">
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
                   {item.supplierName}
                 </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
                   {item._id}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">

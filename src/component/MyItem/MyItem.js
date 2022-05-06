@@ -54,7 +54,7 @@ const MyItem = () => {
   return (
     <>
       <PageBanner page="My Items" />
-      <div className="container mx-auto px-4 md:px-20 my-30 my-24 min-h-screen">
+      <div className="container mx-auto px-4 md:px-20 py-24 min-h-screen dark:bg-black">
         <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
           My Items
         </h1>

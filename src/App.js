@@ -19,10 +19,20 @@ import MyItem from "./component/MyItem/MyItem";
 import ServicesPage from "./component/Pages/Services/ServicesPage";
 import Error from "./component/Pages/Error/Error";
 import Allinventory from "./component/Pages/Allinventory/Allinventory";
+import { useState } from "react";
 const App = () => {
+  const [dark, setDark] = useState(null);
+
+  const sendDataToParent = (showDriveAction) => {
+    const darkValue = showDriveAction;
+    setDark(darkValue);
+  };
+
+  console.log(dark);
+
   return (
-    <div>
-      <Navbar></Navbar>
+    <div className={`${dark ? "dark" : ""}`}>
+      <Navbar sendDataToParent={sendDataToParent}></Navbar>
 
       <Routes>
         <Route path="/" element={<Home></Home>} />

@@ -69,9 +69,9 @@ const Login = () => {
     <div>
       <PageBanner page="Login in your Account" />
 
-      <section>
+      <section className="dark:bg-black">
         <div className="container px-6 py-12 h-full">
-          <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+          <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800 dark:bg-black">
             <div className="md:w-2/5 lg:w-2/5 mb-12 md:mb-0">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"

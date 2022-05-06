@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 
 const Delivery = () => {
   return (
-    <div className="container mx-auto md:px-20 px-12 px-4 mt-24">
+    <div className="container mx-auto md:px-20 px-12 py-6">
       <Fade left>
         <h1 className="text-3xl text-purple-600 text-center font-bold mt-10">
           OUR SERVICES
@@ -12,7 +12,7 @@ const Delivery = () => {
       </Fade>
       <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3   gap-16 sm:gap-16 md:gap-16 my-12 text-center ">
         <Fade left>
-          <div className="hover:border hover:border-red-500 relative border p-10 rounden">
+          <div className="hover:border hover:border-red-500 relative border p-10 rounden dark:text-slate-200">
             <h1 className="text-xl ">World Wide Transport</h1>
             <p className="text-sm  my-4 ">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -31,7 +31,7 @@ const Delivery = () => {
           </div>
         </Fade>
         <Fade>
-          <div className="hover:border hover:border-red-500 relative border p-10 rounden">
+          <div className="hover:border hover:border-red-500 relative border p-10 rounden dark:text-slate-200">
             <h1 className="text-xl ">World Wide Transport</h1>
             <p className="text-sm  my-4 ">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -51,7 +51,7 @@ const Delivery = () => {
           </div>
         </Fade>
         <Fade right>
-          <div className="hover:border hover:border-red-500 relative border p-10 rounden">
+          <div className="hover:border hover:border-red-500 relative border p-10 rounden dark:text-slate-200">
             <h1 className="text-xl ">World Wide Transport</h1>
             <p className="text-sm  my-4 ">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam

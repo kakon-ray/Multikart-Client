@@ -5,10 +5,10 @@ const Blog = () => {
   return (
     <>
       <PageBanner page="Blog"></PageBanner>
-      <div className="container mx-auto px-4 md:px-20 my-30 mb-24 mt-14">
+      <div className="container mx-auto px-4 md:px-20 py-30 pb-24 pt-14 dark:bg-black">
         <div className="grid md:grid-cols-3 gap-4">
           <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+            <div className="rounded-lg shadow-lg bg-white dark:bg-slate-900 max-w-sm">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 <img
                   className="rounded-t-lg"
@@ -17,10 +17,10 @@ const Blog = () => {
                 />
               </a>
               <div className="p-6">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <h5 className="text-gray-900 text-xl font-medium mb-2 dark:text-slate-400">
                   জাভাস্ক্রিপ্ট এবং Node.js এর মধ্যে পার্থক্য
                 </h5>
-                <p className="text-gray-700 text-base mb-4">
+                <p className="text-gray-700 text-base mb-4 dark:text-slate-400">
                   জাভাস্ক্রিপ্ট একটি প্রোগ্রামিং ল্যাঙ্গুয়েজ।আর নোড জেস হচ্চে
                   এই জাভাস্ক্রিপ্ট কে ব্যাকএন্ড এ চালানোর রানটাইম ইনভায়রমেন্ট যা
                   ব্রাউজারের বাইরে জাভাস্ক্রিপ্ট কে কম্পাইল করে থাকে। নোড আসার
@@ -42,7 +42,7 @@ const Blog = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+            <div className="rounded-lg shadow-lg bg-white max-w-sm dark:bg-slate-900">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 <img
                   className="rounded-t-lg"
@@ -51,10 +51,10 @@ const Blog = () => {
                 />
               </a>
               <div className="p-6">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <h5 className="text-gray-900 text-xl font-medium mb-2 dark:text-slate-400">
                   কখন নোড জেস ব্যবহার করা উচিত ?কখন মঙ্গডিবি ব্যাবহার করা উচিত?
                 </h5>
-                <p className="text-gray-700 text-base mb-4">
+                <p className="text-gray-700 text-base mb-4 dark:text-slate-400">
                   নোড জেস হাই পারফর্ম জাভাস্ক্রিপ্ট রান টাইম এনভায়রমেন্ট। কারণ
                   জাভাস্ক্রিপট একটি এসিনক্রোনাস প্রোগ্রামিং ল্যাঙ্গুয়েজ। আর নোড
                   জেস ও আসিনক্রোনাস ওয়েতে কাজ করে। একারণে অন্যান্য সিনক্রোনাস
@@ -75,7 +75,7 @@ const Blog = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+            <div className="rounded-lg shadow-lg bg-white dark:bg-slate-900 max-w-sm">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 <img
                   className="rounded-t-lg"
@@ -84,10 +84,10 @@ const Blog = () => {
                 />
               </a>
               <div className="p-6">
-                <h5 className="text-gray-900 text-xl font-medium mb-8">
+                <h5 className="text-gray-900 text-xl font-medium mb-8 dark:text-slate-400">
                   sql এবং nosql এর মধ্যে পার্থক্যঃ
                 </h5>
-                <p className="text-gray-700 text-base mb-16">
+                <p className="text-gray-700 text-base mb-16 dark:text-slate-400">
                   sql একটি টেবিল বেস ডাটাবেস অপরদিকে nosql একটি ডকুমেন্ট বেশ
                   ডাটাবেস। sql এর ডাটাগুলো টেবিল আকারে সাজানো থাকে অপরদিকে nosql
                   এ ডাটা জাভাস্ক্রিপ্ট এর ডকুমেন্ট আকারে সাজানো থাকে। sql থেকে
@@ -107,7 +107,7 @@ const Blog = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+            <div className="rounded-lg shadow-lg bg-white max-w-sm dark:bg-slate-900">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 <img
                   className="rounded-t-lg"
@@ -116,10 +116,10 @@ const Blog = () => {
                 />
               </a>
               <div className="p-6">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <h5 className="text-gray-900 text-xl font-medium mb-2 dark:text-slate-400">
                   What is JWT
                 </h5>
-                <p className="text-gray-700 text-base mb-4">
+                <p className="text-gray-700 text-base mb-4 dark:text-slate-400">
                   JWT means Json Web Token.JWT টোকেন এর মাধ্যমে ইউজার এর
                   পার্সোনাল ডাটাগুলো সিকিউর করা যায়। অর্থাৎ উজাড় যখন সাইটে লগইন
                   থাকবে তক্ষন ইউজার ডাটাগুলো একসেস করতে পারবে।{" "}

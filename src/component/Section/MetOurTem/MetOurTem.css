@@ -1,11 +1,17 @@
 .slick-dots li.slick-active button:before {
-  color: #a40ee5;
+  color: #e50e0e;
   font-size: 10px;
 }
-
+.slick-dots li.slick-active button:before {
+  color: #e50e0e;
+  font-size: 10px;
+}
+.slick-dots li button:before {
+  color: #a40ee5;
+}
 .slick-dots li button:before {
   font-size: 10px;
 }
 .slick-dots li button:before :hover {
-  color: #a40ee5;
+  color: #e50e0e;
 }

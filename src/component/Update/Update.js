@@ -19,7 +19,7 @@ const Update = () => {
     fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => setUpdateProduct(data));
-  }, []);
+  }, [updateProduct]);
 
   const deliverd = () => {
     const newquantity = updateProduct.quantity - 1;
@@ -69,36 +69,38 @@ const Update = () => {
   };
 
   return (
-    <div>
+    <div className=" dark:bg-black">
       <PageBanner page="Update Inventory Item"></PageBanner>
 
       <div className="flex justify-center my-5 mt-12">
-        <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+        <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-slate-900">
           <img
             className=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
             src={updateProduct?.img}
             alt=""
           />
           <div className="p-6 flex flex-col justify-start">
-            <h5 className="text-gray-900 text-xl font-medium mb-2">
+            <h5 className="text-gray-900 text-xl font-medium mb-2 dark:text-slate-400">
               {updateProduct?.name}
             </h5>
-            <h5 className="text-gray-900 text-sm font-medium mb-2">
+            <h5 className="text-gray-900 text-sm font-medium mb-2 dark:text-slate-400">
               Product Id:{updateProduct?._id}
             </h5>
-            <h5 className="text-gray-900 text-sm font-medium mb-2">
+            <h5 className="text-gray-900 text-sm font-medium mb-2 dark:text-slate-400">
               Price: {updateProduct?.price}$
             </h5>
-            <h5 className="text-gray-900 text-sm font-medium mb-2">
+            <h5 className="text-gray-900 text-sm font-medium mb-2 dark:text-slate-400">
               Supplier: {updateProduct?.supplierName}
             </h5>
-            <h5 className="text-gray-900 font-bold text-x  mb-2">
+            <h5 className="text-gray-900 font-bold text-x mb-2 dark:text-slate-400">
               Total Quantity: {updateProduct?.quantity}
             </h5>
-            <p className="text-gray-700 text-base mb-4">
+            <p className="text-gray-700 text-base mb-4 dark:text-slate-400">
               {updateProduct?.text}
             </p>
-            <p className="text-gray-600 text-xs">Last updated 3 mins ago</p>
+            <p className="text-gray-600 text-xs dark:text-slate-500">
+              Last updated 3 mins ago
+            </p>
 
             <div className="flex  mt-5">
               <button
@@ -145,7 +147,10 @@ const Update = () => {
       </div>
       <div className="flex justify-center">
         <div className="flex justify-center my-12 items-center w-52">
-          <ion-icon name="arrow-back-outline"></ion-icon>
+          <ion-icon
+            name="arrow-back-outline"
+            style={{ color: "#a00be8" }}
+          ></ion-icon>
           <span
             onClick={navigaton}
             className="cursor-pointer text-x text-purple-600 ml-1 hover:text-purple-800 "
@@ -161,7 +166,10 @@ const Update = () => {
           >
             Manage Inventory
           </span>
-          <ion-icon name="arrow-forward-outline"></ion-icon>
+          <ion-icon
+            style={{ color: "#a00be8" }}
+            name="arrow-forward-outline"
+          ></ion-icon>
         </div>
       </div>
     </div>

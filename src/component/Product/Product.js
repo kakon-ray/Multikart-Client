@@ -42,7 +42,7 @@ const Product = ({
               {text.split("").slice(0, 10)}...
             </p>
             <div className="flex justify-center">
-              <Link to={`/manageitems/${id}`}>
+              <Link to={`/inventory/${id}`}>
                 <button
                   type="button"
                   className="inline-block font-bold text-center  mr-2 px-6 py-2 border-2 border-white-500 text-white font-medium text-xs leading-tight skew-x-12 hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"

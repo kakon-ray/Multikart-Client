@@ -105,7 +105,7 @@ const Navbar = ({ sendDataToParent }) => {
                   <button
                     className="
                               dropdown-toggle
-                           
+
                               font-medium
                               text-xs
                               leading-tight
@@ -125,7 +125,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <img
                       src={user?.photoURL ? user?.photoURL : img}
-                      className="rounded-full xl:w-12 xl:h-12 md:w-8 md:h-8 w-8 h-8 border-solid border-2 border-purple-500"
+                      className="rounded-full xl:w-10 xl:h-10 md:w-8 md:h-8 w-8 h-8 border-solid border-2 border-purple-500"
                       alt=""
                     />
                     <svg
@@ -146,6 +146,7 @@ const Navbar = ({ sendDataToParent }) => {
                   </button>
                   <ul
                     className="
+                               dark:bg-black
                               dropdown-menu
                               min-w-max
                               absolute
@@ -167,7 +168,7 @@ const Navbar = ({ sendDataToParent }) => {
                             "
                     aria-labelledby="dropdownMenuButton4"
                   >
-                    <span className="flex flex-col justify-center">
+                    <span className="flex flex-col justify-center ">
                       <li className="text-x font-bold text-center text-purple-600 px-5">
                         {user?.displayName}
                       </li>

@@ -51,7 +51,7 @@ const Home = () => {
             </div>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
+          <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-5">
             {products?.map((item) => {
               return (
                 <React.Fragment key={item._id}>

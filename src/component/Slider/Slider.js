@@ -38,7 +38,7 @@ const Slider = () => {
           <Zoom>
             <div className="carousel-item active relative float-left w-full">
               <img
-                src={img1}
+                src={img2}
                 className="block w-full"
                 alt="..."
                 style={{ height: "610px" }}
@@ -60,7 +60,7 @@ const Slider = () => {
           <Zoom>
             <div className="carousel-item relative float-left w-full">
               <img
-                src={img2}
+                src={img1}
                 className="block w-full"
                 style={{ height: "610px" }}
                 alt="..."

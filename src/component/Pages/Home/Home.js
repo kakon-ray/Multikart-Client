@@ -30,7 +30,6 @@ const Home = () => {
     fetchFunction();
   }, []);
 
-  console.log(products);
   return (
     <>
       <Slider></Slider>
@@ -55,18 +54,20 @@ const Home = () => {
           <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
             {products?.map((item) => {
               return (
-                <Zoom>
-                  <Product
-                    key={item._id}
-                    name={item.name}
-                    img={item.img}
-                    text={item.text}
-                    price={item.price}
-                    supplierName={item.supplierName}
-                    id={item._id}
-                    quantity={item.quantity}
-                  ></Product>
-                </Zoom>
+                <React.Fragment key={item._id}>
+                  <Zoom>
+                    <Product
+                      key={item._id}
+                      name={item.name}
+                      img={item.img}
+                      text={item.text}
+                      price={item.price}
+                      supplierName={item.supplierName}
+                      id={item._id}
+                      quantity={item.quantity}
+                    ></Product>
+                  </Zoom>
+                </React.Fragment>
               );
             })}
           </div>

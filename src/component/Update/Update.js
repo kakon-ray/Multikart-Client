@@ -19,7 +19,7 @@ const Update = () => {
     fetch(`https://still-gorge-24214.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => setUpdateProduct(data));
-  }, [updateProduct]);
+  }, []);
 
   const deliverd = () => {
     const newquantity = updateProduct.quantity - 1;

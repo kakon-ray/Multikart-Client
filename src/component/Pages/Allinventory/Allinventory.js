@@ -9,10 +9,26 @@ import "./Allinventory.css";
 import PageBanner from "../../PageBanner/PageBanner";
 
 const Allinventory = () => {
-  const [products, setProducts] = useProducts();
+  const [products, setProducts] = useState();
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-
+  const usersPerPage = 6;
+  useEffect(() => {
+    async function fetchFunction() {
+      try {
+        const response = await fetch(
+          `https://still-gorge-24214.herokuapp.com/product?page=${pageNumber}&size=${usersPerPage}`
+        );
+        const json = await response.json();
+        console.log(json);
+        setProducts(json);
+      } catch (err) {
+        throw err;
+        console.log(err);
+      }
+    }
+    fetchFunction();
+  }, [pageNumber]);
   //   get all product count
   useEffect(() => {
     async function fetchFunction() {
@@ -30,9 +46,6 @@ const Allinventory = () => {
     }
     fetchFunction();
   }, []);
-
-  const usersPerPage = 6;
-  const pagesVisited = pageNumber * usersPerPage;
 
   const pageCount = Math.ceil(count / usersPerPage);
 
@@ -61,24 +74,22 @@ const Allinventory = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-4">
-            {products
-              ?.slice(pagesVisited, pagesVisited + usersPerPage)
-              .map((item) => {
-                return (
-                  <Zoom>
-                    <Product
-                      key={item._id}
-                      name={item.name}
-                      img={item.img}
-                      text={item.text}
-                      price={item.price}
-                      supplierName={item.supplierName}
-                      id={item._id}
-                      quantity={item.quantity}
-                    ></Product>
-                  </Zoom>
-                );
-              })}
+            {products?.map((item) => {
+              return (
+                <Zoom>
+                  <Product
+                    key={item._id}
+                    name={item.name}
+                    img={item.img}
+                    text={item.text}
+                    price={item.price}
+                    supplierName={item.supplierName}
+                    id={item._id}
+                    quantity={item.quantity}
+                  ></Product>
+                </Zoom>
+              );
+            })}
           </div>
         )}
 

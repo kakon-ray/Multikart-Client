@@ -65,16 +65,18 @@ const MyItem = () => {
   return (
     <>
       <PageBanner page="My Items" />
-      <div className="container mx-auto px-4 md:px-20 py-24 min-h-screen dark:bg-black">
-        <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
-          My Items
-        </h1>
+      <div className="dark:bg-black">
+        <div className="container mx-auto px-4 md:px-20 py-24 min-h-screen">
+          <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
+            My Items
+          </h1>
 
-        <div className="flex flex-col">
-          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-              <div className="overflow-hidden">
-                <Table products={data} deleteItem={deleteItem} />
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <Table products={data} deleteItem={deleteItem} />
+                </div>
               </div>
             </div>
           </div>

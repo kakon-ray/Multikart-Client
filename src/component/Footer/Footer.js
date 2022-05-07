@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div id="footer">
-      <div className="bg-gray-800 text-slate-400 pb-1 pt-1 sm:text-justify">
+      <div className="bg-purple-900 dark:bg-black border-t border-slate-500 text-slate-400 pb-1 pt-1 sm:text-justify">
         <div className="grid container px-4 md:px-20 mx-auto lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 xl:grid-cols-6  gap-12 my-6">
           <div>
             <h1 className="text-2xl mb- mt-3">Logika Warehouse</h1>

@@ -74,18 +74,18 @@ const Registaion = () => {
 
   return (
     <div>
-      <PageBanner page="Registation in your Account" />
-      <section>
-        <div className="py-12 h-full dark:bg-black">
-          <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800 container px-6 ">
-            <div className="md:w-2/5 lg:w-2/5 mb-12 md:mb-0">
+      <PageBanner page="Registation" />
+      <section className=" dark:bg-black">
+        <div className="container px-6 container mx-auto px-4 md:px-4 py-24 h-full">
+          <div className="flex justify-center sm:flex-col md:flex-row lg:flex-row items-center flex-wrap h-full g-6 text-gray-800">
+            <div className="md:w-1/2 lg:w-2/5 mb-12 md:mb-0">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                 className="w-full"
                 alt="Phone"
               />
             </div>
-            <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
+            <div className="md:w-1/2 lg:w-2/5 lg:ml-20">
               <form onSubmit={createAccount}>
                 <div className="mb-2">
                   <input
@@ -119,7 +119,7 @@ const Registaion = () => {
                   />
                 </div>
 
-                <div className="flex justify-between items-center mb-6 sm:flex-col">
+                <div className="flex justify-between items-center my-4 sm:flex-col lg:flex-row">
                   <div className="form-check mt-2">
                     <input
                       className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"

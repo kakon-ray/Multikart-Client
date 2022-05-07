@@ -19,7 +19,7 @@ const Navbar = ({ sendDataToParent }) => {
 
     { name: "My Item", link: "/myitem" },
     { name: "Add Item", link: "/add" },
-    { name: "Manage", link: "/manageitems" },
+    { name: "Manage Inventory", link: "/manageitems" },
   ];
 
   const navigation = useNavigate();
@@ -61,7 +61,7 @@ const Navbar = ({ sendDataToParent }) => {
 
         <div
           className={`absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto transition-all duration-500 ease-in ${
-            open ? "md:top-10 sm:top-8 shadow-md" : "top-[-490px]"
+            open ? "md:top-10 sm:top-8 shadow-md " : "top-[-490px]"
           } lg:shadow-none`}
         >
           <ul className="lg:flex lg:items-center lg:py-0 md:py-8 sm:py-8 bg-white dark:bg-black pl-8">

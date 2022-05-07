@@ -1,0 +1,17 @@
+.sidebutton {
+  height: 0px;
+  width: 65px;
+  position: fixed;
+  right: 0;
+  top: 55%;
+  z-index: 5000;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  /*filter:;
+  progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  */
+  -ms-transform: rotate(-180deg);
+  -ms-transform: rotate(-90deg);
+}

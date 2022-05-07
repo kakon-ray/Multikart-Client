@@ -22,7 +22,7 @@ const Product = ({
             <img className="rounded-t-lg " src={img} alt="" />
           </span>
           <div className="p-6 absolute left-0 right-0 top-0 bottom-0 bg-stone-900 bg-opacity-70 ">
-            <h5 className="text-center text-amber-100 text-xl font-medium mb-2 mt-16 skew-x-12">
+            <h5 className="text-center text-amber-100 text-xl font-medium mb-2 lg:mt-16 sm:mt-4 skew-x-12">
               {name}
             </h5>
             <h5 className="text-center text-gray-300 font-bold text-x  mb-2 skew-x-12">

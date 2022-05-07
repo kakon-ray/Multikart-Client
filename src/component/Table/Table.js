@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
 
-const Table = ({ products, addItem, deleteItem }) => {
+const Table = ({ products,deleteItem,deleteManageInventory }) => {
   if (products.length == 0) {
     return <Loading />;
   }
@@ -85,15 +85,16 @@ const Table = ({ products, addItem, deleteItem }) => {
                   {item._id}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                  {addItem ? (
-                    <Link to={`/add`}>
+                  {deleteManageInventory ? (
+                  
                       <button
+                        onClick={()=>deleteManageInventory(item._id)}
                         type="button"
                         className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                       >
-                        Add to Myitem
+                        Delete Inventory
                       </button>
-                    </Link>
+                  
                   ) : (
                     <button
                       type="button"

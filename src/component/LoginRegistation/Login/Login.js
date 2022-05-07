@@ -63,19 +63,19 @@ const Login = () => {
 
   return (
     <div>
-      <PageBanner page="Login in your Account" />
+      <PageBanner page="Login" />
 
       <section className="dark:bg-black">
-        <div className="container px-6 py-12 h-full">
-          <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800 dark:bg-black">
-            <div className="md:w-2/5 lg:w-2/5 mb-12 md:mb-0">
+        <div className="container px-6 container mx-auto px-4 md:px-4 py-24 h-full">
+          <div className="flex justify-center sm:flex-col md:flex-row lg:flex-row items-center flex-wrap h-full g-6 text-gray-800">
+            <div className="md:w-1/2 lg:w-2/5 mb-12 md:mb-0">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                 className="w-full"
                 alt="Phone"
               />
             </div>
-            <div className="md:w-2/5 lg:w-2/5 lg:ml-20">
+            <div className="md:w-1/2 lg:w-2/5 lg:ml-20">
               <p className="text-red-600 text-sm">
                 {loginSuccess ? " Provide correct email and password" : ""}
               </p>

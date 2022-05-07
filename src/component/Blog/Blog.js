@@ -5,8 +5,8 @@ const Blog = () => {
   return (
     <>
       <PageBanner page="Blog"></PageBanner>
-      <div className="container mx-auto px-4 md:px-20 py-30 pb-24 pt-14 dark:bg-black">
-        <div className="grid md:grid-cols-3 gap-4">
+      <div className="px-4 md:px-20 py-30 pb-24 pt-14 dark:bg-black">
+        <div className="grid md:grid-cols-3 gap-4 container mx-auto ">
           <div className="flex justify-center">
             <div className="rounded-lg shadow-lg bg-white dark:bg-slate-900 max-w-sm">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">

@@ -32,7 +32,7 @@ const MyItem = () => {
       showCancelButton: true,
       focusConfirm: false,
       confirmButtonText: "Delete",
-      cancelButtonText: "Close",
+      cancelButtonText: "No",
       cancelButtonAriaLabel: "Thumbs down",
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */

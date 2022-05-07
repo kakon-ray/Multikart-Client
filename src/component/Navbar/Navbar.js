@@ -17,12 +17,14 @@ const Navbar = ({ sendDataToParent }) => {
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
+    { name: "All Inventory", link: "/allinventory" },
   ];
 
   let userLinks = [
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
+    { name: "All Inventory", link: "/allinventory" },
 
     { name: "My Item", link: "/myitem" },
     { name: "Add Item", link: "/add" },
@@ -104,7 +106,11 @@ const Navbar = ({ sendDataToParent }) => {
               </>
             )}
 
-            <div className="form-check xl:mx-6 md:my-3 sm:mb-3">
+            <div
+              className={`form-check xl:mx-6 md:my-3 sm:mb-3 ${
+                user ? "lg:mr-0 xl:mr-0" : ""
+              }`}
+            >
               <label className="switch">
                 <input
                   type="checkbox"
@@ -125,7 +131,7 @@ const Navbar = ({ sendDataToParent }) => {
               </span>
             ) : (
               <>
-                <div className="dropdown relative xl:ml-28 md:ml-16 ">
+                <div className="dropdown relative xl:ml-24 md:ml-16 ">
                   <button
                     className="
                               dropdown-toggle

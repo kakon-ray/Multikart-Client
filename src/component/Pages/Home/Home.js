@@ -10,6 +10,7 @@ import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import LightSpeed from "react-reveal/LightSpeed";
+import StartProject from "../../StartProject/StartProject";
 const Home = () => {
   const [products, setProducts] = useState();
 
@@ -51,7 +52,7 @@ const Home = () => {
             </div>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3  gap-5">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-5">
             {products?.map((item) => {
               return (
                 <React.Fragment key={item._id}>
@@ -140,6 +141,7 @@ const Home = () => {
       </div>
 
       <MetOurTem></MetOurTem>
+      <StartProject />
     </div>
   );
 };

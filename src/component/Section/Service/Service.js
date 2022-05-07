@@ -10,7 +10,7 @@ const Delivery = () => {
           OUR SERVICES
         </h1>
       </Fade>
-      <div className="grid md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3   gap-16 sm:gap-16 md:gap-16 my-12 text-center ">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-3 sm:gap-16 md:gap-8 my-12 text-center ">
         <Fade left>
           <div className="hover:border hover:border-red-500 relative border p-10 rounden dark:text-slate-200">
             <h1 className="text-xl ">World Wide Transport</h1>

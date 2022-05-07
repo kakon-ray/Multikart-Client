@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import "./Navbar.css";
 const Navbar = ({ sendDataToParent }) => {
   const [user, loading, error] = useAuthState(auth);
+  let [open, setOpen] = useState(false);
 
   let Links = [
     { name: "Home", link: "/" },
@@ -20,7 +21,6 @@ const Navbar = ({ sendDataToParent }) => {
     { name: "Add Item", link: "/add" },
     { name: "Manage", link: "/manageitems" },
   ];
-  let [open, setOpen] = useState(false);
 
   const navigation = useNavigate();
 
@@ -32,8 +32,11 @@ const Navbar = ({ sendDataToParent }) => {
   };
 
   return (
-    <div className="shadow-md w-full fixed top-0 left-0 z-10 ">
-      <div className="md:flex items-center justify-between bg-white dark:bg-black py-4 md:px-10 px-7 ">
+    <div
+      className="shadow-md w-full fixed top-0 left-0 z-10 lg:py-0"
+      id="navbar"
+    >
+      <div className="lg:flex items-center justify-between bg-white dark:bg-black py-4 lg:px-10 px-7 lg:py-2">
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
       text-gray-800"
@@ -51,25 +54,21 @@ const Navbar = ({ sendDataToParent }) => {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-3 cursor-pointer md:hidden dark:text-slate-200"
+          className="text-3xl absolute right-8 top-3 cursor-pointer lg:hidden dark:text-slate-200"
         >
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </div>
 
         <div
-          className={`absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto transition-all duration-500 ease-in ${
-            open ? "top-9 shadow-md" : "top-[-490px]"
-          } md:shadow-none`}
+          className={`absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto transition-all duration-500 ease-in ${
+            open ? "md:top-10 sm:top-8 shadow-md" : "top-[-490px]"
+          } lg:shadow-none`}
         >
-          <ul
-            className={`md:flex md:items-center md:pb-0 pb-12 bg-white dark:bg-black pl-8 ${
-              open ? "pt-3" : ""
-            }`}
-          >
+          <ul className="lg:flex lg:items-center lg:py-0 md:py-8 sm:py-8 bg-white dark:bg-black pl-8">
             {Links.map((link) => (
               <li
                 key={link.name}
-                className="md:ml-2 xl:ml-12 text-x md:my-0 my-7"
+                className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
               >
                 <CustomLink
                   to={link.link}
@@ -80,7 +79,7 @@ const Navbar = ({ sendDataToParent }) => {
               </li>
             ))}
 
-            <div className={`form-check xl:ml-8 ${open ? "mb-4" : ""}`}>
+            <div className="form-check xl:ml-8 md:my-3 sm:mb-3">
               <label className="switch">
                 <input
                   type="checkbox"
@@ -91,7 +90,7 @@ const Navbar = ({ sendDataToParent }) => {
             </div>
 
             {!user ? (
-              <span className="md:ml-6">
+              <span className="lg:ml-8 md:ml-2">
                 <Link to="/login">
                   <Button>Sign in</Button>
                 </Link>
@@ -105,7 +104,6 @@ const Navbar = ({ sendDataToParent }) => {
                   <button
                     className="
                               dropdown-toggle
-
                               font-medium
                               text-xs
                               leading-tight

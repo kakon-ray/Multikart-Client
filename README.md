@@ -12,4 +12,6 @@
 
 > - ## get data fetch axios and async await
 
-## This is a Mern Stuck Project .This Project use Warehouse management.This Site name Logika.
+> - ## use sweet alert
+
+## This is a Mern Stuck Project .This Project use Warehouse management.This Site name Logika.This site work to some quantity managemne and add and remove inventory.this add or remove porduct item set mongodb database.

@@ -9,7 +9,6 @@
   display: inline-block;
   width: 60px;
   height: 34px;
-  transform: skew(10deg);
 }
 
 .switch input {
@@ -50,4 +49,13 @@ input:focus + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

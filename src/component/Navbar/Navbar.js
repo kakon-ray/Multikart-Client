@@ -11,8 +11,15 @@ import "./Navbar.css";
 const Navbar = ({ sendDataToParent }) => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
+  const navigation = useNavigate();
 
   let Links = [
+    { name: "Home", link: "/" },
+    { name: "Service", link: "/services" },
+    { name: "Blog", link: "/blog" },
+  ];
+
+  let userLinks = [
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
@@ -21,8 +28,6 @@ const Navbar = ({ sendDataToParent }) => {
     { name: "Add Item", link: "/add" },
     { name: "Manage Inventory", link: "/manageitems" },
   ];
-
-  const navigation = useNavigate();
 
   const logOut = () => {
     toast.success("Logout Successfully");
@@ -65,27 +70,47 @@ const Navbar = ({ sendDataToParent }) => {
           } lg:shadow-none`}
         >
           <ul className="lg:flex lg:items-center lg:py-0 md:py-8 sm:py-8 bg-white dark:bg-black pl-8">
-            {Links.map((link) => (
-              <li
-                key={link.name}
-                className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
-              >
-                <CustomLink
-                  to={link.link}
-                  className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
-                >
-                  {link.name}
-                </CustomLink>
-              </li>
-            ))}
+            {user ? (
+              <>
+                {userLinks.map((link) => (
+                  <li
+                    key={link.name}
+                    className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
+                  >
+                    <CustomLink
+                      to={link.link}
+                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
+                    >
+                      {link.name}
+                    </CustomLink>
+                  </li>
+                ))}
+              </>
+            ) : (
+              <>
+                {Links.map((link) => (
+                  <li
+                    key={link.name}
+                    className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
+                  >
+                    <CustomLink
+                      to={link.link}
+                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
+                    >
+                      {link.name}
+                    </CustomLink>
+                  </li>
+                ))}
+              </>
+            )}
 
-            <div className="form-check xl:ml-8 md:my-3 sm:mb-3">
+            <div className="form-check xl:mx-6 md:my-3 sm:mb-3">
               <label className="switch">
                 <input
                   type="checkbox"
                   onChange={(e) => sendDataToParent(e.target.checked)}
                 />
-                <span className="slider"></span>
+                <span className="slider round"></span>
               </label>
             </div>
 

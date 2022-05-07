@@ -10,6 +10,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
 import validator from "validator";
 import axios from "axios";
+import useToken from "../../../Hook/useToken";
 
 const Login = () => {
   const [emailError, setEmailError] = useState(false);
@@ -19,6 +20,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetPasError] =
     useSendPasswordResetEmail(auth);
+
+  const [token] = useToken(user);
 
   // redirect page
   let navigate = useNavigate();
@@ -41,21 +44,14 @@ const Login = () => {
     await signInWithEmailAndPassword(email, password);
 
     // get data jwt web token and save token localstroge
-    const { data } = await axios.post(
-      "https://still-gorge-24214.herokuapp.com/login",
-      { email }
-    );
-    localStorage.setItem("accessToken", data.accessToken);
   };
 
-  useEffect(() => {
-    if (user) {
-      toast.success("Login Successed");
-      setTimeout(() => {
-        navigate(from, { replace: true });
-      }, 1000);
-    }
-  }, [user]);
+  if (token) {
+    toast.success("Login Successed");
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 1000);
+  }
 
   const sendPasswordReset = () => {
     const email = emailRef.current.value;

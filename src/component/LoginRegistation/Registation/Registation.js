@@ -12,6 +12,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
 import validator from "validator";
 import axios from "axios";
+import useToken from "../../../Hook/useToken";
 
 const Registaion = () => {
   const [emailError, setEmailError] = useState(false);
@@ -22,6 +23,7 @@ const Registaion = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, errorupdate] = useUpdateProfile(auth);
 
+  const [token] = useToken(user);
   // redirect page
   let navigate = useNavigate();
   let location = useLocation();
@@ -63,14 +65,13 @@ const Registaion = () => {
     localStorage.setItem("accessToken", data.accessToken);
   };
 
-  useEffect(() => {
-    if (user) {
-      toast.success("Registation Completed");
-      setTimeout(() => {
-        navigate(from, { replace: true });
-      }, 1000);
-    }
-  }, [user]);
+  if (token) {
+    toast.success("Registation Completed");
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 1000);
+  }
+
   return (
     <div>
       <PageBanner page="Registation in your Account" />

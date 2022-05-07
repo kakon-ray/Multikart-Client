@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import validator from "validator";
 import axios from "axios";
 import useToken from "../../../Hook/useToken";
+import Swal from "sweetalert2";
 
 const Registaion = () => {
   const [emailError, setEmailError] = useState(false);
@@ -40,8 +41,6 @@ const Registaion = () => {
     );
     const isOk = mediumRegex.test(password);
 
-    console.log(isOk);
-
     if (!validator.isEmail(email)) {
       return setEmailError(true);
     } else {
@@ -66,7 +65,11 @@ const Registaion = () => {
   };
 
   if (token) {
-    toast.success("Registation Completed");
+    Swal.fire({
+      icon: "success",
+      title: "Registation Successed",
+      text: "Welcome",
+    });
     setTimeout(() => {
       navigate(from, { replace: true });
     }, 1000);

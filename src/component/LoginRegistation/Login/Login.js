@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import validator from "validator";
 import axios from "axios";
 import useToken from "../../../Hook/useToken";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [emailError, setEmailError] = useState(false);
@@ -47,7 +48,11 @@ const Login = () => {
   };
 
   if (token) {
-    toast.success("Login Successed");
+    Swal.fire({
+      icon: "success",
+      title: "Login Successed",
+      text: "Welcome",
+    });
     setTimeout(() => {
       navigate(from, { replace: true });
     }, 1000);

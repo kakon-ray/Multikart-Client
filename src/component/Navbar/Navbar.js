@@ -40,7 +40,7 @@ const Navbar = ({ sendDataToParent }) => {
 
   return (
     <div
-      className="shadow-md w-full fixed top-0 left-0 z-10 lg:py-0"
+      className="shadow-md w-full fixed top-0 left-0 right-0 z-10 lg:py-0"
       id="navbar"
     >
       <div className="lg:flex items-center justify-between bg-white dark:bg-black py-4 lg:px-10 px-7 lg:py-2">
@@ -68,10 +68,10 @@ const Navbar = ({ sendDataToParent }) => {
 
         <div
           className={`absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto transition-all duration-500 ease-in ${
-            open ? "md:top-10 sm:top-8 shadow-md " : "top-[-490px]"
+            open ? "md:top-6 sm:top-6 shadow-md " : "top-[-490px]"
           } lg:shadow-none`}
         >
-          <ul className="lg:flex lg:items-center lg:py-0 md:py-8 sm:py-8 bg-white dark:bg-black pl-8">
+          <ul className="lg:flex lg:items-center lg:py-0 md:py-4 sm:py-4 bg-white dark:bg-black pl-8">
             {user ? (
               <>
                 {userLinks.map((link) => (
@@ -107,7 +107,7 @@ const Navbar = ({ sendDataToParent }) => {
             )}
 
             <div
-              className={`form-check xl:mx-6 md:my-3 sm:mb-3 ${
+              className={`form-check xl:mx-6 md:my-6 sm:my-6 lg:my-0 xl:mb-0${
                 user ? "lg:mr-0 xl:mr-0" : ""
               }`}
             >
@@ -131,7 +131,7 @@ const Navbar = ({ sendDataToParent }) => {
               </span>
             ) : (
               <>
-                <div className="dropdown relative xl:ml-24 md:ml-16 ">
+                <div className="dropdown relative xl:ml-24 md:ml-2">
                   <button
                     className="
                               dropdown-toggle

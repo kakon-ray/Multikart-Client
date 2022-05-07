@@ -79,7 +79,7 @@ const Home = () => {
             <Link to="/allinventory">
               <button
                 type="button"
-                className="inline-block  bg-lime-600 font-bold text-center mr-2 px-10 py-3 skew-y-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                className="inline-block  bg-purple-600 font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               >
                 See all Inventory
               </button>

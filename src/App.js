@@ -28,7 +28,7 @@ const App = () => {
     setDark(darkValue);
   };
 
-  console.log(dark);
+  // console.log(dark);
 
   return (
     <div className={`${dark ? "dark" : ""}`}>

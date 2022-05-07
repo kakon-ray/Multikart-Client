@@ -6,7 +6,7 @@ import PageBanner from "../PageBanner/PageBanner";
 import ManageItems from "../Pages/ManageItems/ManageItems";
 import Table from "../Table/Table";
 import { toast } from "react-toastify";
-
+import Swal from "sweetalert2";
 const MyItem = () => {
   const [data, setData] = useState([]);
   const [user, loading, error] = useAuthState(auth);
@@ -25,31 +25,42 @@ const MyItem = () => {
   }, [user]);
 
   const deleteItem = (id) => {
-    const proceed = window.confirm("Are you delete this item");
+    Swal.fire({
+      title: "<strong>Are you Sure?</strong>",
+      icon: "warning",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Close",
+      cancelButtonAriaLabel: "Thumbs down",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
 
-    if (proceed) {
-      async function fetchFunction() {
-        try {
-          const response = await fetch(
-            `https://still-gorge-24214.herokuapp.com/userproduct/${id}`,
-            {
-              // mode: "no-cors",
-              method: "DELETE",
+      if (result.isConfirmed) {
+        async function fetchFunction() {
+          try {
+            const response = await fetch(
+              `https://still-gorge-24214.herokuapp.com/userproduct/${id}`,
+              {
+                // mode: "no-cors",
+                method: "DELETE",
+              }
+            );
+            const json = await response.json();
+            if (json.deletedCount > 0) {
+              const newData = data.filter((item) => item._id !== id);
+              setData(newData);
+              toast.success("Item Delete Successfully");
             }
-          );
-          const json = await response.json();
-          if (json.deletedCount > 0) {
-            const newData = data.filter((item) => item._id !== id);
-            setData(newData);
-            toast.success("Item Delete Successfully");
+          } catch (err) {
+            throw err;
+            console.log(err);
           }
-        } catch (err) {
-          throw err;
-          console.log(err);
         }
+        fetchFunction();
       }
-      fetchFunction();
-    }
+    });
   };
   return (
     <>

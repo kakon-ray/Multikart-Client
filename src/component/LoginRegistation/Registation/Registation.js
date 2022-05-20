@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 
 const Registaion = () => {
   const [emailError, setEmailError] = useState(false);
-  const [iserror, setisError] = useState(false);
+  const [passwordError, setPsswordError] = useState("");
   const [ceckBox, setCeckBox] = useState();
 
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -35,6 +35,7 @@ const Registaion = () => {
     const displayName = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
 
     const mediumRegex = new RegExp(
       "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
@@ -42,15 +43,24 @@ const Registaion = () => {
     const isOk = mediumRegex.test(password);
 
     if (!validator.isEmail(email)) {
-      return setEmailError(true);
+      setEmailError(true);
+      return;
     } else {
       setEmailError(false);
     }
 
-    if (!isOk) {
-      return setisError(true);
+    if (password !== confirmPassword) {
+      setPsswordError("Two password does not match");
+      return;
     } else {
-      setisError(false);
+      setPsswordError("");
+    }
+
+    if (!isOk) {
+      setPsswordError("Password must a-z,0-9 and 6 char longer");
+      return;
+    } else {
+      setPsswordError(false);
     }
 
     await createUserWithEmailAndPassword(email, password);
@@ -112,13 +122,25 @@ const Registaion = () => {
 
                 <div className="mb-2">
                   <label className="text-sm text-red-600 pt-0 mt-0">
-                    {iserror ? "Password must a-z,0-9 and 6 char longer" : ""}
+                    {passwordError}
                   </label>
                   <input
                     type="password"
                     name="password"
                     className="form-control block w-full px-4 py-2 text-xl border font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
                     placeholder="Password"
+                  />
+                </div>
+
+                <div className="mb-2">
+                  <label className="text-sm text-red-600 pt-0 mt-0">
+                    {passwordError}
+                  </label>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    className="form-control block w-full px-4 py-2 text-xl border font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none "
+                    placeholder="Confirm Password"
                   />
                 </div>
 

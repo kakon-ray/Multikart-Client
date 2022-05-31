@@ -49,12 +49,8 @@ const Navbar = ({ sendDataToParent }) => {
       text-gray-800"
         >
           <span className="xl:text-3xl md:text-xl text-indigo-600">
-            <Link to="/" className="text-purple-600 flex items-center">
-              <ion-icon
-                name="logo-ionic"
-                className="text-purple-600"
-              ></ion-icon>
-              LOGIKA
+            <Link to="/" className="text-yellow-400 flex items-center">
+              PORTFOLIO
             </Link>
           </span>
         </div>

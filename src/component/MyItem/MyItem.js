@@ -67,7 +67,7 @@ const MyItem = () => {
       <PageBanner page="My Items" />
       <div className="dark:bg-black">
         <div className="container mx-auto px-4 md:px-20 py-24">
-          <h1 className="text-2xl text-purple-600 font-bold text-center uppercase mb-5">
+          <h1 className="text-2xl text-orange-600 font-bold text-center uppercase mb-5">
             My Items
           </h1>
 

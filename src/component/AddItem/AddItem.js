@@ -124,7 +124,7 @@ const AddItem = () => {
                             data-mdb-ripple-color="light"
                             style={{
                               background:
-                                "linear-gradient(to right, purple, #d8363a, #dd3675, #b44593)",
+                                "linear-gradient(to right, orange, #d8363a, #dd3675, #b44593)",
                             }}
                           >
                             Add Product

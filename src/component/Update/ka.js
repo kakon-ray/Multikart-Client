@@ -108,7 +108,7 @@ const Update = () => {
               <button
                 onClick={deliverd}
                 type="button"
-                className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-orange-500 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               >
                 Deliverd
               </button>
@@ -131,14 +131,14 @@ const Update = () => {
                             transition
                             ease-in-out
                             m-0
-                            focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
+                            focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none
                         "
                   id="exampleTel0"
                   placeholder="Add quantity"
                 />
                 <button
                   type="submit"
-                  className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-purple-500 font-medium text-xs leading-tight  hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-orange-500 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                 >
                   Add
                 </button>
@@ -151,7 +151,7 @@ const Update = () => {
         <ion-icon name="play-back-outline"></ion-icon>
         <span
           onClick={navigaton}
-          className="cursor-pointer text-x text-purple-600 ml-1 hover:text-purple-800 "
+          className="cursor-pointer text-x text-orange-600 ml-1 hover:text-orange-800 "
         >
           Back To Home
         </span>

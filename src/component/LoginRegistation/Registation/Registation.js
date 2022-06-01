@@ -109,7 +109,7 @@ const Registaion = () => {
                   />
                 </div>
                 <div className="mb-2">
-                  <label className="text-sm text-red-600 pt-0 mt-0">
+                  <label className="text-sm text-orange-600 pt-0 mt-0">
                     {emailError ? "Please Enter Valid email" : ""}
                   </label>
                   <input
@@ -121,7 +121,7 @@ const Registaion = () => {
                 </div>
 
                 <div className="mb-2">
-                  <label className="text-sm text-red-600 pt-0 mt-0">
+                  <label className="text-sm text-orange-600 pt-0 mt-0">
                     {passwordError}
                   </label>
                   <input
@@ -133,7 +133,7 @@ const Registaion = () => {
                 </div>
 
                 <div className="mb-2">
-                  <label className="text-sm text-red-600 pt-0 mt-0">
+                  <label className="text-sm text-orange-600 pt-0 mt-0">
                     {passwordError}
                   </label>
                   <input
@@ -156,14 +156,14 @@ const Registaion = () => {
                     <label
                       className={`form-check-label inline-block`}
                       for="flexCheckDefault"
-                      style={!ceckBox ? { color: "red" } : { color: "green" }}
+                      style={!ceckBox ? { color: "red" } : { color: "orange" }}
                     >
                       Allow all terms and contition
                     </label>
                   </div>
                   <a
                     href="#!"
-                    className="text-red-600 hover:text-red-700 focus:text-red-700 active:text-red-800 duration-200 transition ease-in-out"
+                    className="text-orange-600 hover:text-red-700 focus:text-red-700 active:text-red-800 duration-200 transition ease-in-out"
                   >
                     Forgot password?
                   </a>
@@ -172,7 +172,7 @@ const Registaion = () => {
                 <button
                   type="submit"
                   disabled={!ceckBox}
-                  className="inline-block px-7 py-3 bg-purple-600 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                  className="inline-block rounded-full px-7 py-3 bg-orange-600 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
                 >
@@ -180,7 +180,7 @@ const Registaion = () => {
                 </button>
 
                 <Link to="/login">
-                  <p className="text-purple-500 text-center pt-4 cursor-pointer">
+                  <p className="text-orange-500 text-center pt-4 cursor-pointer">
                     Already have a account! Please Login
                   </p>
                 </Link>

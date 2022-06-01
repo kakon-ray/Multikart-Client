@@ -7,7 +7,7 @@ const Loading = () => {
         <div
           className="
       spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
-        text-purple-500
+        text-orange-500
       "
           role="status"
         >

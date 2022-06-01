@@ -5,10 +5,10 @@ import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import Product from "../../Product/Product";
 import ReactPaginate from "react-paginate";
-import "./Allinventory.css";
+import "./Shop.css";
 import PageBanner from "../../PageBanner/PageBanner";
 
-const Allinventory = () => {
+const Shop = () => {
   const [products, setProducts] = useState();
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
@@ -55,7 +55,7 @@ const Allinventory = () => {
 
   return (
     <div className="py-12 dark:bg-black">
-      <PageBanner page="All Inventory" />
+      <PageBanner page="Shop" />
       <div className="container mx-auto px-4 md:px-20 py-30 dark:bg-black">
         <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12 dark:text-slate-200 pt-8">
           All Products
@@ -65,7 +65,7 @@ const Allinventory = () => {
             <div
               className="
                 spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
-                  text-purple-500
+                  text-orange-500
                 "
               role="status"
             >
@@ -114,7 +114,7 @@ const Allinventory = () => {
             <Link to="/manageitems">
               <button
                 type="button"
-                className="inline-block  bg-black dark:bg-purple-600 dark:hover:bg-red-600 font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-red-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                className="inline-block  bg-black dark:bg-orange-600 dark:hover:bg-orange-600 font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               >
                 Manage Inventory
               </button>
@@ -126,4 +126,4 @@ const Allinventory = () => {
   );
 };
 
-export default Allinventory;
+export default Shop;

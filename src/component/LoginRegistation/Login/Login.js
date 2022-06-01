@@ -81,7 +81,7 @@ const Login = () => {
               />
             </div>
             <div className="md:w-1/2 lg:w-2/5 lg:ml-20">
-              <p className="text-red-600 text-sm">
+              <p className="text-orange-600 text-sm">
                 {loginSuccess ? " Provide correct email and password" : ""}
               </p>
               <form onSubmit={loginAccount}>
@@ -108,7 +108,7 @@ const Login = () => {
                 <div className="flex justify-between items-center mb-6">
                   <p
                     onClick={sendPasswordReset}
-                    className="cursor-pointer text-red-600 hover:text-red-800 focus:text-red-600 active:text-red-800 duration-200 transition ease-in-out"
+                    className="cursor-pointer text-orange-600 hover:text-red-800 focus:text-orange-600 active:text-red-800 duration-200 transition ease-in-out"
                   >
                     Forgot password?
                   </p>
@@ -116,7 +116,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="inline-block px-7 py-3 bg-purple-700 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-purple-800 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                  className="inline-block px-7 py-3 rounded-full bg-orange-700 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
                 >
@@ -124,7 +124,7 @@ const Login = () => {
                 </button>
 
                 <Link to="/registation">
-                  <p className="text-purple-500 text-center pt-4 cursor-pointer">
+                  <p className="text-orange-500 text-center pt-4 cursor-pointer">
                     Do not have a account! please register
                   </p>
                 </Link>

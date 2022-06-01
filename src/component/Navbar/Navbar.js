@@ -7,7 +7,7 @@ import Button from "../Button";
 import CustomLink from "../CustomeLink/CustomeLink";
 import img from "../../assets/img/user.png";
 import { toast } from "react-toastify";
-import "./Navbar.css";
+import logo from "../../assets/img/logo.png";
 const Navbar = ({ sendDataToParent }) => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
@@ -17,14 +17,14 @@ const Navbar = ({ sendDataToParent }) => {
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
-    { name: "All Inventory", link: "/allinventory" },
+    { name: "Shop", link: "/shop" },
   ];
 
   let userLinks = [
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
     { name: "Blog", link: "/blog" },
-    { name: "All Inventory", link: "/allinventory" },
+    { name: "All Inventory", link: "/shop" },
 
     { name: "My Item", link: "/myitem" },
     { name: "Add Item", link: "/add" },
@@ -49,8 +49,8 @@ const Navbar = ({ sendDataToParent }) => {
       text-gray-800"
         >
           <span className="xl:text-3xl md:text-xl text-indigo-600">
-            <Link to="/" className="text-yellow-400 flex items-center">
-              PORTFOLIO
+            <Link to="/" className="text-orangew-400 flex items-center">
+              <img src={logo} alt="" />
             </Link>
           </span>
         </div>
@@ -77,7 +77,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <CustomLink
                       to={link.link}
-                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
+                      className="text-gray-500 hover:text-orange-700 duration-500 font-bold"
                     >
                       {link.name}
                     </CustomLink>
@@ -93,7 +93,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <CustomLink
                       to={link.link}
-                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
+                      className="text-gray-500 hover:text-orange-700 duration-500 font-bold"
                     >
                       {link.name}
                     </CustomLink>
@@ -108,7 +108,7 @@ const Navbar = ({ sendDataToParent }) => {
               }`}
             >
               <input
-                className="form-check-input appearance-none w-9 rounded-full  h-5 align-top  bg-no-repeat checked:bg-purple-600 bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                className="form-check-input appearance-none w-9 rounded-full  h-5 align-top  bg-no-repeat checked:bg-orange-600 bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
                 type="checkbox"
                 onChange={(e) => sendDataToParent(e.target.checked)}
                 role="switch"
@@ -118,11 +118,19 @@ const Navbar = ({ sendDataToParent }) => {
 
             {!user ? (
               <span className="lg:ml-8 md:ml-2">
-                <Link to="/login">
-                  <Button>Sign in</Button>
-                </Link>
                 <Link to="/registation">
-                  <Button>Sign up</Button>
+                  <button
+                    type="button"
+                    class="inline-block px-6 py-2.5 mx-2 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Sign in
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-block px-6 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-600 hover:shadow-lg focus:bg-orange-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Sign up
+                  </button>
                 </Link>
               </span>
             ) : (
@@ -150,7 +158,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <img
                       src={user?.photoURL ? user?.photoURL : img}
-                      className="rounded-full xl:w-10 xl:h-10 md:w-8 md:h-8 w-8 h-8 border-solid border-2 border-purple-500"
+                      className="rounded-full xl:w-10 xl:h-10 md:w-8 md:h-8 w-8 h-8 border-solid border-2 border-orange-500"
                       alt=""
                     />
                     <svg
@@ -194,15 +202,15 @@ const Navbar = ({ sendDataToParent }) => {
                     aria-labelledby="dropdownMenuButton4"
                   >
                     <span className="flex flex-col justify-center ">
-                      <li className="text-x font-bold text-center text-purple-600 px-5">
+                      <li className="text-x font-bold text-center text-orange-600 px-5">
                         {user?.displayName}
                       </li>
-                      <li className="text-x font-bold text-center py-3 text-purple-600 px-5">
+                      <li className="text-x font-bold text-center py-3 text-orange-600 px-5">
                         {user?.email}
                       </li>
                       <li>
                         <button
-                          className="inline-block ml-10 font-bold text-center  px-6 py-2 border-2 border-purple-500 text-purple-500 font-medium text-xs leading-tight w-100 hover:bg-purple-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                          className="inline-block ml-10 font-bold text-center  px-6 py-2 border-2 border-orange-500 text-orange-500 font-medium text-xs leading-tight w-100 hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                           onClick={logOut}
                         >
                           Sign Out

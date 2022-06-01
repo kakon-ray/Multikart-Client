@@ -45,7 +45,7 @@ const Product = ({
               <Link to={`/inventory/${id}`}>
                 <button
                   type="button"
-                  className="inline-block skew-x-12 font-bold text-center  mr-2 px-6 py-2 border-2 border-white-500 text-white font-medium text-xs leading-tight hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  className="inline-block skew-x-12 font-bold text-center  mr-2 px-6 py-2 border-2 border-white-500 text-white font-medium text-xs leading-tight hover:bg-white hover:text-orange-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                 >
                   Update Now
                 </button>

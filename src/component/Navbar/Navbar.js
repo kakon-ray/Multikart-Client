@@ -23,8 +23,8 @@ const Navbar = ({ sendDataToParent }) => {
   let userLinks = [
     { name: "Home", link: "/" },
     { name: "Service", link: "/services" },
-    { name: "Blog", link: "/blog" },
-    { name: "All Inventory", link: "/shop" },
+
+    { name: "Shop", link: "/shop" },
 
     { name: "My Item", link: "/myitem" },
     { name: "Add Item", link: "/add" },

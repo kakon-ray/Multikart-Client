@@ -7,7 +7,6 @@ export default function PageBanner({ page }) {
     fontSize: "50px",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    marginTop: ".2%",
   };
 
   return (
@@ -15,7 +14,6 @@ export default function PageBanner({ page }) {
       <h1
         style={{
           color: "white",
-          marginTop: "6%",
           textShadow: "2px 2px #7307e6",
         }}
         className=" text-shadow-lg"

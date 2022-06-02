@@ -39,35 +39,85 @@ const Navbar = ({ sendDataToParent }) => {
   };
 
   return (
-    <div
-      className="shadow-md w-full fixed top-0 left-0 right-0 z-10 lg:py-0"
-      id="navbar"
+    <nav
+      class="
+      dark:bg-black
+        relative
+        w-full
+        flex flex-wrap
+        items-center
+        justify-between
+        py-4
+        bg-gray-100
+        text-gray-500
+        hover:text-gray-700
+        focus:text-gray-700
+        shadow-md
+        navbar navbar-expand-lg navbar-light
+        "
     >
-      <div className="lg:flex items-center justify-between bg-white dark:bg-black py-4 lg:px-10 px-7 lg:py-2">
-        <div
-          className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
-      text-gray-800"
+      <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+        <button
+          class="
+                navbar-toggler
+                text-gray-500
+                border-0
+                hover:shadow-none hover:no-underline
+                py-2
+                px-2.5
+                bg-transparent
+                focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline
+              "
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span className="xl:text-3xl md:text-xl text-indigo-600">
-            <Link to="/" className="text-orangew-400 flex items-center">
-              <img src={logo} alt="" />
-            </Link>
-          </span>
-        </div>
-
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            class="w-6"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              fill="currentColor"
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            ></path>
+          </svg>
+        </button>
         <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-3 cursor-pointer lg:hidden dark:text-slate-200"
+          class="collapse navbar-collapse flex-grow items-center"
+          id="navbarSupportedContent"
         >
-          <ion-icon name={open ? "close" : "menu"}></ion-icon>
-        </div>
-
-        <div
-          className={`absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto transition-all duration-500 ease-in ${
-            open ? "md:top-6 sm:top-6 shadow-md " : "top-[-490px]"
-          } lg:shadow-none`}
-        >
-          <ul className="lg:flex lg:items-center lg:py-0 md:py-4 sm:py-4 bg-white dark:bg-black pl-8">
+          <a
+            class="
+                  flex
+                  items-center
+                  text-gray-900
+                  hover:text-gray-900
+                  focus:text-gray-900
+                  mt-2
+                  lg:mt-0
+                  mr-1
+                "
+            href="#"
+          >
+            <img
+              src={logo}
+              style={{ height: "25px" }}
+              alt=""
+              loading="lazy"
+              className="my-2 py-1 lg:py-0"
+            />
+          </a>
+          {/* <!-- Left links --> */}
+          <ul class="navbar-nav flex flex-col pl-0 lg:pl-8 list-style-none mr-auto">
             {user ? (
               <>
                 {userLinks.map((link) => (
@@ -77,7 +127,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <CustomLink
                       to={link.link}
-                      className="text-gray-500 hover:text-orange-700 duration-500 font-bold"
+                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
                     >
                       {link.name}
                     </CustomLink>
@@ -93,7 +143,7 @@ const Navbar = ({ sendDataToParent }) => {
                   >
                     <CustomLink
                       to={link.link}
-                      className="text-gray-500 hover:text-orange-700 duration-500 font-bold"
+                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
                     >
                       {link.name}
                     </CustomLink>
@@ -101,130 +151,275 @@ const Navbar = ({ sendDataToParent }) => {
                 ))}
               </>
             )}
-
-            <div
-              className={`form-check form-switch pl-0 xl:mx-6 md:my-6 sm:my-6 lg:my-0 xl:mb-0${
-                user ? "lg:mr-0 xl:mr-0" : ""
-              }`}
-            >
-              <input
-                className="form-check-input appearance-none w-9 rounded-full  h-5 align-top  bg-no-repeat checked:bg-orange-600 bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
-                type="checkbox"
-                onChange={(e) => sendDataToParent(e.target.checked)}
-                role="switch"
-                id="flexSwitchCheckChecked"
-              />
-            </div>
-
-            {!user ? (
-              <span className="lg:ml-8 md:ml-2">
-                <Link to="/registation">
-                  <button
-                    type="button"
-                    class="inline-block px-6 py-2.5 mx-2 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
-                  >
-                    Sign in
-                  </button>
-                  <button
-                    type="button"
-                    class="inline-block px-6 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-600 hover:shadow-lg focus:bg-orange-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
-                  >
-                    Sign up
-                  </button>
-                </Link>
-              </span>
-            ) : (
-              <>
-                <div className="dropdown relative xl:ml-24 md:ml-2">
-                  <button
-                    className="
-                              dropdown-toggle
-                              font-medium
-                              text-xs
-                              leading-tight
-                              uppercase
-                              rounded-full
-                              transition
-                              duration-150
-                              ease-in-out
-                              flex
-                              items-center
-                              whitespace-nowrap
-                            "
-                    type="button"
-                    id="dropdownMenuButton4"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <img
-                      src={user?.photoURL ? user?.photoURL : img}
-                      className="rounded-full xl:w-10 xl:h-10 md:w-8 md:h-8 w-8 h-8 border-solid border-2 border-orange-500"
-                      alt=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      data-prefix="fas"
-                      data-icon="caret-down"
-                      className="w-2 ml-2"
-                      role="img"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 320 512"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    className="
-                               dark:bg-black
-                              dropdown-menu
-                              min-w-max
-                              absolute
-                              hidden
-                              bg-white
-                              text-base
-                              z-50
-                              float-left
-                              py-2
-                              list-none
-                              text-left
-                              rounded-lg
-                              shadow-lg
-                              mt-1
-                              hidden
-                              m-0
-                              bg-clip-padding
-                              border-none
-                            "
-                    aria-labelledby="dropdownMenuButton4"
-                  >
-                    <span className="flex flex-col justify-center ">
-                      <li className="text-x font-bold text-center text-orange-600 px-5">
-                        {user?.displayName}
-                      </li>
-                      <li className="text-x font-bold text-center py-3 text-orange-600 px-5">
-                        {user?.email}
-                      </li>
-                      <li>
-                        <button
-                          className="inline-block ml-10 font-bold text-center  px-6 py-2 border-2 border-orange-500 text-orange-500 font-medium text-xs leading-tight w-100 hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                          onClick={logOut}
-                        >
-                          Sign Out
-                        </button>
-                      </li>
-                    </span>
-                  </ul>
-                </div>
-              </>
-            )}
           </ul>
+          {/* <!-- Left links --> */}
         </div>
+        {/* <!-- Collapsible wrapper --> */}
+
+        {/* <!-- Right elements --> */}
+        <div class="flex items-center relative">
+          {/* <!-- Icon --> */}
+          <div
+            className={`form-check form-switch pr-3 pl-0  md:my-6 sm:my-6 lg:my-0 `}
+          >
+            <input
+              className="form-check-input appearance-none w-9 rounded-full  h-5 align-top  bg-no-repeat checked:bg-orange-600 bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+              type="checkbox"
+              onChange={(e) => sendDataToParent(e.target.checked)}
+              role="switch"
+              id="flexSwitchCheckChecked"
+            />
+          </div>
+          <a
+            class="text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4"
+            href="#"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="shopping-cart"
+              class="w-4"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
+              ></path>
+            </svg>
+          </a>
+          <div class="dropdown relative">
+            <a
+              class="
+          text-gray-500
+          hover:text-gray-700
+          focus:text-gray-700
+          mr-4
+          dropdown-toggle
+          hidden-arrow
+          flex items-center
+        "
+              href="#"
+              id="dropdownMenuButton1"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="bell"
+                class="w-4"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"
+                ></path>
+              </svg>
+              <span class="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">
+                1
+              </span>
+            </a>
+            <ul
+              class="
+                    dropdown-menu
+                    min-w-max
+                    absolute
+                    bg-white
+                    text-base
+                    z-50
+                    float-left
+                    py-2
+                    list-none
+                    text-left
+                    rounded-lg
+                    shadow-lg
+                    mt-1
+                    hidden
+                    m-0
+                    bg-clip-padding
+                    border-none
+                    left-auto
+                    right-0
+                  "
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <li>
+                <a
+                  class="
+                        dropdown-item
+                        text-sm
+                        py-2
+                        px-4
+                        font-normal
+                        block
+                        w-full
+                        whitespace-nowrap
+                        bg-transparent
+                        text-gray-700
+                        hover:bg-gray-100
+                      "
+                  href="#"
+                >
+                  Action
+                </a>
+              </li>
+              <li>
+                <a
+                  class="
+                        dropdown-item
+                        text-sm
+                        py-2
+                        px-4
+                        font-normal
+                        block
+                        w-full
+                        whitespace-nowrap
+                        bg-transparent
+                        text-gray-700
+                        hover:bg-gray-100
+                      "
+                  href="#"
+                >
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a
+                  class="
+                        dropdown-item
+                        text-sm
+                        py-2
+                        px-4
+                        font-normal
+                        block
+                        w-full
+                        whitespace-nowrap
+                        bg-transparent
+                        text-gray-700
+                        hover:bg-gray-100
+                      "
+                  href="#"
+                >
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown relative">
+            <a
+              class="dropdown-toggle flex items-center hidden-arrow"
+              href="#"
+              id="dropdownMenuButton2"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                class="rounded-full"
+                style={{ height: "25px", width: "25px" }}
+                alt=""
+                loading="lazy"
+              />
+            </a>
+            <ul
+              class="
+                    dropdown-menu
+                    min-w-max
+                    absolute
+                  
+                    bg-white
+                    text-base
+                    z-50
+                    float-left
+                    py-2
+                    list-none
+                    text-left
+                    rounded-lg
+                    shadow-lg
+                    mt-1
+                    hidden
+                    m-0
+                    bg-clip-padding
+                    border-none
+                    left-auto
+                    right-0
+                  "
+              aria-labelledby="dropdownMenuButton2"
+            >
+              <li onClick={logOut}>
+                <a
+                  class="
+                        dropdown-item
+                        text-sm
+                        py-2
+                        px-4
+                        font-normal
+                        block
+                        w-full
+                        whitespace-nowrap
+                        bg-transparent
+                        text-gray-700
+                        hover:bg-gray-100
+                      "
+                  href="#"
+                >
+                  Log Out
+                </a>
+              </li>
+              <li>
+                <a
+                  class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                  href="#"
+                >
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a
+                  class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                  href="#"
+                >
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* <!-- Right elements --> */}
       </div>
-    </div>
+    </nav>
   );
 };
 

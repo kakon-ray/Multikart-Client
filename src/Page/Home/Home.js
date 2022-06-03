@@ -39,7 +39,7 @@ const Home = () => {
       <Slider></Slider>
       <ProductSection />
       <TopProduct />
-      <section className="py-24">
+      <section className="py-24 text-center lg:text-left">
         <div className="grid grid-cols-1 md:grid-cols-2" style={myStyle}>
           <div className="my-auto mx-auto">
             <h1 className="text-8xl font-bold text-orange-600">2021</h1>

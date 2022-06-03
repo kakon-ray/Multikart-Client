@@ -4,7 +4,7 @@ import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import MainSidebar from "../MainSidebar/MainSidebar";
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dark:bg-black">
       <div>
         <div className="grid grid-cols-4 ">
           <div className="lg:col-span-1 col-span-4">

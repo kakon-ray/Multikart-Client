@@ -11,6 +11,10 @@ import { toast } from "react-toastify";
 import logo from "../../assets/img/logo.png";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
 import { ReactComponent as Notification } from "../../assets/svg/notification.svg";
+import DashboardSidebar from "../../Dashboard/DashboardSidebar/DashboardSidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import SidebarOffCanvas from "../../Dashboard/SidebarOffCanvas/SidebarOffCanvas";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -347,7 +351,21 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+          <div
+            className="flex items-center mx-2 cursor-pointer lg:hidden"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+            name="reorder-four-outline"
+          >
+            <FontAwesomeIcon
+              icon={faBars}
+              className="mx-2 text-lg text-orange-600"
+            />
+          </div>
         </div>
+
         {/* <!-- Right elements --> */}
       </div>
     </nav>

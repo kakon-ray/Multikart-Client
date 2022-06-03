@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import SidebarLink from "../SidebarLink/SidebarLink";
 const SidebarOffCanvas = () => {
   return (
-    <div className="lg:col-span-1 col-span-5 ">
-      <div className="w-100 h-screen  shadow-md bg-white px-1">
+    <div className="lg:col-span-1 col-span-5 dark:bg-black">
+      <div className="w-100 h-screen  shadow-md bg-white dark:bg-black px-1">
         <h1 className="text-3xl text-secondary p-6">Dashboard</h1>
         <ul className="relative">
           <Link to="/dashboard">

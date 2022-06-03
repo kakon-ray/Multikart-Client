@@ -4,9 +4,11 @@ import SidebarLink from "../SidebarLink/SidebarLink";
 const MainSidebar = () => {
   return (
     <div>
-      <div className="lg:col-span-1 col-span-5">
-        <div className="w-100 h-screen hidden lg:block shadow-md bg-white px-1">
-          <h1 className="text-3xl text-secondary p-6">Dashboard</h1>
+      <div className="lg:col-span-1 col-span-5 dark:bg-black">
+        <div className="w-100 h-screen hidden lg:block border shadow-md bg-white px-1 dark:bg-black dark:text-white">
+          <h1 className="text-3xl text-secondary dark:text-white p-6">
+            Dashboard
+          </h1>
           <ul className="relative">
             <Link to="/dashboard">
               <SidebarLink
@@ -65,7 +67,7 @@ const MainSidebar = () => {
                 data-mdb-ripple-color="dark"
               >
                 <ion-icon name="log-out-outline"></ion-icon>
-                <span className="ml-1">Logout</span>
+                <span className="ml-1 dark:text-light">Logout</span>
               </a>
             </li>
           </ul>

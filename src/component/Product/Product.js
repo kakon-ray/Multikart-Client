@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
 
-const Product = ({ img }) => {
+const Product = ({ item }) => {
   return (
     <>
       <div class="mb-6 lg:mb-0">
@@ -22,7 +22,7 @@ const Product = ({ img }) => {
               </span>
             </div>
             <img
-              src={img}
+              src={item?.img}
               class="w-full rounded-t-lg"
               style={{ height: "300px" }}
             />
@@ -49,16 +49,16 @@ const Product = ({ img }) => {
                 </a>
               </p>
               <p class="text-lg text-red-600">
-                <s>$1099</s>
+                <s>{item?.oldprice}</s>
               </p>
             </div>
             <div class="flex justify-between py-2">
-              <h1 class="mb-0">HP Notebook</h1>
-              <h1 class="text-gray-500 mb-0">$999</h1>
+              <h1 class="mb-0">{item?.productname}</h1>
+              <h1 class="text-gray-500 mb-0">{item?.newprice}</h1>
             </div>
             <div class="flex justify-between items-center mb-2">
               <p class="text-gray-500 mb-0">
-                Available: <span class="font-bold">6</span>
+                Available: <span class="font-bold">{item?.abailable}</span>
               </p>
               <div class="ml-auto text-yellow-600">
                 <ul class="flex justify-center">

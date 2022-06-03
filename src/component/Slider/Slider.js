@@ -33,7 +33,7 @@ const Slider = () => {
                     </h2>
                     <button
                       type="button"
-                      className="inline-block px-8 py-4 bg-orange-600 text-white font-medium text-sm leading-tight uppercase  shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
+                      className="inline-block px-8 py-3 bg-orange-600 text-white font-medium text-sm leading-tight uppercase  shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
                     >
                       SHOP NOW
                     </button>

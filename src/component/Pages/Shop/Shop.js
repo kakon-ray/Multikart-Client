@@ -3,16 +3,16 @@ import useProducts from "../../../Hook/useProducts";
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
-import Product from "../../Product/Product";
 import ReactPaginate from "react-paginate";
 import "./Shop.css";
 import PageBanner from "../../PageBanner/PageBanner";
+import Product from "../../Product/Product";
 
 const Shop = () => {
   const [products, setProducts] = useState();
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  const usersPerPage = 6;
+  const usersPerPage = 12;
   useEffect(() => {
     async function fetchFunction() {
       try {
@@ -73,22 +73,11 @@ const Shop = () => {
             </div>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-5">
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4  gap-5">
             {products?.map((item) => {
               return (
                 <React.Fragment key={item._id}>
-                  <Zoom>
-                    <Product
-                      key={item._id}
-                      name={item.name}
-                      img={item.img}
-                      text={item.text}
-                      price={item.price}
-                      supplierName={item.supplierName}
-                      id={item._id}
-                      quantity={item.quantity}
-                    ></Product>
-                  </Zoom>
+                  <Product />
                 </React.Fragment>
               );
             })}

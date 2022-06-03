@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
 
-const Table = ({ products, deleteItem, deleteManageInventory }) => {
-  if (products.length == 0) {
-    return <Loading />;
-  }
-
+const Table = () => {
   return (
     <div>
       <table className="min-w-full border text-center">
@@ -37,18 +33,7 @@ const Table = ({ products, deleteItem, deleteManageInventory }) => {
             >
               Price
             </th>
-            <th
-              scope="col"
-              className="text-x font-bold text-orange-900 uppercase px-6 py-4 border-r"
-            >
-              Supplier
-            </th>
-            <th
-              scope="col"
-              className="text-x font-bold text-orange-900 uppercase px-6 py-4 border-r"
-            >
-              ID
-            </th>
+
             <th
               scope="col"
               className="text-x font-bold text-orange-900 uppercase px-6 py-4"
@@ -58,54 +43,34 @@ const Table = ({ products, deleteItem, deleteManageInventory }) => {
           </tr>
         </thead>
         <tbody>
-          {products.map((item) => {
-            return (
-              <tr className="border-b" key={item._id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
-                  <img
-                    src={item.img}
-                    alt=""
-                    style={{ width: "40px", height: "50px" }}
-                  />
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
-                  {item.name}
-                </td>
+          <tr className="border-b">
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+              <img
+                src="https://multikart-react.vercel.app/assets/images/pro3/6.jpg"
+                alt=""
+                style={{ width: "40px", height: "50px" }}
+              />
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
+              belted dress
+            </td>
 
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-                  {item.quantity}
-                </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-                  {item.price}
-                </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-                  {item.supplierName}
-                </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-                  {item._id}
-                </td>
-                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                  {deleteManageInventory ? (
-                    <button
-                      onClick={() => deleteManageInventory(item._id)}
-                      type="button"
-                      className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-orange-500 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                    >
-                      Delete Inventory
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => deleteItem(item._id)}
-                      className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-orange-500 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                    >
-                      Delete Item
-                    </button>
-                  )}
-                </td>
-              </tr>
-            );
-          })}
+            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
+              12
+            </td>
+            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
+              100$
+            </td>
+
+            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+              <button
+                type="button"
+                className="inline-block font-bold text-center  mr-2 px-6 py-2 border border-gray-500 text-orange-500 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              >
+                Delete Product
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

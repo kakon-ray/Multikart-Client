@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import useProducts from "../../../Hook/useProducts";
+import useProducts from "../../Hook/useProducts";
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "./Shop.css";
-import PageBanner from "../../PageBanner/PageBanner";
-import Product from "../../Product/Product";
+import Product from "../../component/Product/Product";
+import PageBanner from "../../component/PageBanner/PageBanner";
 
 const Shop = () => {
   const [products, setProducts] = useState();

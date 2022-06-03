@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-
-import ProductSection from "../../ProductSection/ProductSection";
-import Delivery from "../../Section/Service/Service";
-import Slider from "../../Slider/Slider";
-import SpecialProduct from "../../SpecialProduct/SpecialProduct";
-import TopProduct from "../../TopProduct/TopProduct";
-import background from "../../../assets/img/slider3.jpg";
+import Slider from "../../component/Slider/Slider";
+import SpecialProduct from "../../component/SpecialProduct/SpecialProduct";
+import TopProduct from "../../component/TopProduct/TopProduct";
+import background from "../../assets/img/slider3.jpg";
+import ProductSection from "../../component/ProductSection/ProductSection";
 const myStyle = {
   backgroundImage: `url(${background})`,
   height: "100vh",

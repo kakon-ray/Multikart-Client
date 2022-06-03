@@ -9,6 +9,27 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  background-color: rgb(234 88 12);
+  width: 6px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(234 88 12);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(234 88 12);
+}
+
 @layer base {
   h1 {
     @apply text-2xl;

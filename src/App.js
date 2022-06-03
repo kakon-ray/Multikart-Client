@@ -1,13 +1,12 @@
+import { useState } from "react";
+
 import Footer from "./component/Footer/Footer";
 import Login from "./component/LoginRegistation/Login/Login";
 import Registaion from "./component/LoginRegistation/Registation/Registation";
 import Navbar from "./component/Navbar/Navbar";
 import Delivery from "./component/Section/Service/Service";
 
-import Slider from "./component/Slider/Slider";
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./component/Pages/Home/Home";
-import ManageItems from "./component/Pages/ManageItems/ManageItems";
 
 import AddItem from "./component/AddItem/AddItem";
 import Update from "./component/Update/Update";
@@ -16,12 +15,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
-import ServicesPage from "./component/Pages/Services/ServicesPage";
-import Error from "./component/Pages/Error/Error";
-import Shop from "./component/Pages/Shop/Shop";
-import { useState } from "react";
+
 import TopNavbar from "./component/TopNavbar/TopNavbar";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
+import Home from "./Page/Home/Home";
+import Shop from "./Page/Shop/Shop";
+import ServicesPage from "./Page/Services/ServicesPage";
 const App = () => {
   const [dark, setDark] = useState(null);
 
@@ -48,19 +47,10 @@ const App = () => {
           }
         />
         <Route path="/shop" element={<Shop></Shop>} />
-
         <Route path="services" element={<ServicesPage></ServicesPage>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="registation" element={<Registaion></Registaion>} />
 
-        <Route
-          path="manageitems"
-          element={
-            <RequireAuth>
-              <ManageItems></ManageItems>
-            </RequireAuth>
-          }
-        />
         <Route
           path="myitem"
           element={

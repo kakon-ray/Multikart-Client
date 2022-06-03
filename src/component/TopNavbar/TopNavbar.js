@@ -1,7 +1,10 @@
 import React from "react";
 import DashboardSidebar from "../../Dashboard/DashboardSidebar/DashboardSidebar";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faDashboard } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDashboard } from "@fortawesome/free-solid-svg-icons";
+import { faRegistered } from "@fortawesome/free-solid-svg-icons";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOut } from "@fortawesome/free-solid-svg-icons";
 const TopNavbar = ({ sendDataToParent }) => {
   return (
     <section>
@@ -15,9 +18,33 @@ const TopNavbar = ({ sendDataToParent }) => {
             id="flexSwitchCheckChecked"
           />
         </div>
-        <div>
-          {/* <FontAwesomeIcon icon={faDashboard} className="me-1" /> */}
-          <p className="text-white ">Dashboard</p>
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            icon={faDashboard}
+            className="mx-1 text-lg text-white"
+          />
+          <span className="text-white ">Dashboard</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            icon={faSignOut}
+            className="mx-1 text-lg text-white"
+          />
+          <span className="text-white ">Sign Out</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            icon={faSignInAlt}
+            className="mx-1 text-lg text-white"
+          />
+          <span className="text-white ">Login</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            icon={faRegistered}
+            className="mx-1 text-lg text-white"
+          />
+          <span className="text-white ">Registation</span>
         </div>
 
         <ion-icon

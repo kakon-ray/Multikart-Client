@@ -208,65 +208,56 @@ const Navbar = () => {
                 1
               </span>
             </a>
-            <ul
-              className="
-                    dropdown-menu
-                   dropdown-container
-                  "
-              aria-labelledby="dropdownMenuButton1"
-            >
-              <li>
-                <a className="nav-link" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a
-                  className="
-                      nav-link
-                      "
-                  href="#"
-                >
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="#">
-                  Something else here
-                </a>
-              </li>
-            </ul>
           </div>
           <div className="dropdown relative">
             <p className="dropdown-toggle flex items-center hidden-arrow">
-              {user ? (
-                <img
-                  src={user?.photoURL ? user?.photoURL : userPhoto}
-                  className="rounded-full"
-                  style={{ height: "25px", width: "25px" }}
-                  alt=""
-                  loading="lazy"
-                />
-              ) : (
-                <>
-                  <button
-                    onClick={() => navigation("/login")}
-                    type="button"
-                    data-mdb-ripple="true"
-                    data-mdb-ripple-color="light"
-                    className="btn-primary"
+              {user && (
+                <div class="dropdown relative">
+                  <a
+                    class="dropdown-toggle flex items-center hidden-arrow"
+                    href="#"
+                    id="dropdownMenuButton2"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    Login
-                  </button>
-                  <button
-                    type="button"
-                    data-mdb-ripple="true"
-                    data-mdb-ripple-color="light"
-                    className="btn-secondary"
+                    <img
+                      src={user?.photoURL ? user?.photoURL : userPhoto}
+                      className="rounded-full"
+                      style={{ height: "25px", width: "25px" }}
+                      alt=""
+                      loading="lazy"
+                    />
+                  </a>
+                  <ul
+                    className="
+                    dropdown-menu
+                   dropdown-container
+                  "
+                    aria-labelledby="dropdownMenuButton1"
                   >
-                    Registation
-                  </button>
-                </>
+                    <li>
+                      <a className="nav-link" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="
+                      nav-link
+                      "
+                        href="#"
+                      >
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="nav-link" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               )}
             </p>
             <ul

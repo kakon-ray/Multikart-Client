@@ -1,26 +1,21 @@
 import { useState } from "react";
-
 import Footer from "./component/Footer/Footer";
 import Login from "./component/LoginRegistation/Login/Login";
 import Registaion from "./component/LoginRegistation/Registation/Registation";
 import Navbar from "./component/Navbar/Navbar";
-import Delivery from "./component/Section/Service/Service";
-
 import { Routes, Route, Link } from "react-router-dom";
-
 import AddItem from "./component/AddItem/AddItem";
 import Update from "./component/Update/Update";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
-
 import TopNavbar from "./component/TopNavbar/TopNavbar";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
 import Home from "./Page/Home/Home";
 import Shop from "./Page/Shop/Shop";
 import ServicesPage from "./Page/Services/ServicesPage";
+import Error from "./Page/Error/Error";
 const App = () => {
   const [dark, setDark] = useState(null);
 
@@ -67,16 +62,15 @@ const App = () => {
             </RequireAuth>
           }
         />
-        <Route path="*" element={<Error></Error>} />
+        {/* Start Dashboard */}
         <Route path="dashboard" element={<Dashboard></Dashboard>}>
           <Route index element={<MyItem></MyItem>}></Route>
         </Route>
-      </Routes>
-      {/* Start Dashboard */}
+        {/* End dashboard */}
 
-      {/* End dashboard */}
+        <Route path="*" element={<Error></Error>} />
+      </Routes>
       <Footer></Footer>
-      <ToastContainer position="top-center" />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import PageBanner from "../../PageBanner/PageBanner";
-import img from "../../../assets/img/error.png";
+
+import img from "../../assets/img/error.png";
 const Error = () => {
   return (
     <div>

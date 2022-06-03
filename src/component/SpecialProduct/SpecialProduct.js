@@ -5,12 +5,12 @@ import product1 from "../../assets/img/product2.jpg";
 import product2 from "../../assets/img/product4.jpg";
 import product3 from "../../assets/img/product1.jpg";
 
-const ProductSection = () => {
+const SpecialProduct = () => {
   return (
     <div>
-      <section class="pb-12 text-gray-800 text-center mx-12 pt-12">
+      <section class="pb-12 text-gray-800 text-center mx-12 ">
         <h2 class="text-3xl font-bold mb-12">
-          TOP <span class="text-orange-600">COLLECTION</span>
+          SPECIAL <span class="text-orange-600"> PRODUCTS</span>
         </h2>
 
         <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-4 ">
@@ -24,4 +24,4 @@ const ProductSection = () => {
   );
 };
 
-export default ProductSection;
+export default SpecialProduct;

@@ -7,13 +7,7 @@ import Zoom from "react-reveal/Zoom";
 const Slider = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <img
-          src={pagebanner}
-          class="block w-full"
-          alt="Camera"
-          style={{ height: "550px" }}
-        />
+      <div>
         <div
           id="carouselExampleControls"
           class="carousel slide relative"

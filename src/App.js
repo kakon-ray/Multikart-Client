@@ -20,6 +20,8 @@ import ServicesPage from "./component/Pages/Services/ServicesPage";
 import Error from "./component/Pages/Error/Error";
 import Shop from "./component/Pages/Shop/Shop";
 import { useState } from "react";
+import TopNavbar from "./component/TopNavbar/TopNavbar";
+import Dashboard from "./Dashboard/Dashboard/Dashboard";
 const App = () => {
   const [dark, setDark] = useState(null);
 
@@ -32,7 +34,8 @@ const App = () => {
 
   return (
     <div className={`${dark ? "dark" : ""}`}>
-      <Navbar sendDataToParent={sendDataToParent}></Navbar>
+      <TopNavbar sendDataToParent={sendDataToParent} />
+      <Navbar></Navbar>
 
       <Routes>
         <Route path="/" element={<Home></Home>} />
@@ -75,7 +78,13 @@ const App = () => {
           }
         />
         <Route path="*" element={<Error></Error>} />
+        <Route path="dashboard" element={<Dashboard></Dashboard>}>
+          <Route index element={<MyItem></MyItem>}></Route>
+        </Route>
       </Routes>
+      {/* Start Dashboard */}
+
+      {/* End dashboard */}
       <Footer></Footer>
       <ToastContainer position="top-center" />
     </div>

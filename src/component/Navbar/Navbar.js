@@ -12,7 +12,7 @@ import logo from "../../assets/img/logo.png";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
 import { ReactComponent as Notification } from "../../assets/svg/notification.svg";
 
-const Navbar = ({ sendDataToParent }) => {
+const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
   const navigation = useNavigate();
@@ -45,6 +45,8 @@ const Navbar = ({ sendDataToParent }) => {
   return (
     <nav
       className="
+      sticky top-0
+      z-40
       dark:bg-black
         relative
         w-full
@@ -156,15 +158,7 @@ const Navbar = ({ sendDataToParent }) => {
         {/* <!-- Right elements --> */}
         <div className="flex items-center relative">
           {/* <!-- Icon --> */}
-          <div className={`form-check form-switch pr-3 pl-0 flex items-center`}>
-            <input
-              className="form-check-input appearance-none w-7 rounded-full h-4 align-top  bg-no-repeat checked:bg-orange-600 bg-orange-600 focus:outline-none cursor-pointer shadow-sm"
-              type="checkbox"
-              onChange={(e) => sendDataToParent(e.target.checked)}
-              role="switch"
-              id="flexSwitchCheckChecked"
-            />
-          </div>
+
           <a
             className="text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4"
             href="#"

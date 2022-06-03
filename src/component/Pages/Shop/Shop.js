@@ -108,19 +108,6 @@ const Shop = () => {
             activeClassName={"paginationActive"}
           />
         </div>
-
-        <Fade right>
-          <div className="flex justify-center mt-12">
-            <Link to="/manageitems">
-              <button
-                type="button"
-                className="inline-block  bg-black dark:bg-orange-600 dark:hover:bg-orange-600 font-bold text-center mr-2 px-10 py-3 skew-x-12  text-gray-300 font-medium text-xs leading-tight  hover:bg-orange-600 hover:text-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-              >
-                Manage Inventory
-              </button>
-            </Link>
-          </div>
-        </Fade>
       </div>
     </div>
   );

@@ -8,3 +8,24 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+}
+@layer components {
+  .btn-primary {
+    @apply inline-block px-6 mx-1 py-2.5 bg-gray-200 text-orange-700 font-medium text-xs leading-tight  rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .btn-secondary {
+    @apply inline-block mx-1 px-4 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight  rounded-full shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .nav-link {
+    @apply dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100;
+  }
+
+  .dropdown-container {
+    @apply min-w-max absolute bg-white text-base z-50 float-left py-2 top-11 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0;
+  }
+}

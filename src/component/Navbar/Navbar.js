@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Button from "../Button";
 import CustomLink from "../CustomeLink/CustomeLink";
+import CustomLinkMobile from "../CustomeLink/CustomeLinkMobile";
 import userPhoto from "../../assets/img/user.png";
 import { toast } from "react-toastify";
 import logo from "../../assets/img/logo.png";
@@ -50,7 +51,8 @@ const Navbar = ({ sendDataToParent }) => {
         flex flex-wrap
         items-center
         justify-between
-        py-4
+        py-3 
+        lg:py-0
         bg-gray-100
         text-gray-500
         hover:text-gray-700
@@ -66,8 +68,7 @@ const Navbar = ({ sendDataToParent }) => {
                 text-gray-500
                 border-0
                 hover:shadow-none hover:no-underline
-                py-2
-                px-2.5
+                my-4
                 bg-transparent
                 focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline
               "
@@ -121,40 +122,33 @@ const Navbar = ({ sendDataToParent }) => {
           </a>
           {/* <!-- Left links --> */}
           <ul className="navbar-nav flex flex-col pl-0 lg:pl-8 list-style-none mr-auto">
-            {user ? (
-              <>
-                {userLinks.map((link) => (
-                  <li
-                    key={link.name}
-                    className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
-                  >
-                    <CustomLink
-                      to={link.link}
-                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
-                    >
-                      {link.name}
-                    </CustomLink>
-                  </li>
-                ))}
-              </>
-            ) : (
-              <>
-                {Links.map((link) => (
-                  <li
-                    key={link.name}
-                    className="md:mr-5 xl:mr-12 lg:mr-8 text-lg md:my-3 my-7"
-                  >
-                    <CustomLink
-                      to={link.link}
-                      className="text-gray-500 hover:text-purple-700 duration-500 font-bold"
-                    >
-                      {link.name}
-                    </CustomLink>
-                  </li>
-                ))}
-              </>
-            )}
+            {Links.map((link) => (
+              <li
+                key={link.name}
+                style={{ padding: "22px 0" }}
+                className="hidden lg:block"
+              >
+                <CustomLink
+                  to={link.link}
+                  className="text-gray-500 hover:text-bg-orange-600 duration-500 font-bold"
+                >
+                  {link.name}
+                </CustomLink>
+              </li>
+            ))}
+
+            {Links.map((link) => (
+              <li key={link.name} className="lg:hidden py-3">
+                <CustomLinkMobile
+                  to={link.link}
+                  className="text-gray-500 hover:text-bg-orange-600 duration-500 font-bold"
+                >
+                  {link.name}
+                </CustomLinkMobile>
+              </li>
+            ))}
           </ul>
+
           {/* <!-- Left links --> */}
         </div>
         {/* <!-- Collapsible wrapper --> */}
@@ -228,61 +222,19 @@ const Navbar = ({ sendDataToParent }) => {
             <ul
               className="
                     dropdown-menu
-                    min-w-max
-                    absolute
-                    bg-white
-                    text-base
-                    z-50
-                    float-left
-                    py-2
-                    list-none
-                    text-left
-                    rounded-lg
-                    shadow-lg
-                    mt-1
-                    hidden
-                    m-0
-                    bg-clip-padding
-                    border-none
-                    left-auto
-                    right-0
+                   dropdown-container
                   "
               aria-labelledby="dropdownMenuButton1"
             >
               <li>
-                <a
-                  className="
-                        dropdown-item
-                        text-sm
-                        py-2
-                        px-4
-                        font-normal
-                        block
-                        w-full
-                        whitespace-nowrap
-                        bg-transparent
-                        text-gray-700
-                        hover:bg-gray-100
-                      "
-                  href="#"
-                >
+                <a className="nav-link" href="#">
                   Action
                 </a>
               </li>
               <li>
                 <a
                   className="
-                        dropdown-item
-                        text-sm
-                        py-2
-                        px-4
-                        font-normal
-                        block
-                        w-full
-                        whitespace-nowrap
-                        bg-transparent
-                        text-gray-700
-                        hover:bg-gray-100
+                      nav-link
                       "
                   href="#"
                 >
@@ -290,36 +242,14 @@ const Navbar = ({ sendDataToParent }) => {
                 </a>
               </li>
               <li>
-                <a
-                  className="
-                        dropdown-item
-                        text-sm
-                        py-2
-                        px-4
-                        font-normal
-                        block
-                        w-full
-                        whitespace-nowrap
-                        bg-transparent
-                        text-gray-700
-                        hover:bg-gray-100
-                      "
-                  href="#"
-                >
+                <a className="nav-link" href="#">
                   Something else here
                 </a>
               </li>
             </ul>
           </div>
           <div className="dropdown relative">
-            <a
-              className="dropdown-toggle flex items-center hidden-arrow"
-              href="#"
-              id="dropdownMenuButton2"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <p className="dropdown-toggle flex items-center hidden-arrow">
               {user ? (
                 <img
                   src={user?.photoURL ? user?.photoURL : userPhoto}
@@ -331,24 +261,25 @@ const Navbar = ({ sendDataToParent }) => {
               ) : (
                 <>
                   <button
+                    onClick={() => navigation("/login")}
                     type="button"
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
-                    className="inline-block px-6 mx-1 py-2.5 bg-gray-200 text-orange-700 font-medium text-xs leading-tight  rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                    className="btn-primary"
                   >
-                    Sign in
+                    Login
                   </button>
                   <button
                     type="button"
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
-                    className="inline-block mx-1 px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight  rounded-full shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                    className="btn-secondary"
                   >
-                    Sign up
+                    Registation
                   </button>
                 </>
               )}
-            </a>
+            </p>
             <ul
               className="
                     dropdown-menu

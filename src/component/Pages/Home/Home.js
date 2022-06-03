@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProductSection from "../../ProductSection/ProductSection";
 import Delivery from "../../Section/Service/Service";
 import Slider from "../../Slider/Slider";
 
@@ -25,6 +26,7 @@ const Home = () => {
   return (
     <div className="dark:bg-black">
       <Slider></Slider>
+      <ProductSection />
     </div>
   );
 };

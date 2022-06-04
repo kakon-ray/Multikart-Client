@@ -1,6 +1,6 @@
 import React from "react";
-import { GET_PRODUCTS } from "../type";
-import { GetProducts } from "../../api/axiosRequest";
+import { GET_PRODUCTS, POST_PRODUCTS } from "../type";
+import { GetProducts, AddToCartList } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
   return function (dispatch) {
@@ -12,5 +12,19 @@ const GetApiAction = () => {
     });
   };
 };
+const AddToCartApiAction = (request) => {
+  return function (dispatch) {
+    dispatch({
+      type: POST_PRODUCTS,
+      payload: false,
+    });
+    return AddToCartList(request).then((res) => {
+      dispatch({
+        type: POST_PRODUCTS,
+        payload: true,
+      });
+    });
+  };
+};
 
-export default GetApiAction;
+export { GetApiAction, AddToCartApiAction };

@@ -5,7 +5,7 @@ import product1 from "../../assets/img/product2.jpg";
 import product2 from "../../assets/img/product4.jpg";
 import product3 from "../../assets/img/product1.jpg";
 import { useDispatch, useSelector } from "react-redux";
-import GetApiAction from "../../redux/action/Action";
+import { GetApiAction } from "../../redux/action/Action";
 
 const SpecialProduct = () => {
   const dispatch = useDispatch();

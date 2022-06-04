@@ -14,8 +14,11 @@
       "newprice": "90",
       "abailable": "6",
       "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
-    },
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "2"
+    }
+  ],
+  "cartlist": [
     {
       "productname": "Belted Dress",
       "oldprice": "109",
@@ -30,7 +33,8 @@
       "newprice": "90",
       "abailable": "6",
       "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "2"
     },
     {
       "productname": "Belted Dress",
@@ -38,7 +42,8 @@
       "newprice": "90",
       "abailable": "6",
       "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "kre5-Gu"
     },
     {
       "productname": "Belted Dress",
@@ -46,23 +51,8 @@
       "newprice": "90",
       "abailable": "6",
       "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
-    },
-    {
-      "productname": "Belted Dress",
-      "oldprice": "109",
-      "newprice": "90",
-      "abailable": "6",
-      "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
-    },
-    {
-      "productname": "Belted Dress",
-      "oldprice": "109",
-      "newprice": "90",
-      "abailable": "6",
-      "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "duVe0_l"
     }
   ]
 }

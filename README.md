@@ -15,3 +15,4 @@
 > - ## get data fetch axios and async await
 
 > - ## use sweet alert
+> - ## json-server --watch db.json

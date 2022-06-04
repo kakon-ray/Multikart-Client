@@ -4,18 +4,17 @@ import product from "../../assets/img/product1.jpg";
 import product1 from "../../assets/img/product2.jpg";
 import product2 from "../../assets/img/product4.jpg";
 import product3 from "../../assets/img/product1.jpg";
-import GetApiAction from "../../redux/action/Action";
+import { GetApiAction } from "../../redux/action/Action";
 import { useSelector, useDispatch } from "react-redux";
 
 const ProductSection = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.Reducer.products);
-
-  console.log("==========", products);
+  const product = useSelector((state) => state.Reducer.products);
+  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
 
   useEffect(() => {
     dispatch(GetApiAction());
-  }, []);
+  }, [dispatch, postSuccess]);
 
   return (
     <div>
@@ -25,7 +24,7 @@ const ProductSection = () => {
         </h2>
 
         <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-x-4 ">
-          {products?.map((item) => {
+          {product?.map((item) => {
             return <Product img={product} item={item} />;
           })}
         </div>

@@ -1,9 +1,28 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
-
+import { AddToCartApiAction } from "../../redux/action/Action";
 const Product = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const productname = item.productname;
+  const oldprice = item.oldprice;
+  const newprice = item.newprice;
+  const abailable = item.abailable;
+  const rating = item.rating;
+  const img = item.img;
+
+  const product = {
+    productname,
+    oldprice,
+    newprice,
+    abailable,
+    rating,
+    img,
+  };
+
   const addToCart = () => {
-    console.log("add to cart list");
+    dispatch(AddToCartApiAction(product));
   };
   return (
     <>

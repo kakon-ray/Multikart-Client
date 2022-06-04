@@ -25,18 +25,18 @@ const GetProducts = () => {
   return AxiosRequest("http://localhost:3000/product", "GET", headers, {});
 };
 
+const AddToCartList = (data) => {
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  return AxiosRequest("http://localhost:3000/cartlist", "POST", headers, data);
+};
+
 const GetProductById = (id) => {
   const headers = {
     "Content-Type": "application/json",
   };
   return AxiosRequest("http://localhost:3000/product" + id, "GET", headers, {});
-};
-
-const PostPrductById = (data) => {
-  const headers = {
-    "content-type": "application/json",
-  };
-  return AxiosRequest("http://localhost:3000/product", "POST", headers, data);
 };
 
 const UpdateApiById = (data, id) => {
@@ -66,7 +66,7 @@ const DeleteProductById = (id) => {
 export {
   GetProducts,
   GetProductById,
-  PostPrductById,
+  AddToCartList,
   UpdateApiById,
   DeleteProductById,
 };

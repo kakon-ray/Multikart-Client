@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./component/Footer/Footer";
 import Login from "./component/LoginRegistation/Login/Login";
 import Registaion from "./component/LoginRegistation/Registation/Registation";
@@ -6,7 +6,7 @@ import Navbar from "./component/Navbar/Navbar";
 import { Routes, Route, Link } from "react-router-dom";
 import AddItem from "./component/AddItem/AddItem";
 import Update from "./component/Update/Update";
-import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import MyItem from "./component/MyItem/MyItem";
@@ -16,11 +16,11 @@ import Home from "./Page/Home/Home";
 import Shop from "./Page/Shop/Shop";
 import ServicesPage from "./Page/Services/ServicesPage";
 import Error from "./Page/Error/Error";
-import CartListTableRow from "./Dashboard/CartList/CartListTableRow";
 import CartList from "./Dashboard/CartList/CartList";
 import Profile from "./Dashboard/Profile/Profile";
 import WishList from "./Dashboard/WishList/WishList";
 import MyOrder from "./Dashboard/MyOrder/MyOrder";
+
 const App = () => {
   const [dark, setDark] = useState(null);
 
@@ -28,8 +28,6 @@ const App = () => {
     const darkValue = showDriveAction;
     setDark(darkValue);
   };
-
-  // console.log(dark);
 
   return (
     <div className={`${dark ? "dark" : ""}`}>

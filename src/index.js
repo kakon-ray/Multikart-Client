@@ -9,13 +9,13 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.Fragment>
-      <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.Fragment>
         <App />
-      </Provider>
-    </React.Fragment>
-  </BrowserRouter>
+      </React.Fragment>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

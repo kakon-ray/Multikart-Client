@@ -1,12 +1,28 @@
 import React from "react";
-import { GET_PRODUCTS, POST_PRODUCTS } from "../type";
-import { GetProducts, AddToCartList } from "../../api/axiosRequest";
+import { GET_PRODUCTS, POST_PRODUCTS, CART_LIST } from "../type";
+import {
+  GetProducts,
+  AddToCartList,
+  GetCartList,
+} from "../../api/axiosRequest";
 
 const GetApiAction = () => {
   return function (dispatch) {
     return GetProducts().then((res) => {
+      console.log(res);
       dispatch({
         type: GET_PRODUCTS,
+        payload: res.data,
+      });
+    });
+  };
+};
+
+const getApiCartListAction = () => {
+  return function (dispatch) {
+    return GetCartList().then((res) => {
+      dispatch({
+        type: CART_LIST,
         payload: res.data,
       });
     });
@@ -27,4 +43,4 @@ const AddToCartApiAction = (request) => {
   };
 };
 
-export { GetApiAction, AddToCartApiAction };
+export { GetApiAction, AddToCartApiAction, getApiCartListAction };

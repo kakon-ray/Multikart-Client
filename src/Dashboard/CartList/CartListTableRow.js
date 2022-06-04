@@ -1,24 +1,20 @@
 import React from "react";
 
-const CartListTableRow = () => {
+const CartListTableRow = ({ item }) => {
   return (
     <tr className="border-b">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
-        <img
-          src="https://multikart-react.vercel.app/assets/images/pro3/6.jpg"
-          alt=""
-          style={{ width: "40px", height: "50px" }}
-        />
+        <img src={item.img} alt="" style={{ width: "40px", height: "50px" }} />
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
-        belted dress
+        {item.productname}
       </td>
 
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        12
+        {item.abailable}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        100$
+        {item.newprice}
       </td>
 
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">

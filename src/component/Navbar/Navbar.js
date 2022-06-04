@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -15,11 +15,21 @@ import DashboardSidebar from "../../Dashboard/DashboardSidebar/DashboardSidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SidebarOffCanvas from "../../Dashboard/SidebarOffCanvas/SidebarOffCanvas";
+import { useDispatch, useSelector } from "react-redux";
+import { getApiCartListAction } from "../../redux/action/Action";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const cartItem = useSelector((state) => state.Reducer.cartitem);
+  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
+
+  useEffect(() => {
+    dispatch(getApiCartListAction());
+  }, [dispatch, postSuccess]);
 
   let Links = [
     { name: "Home", link: "/" },
@@ -28,19 +38,13 @@ const Navbar = () => {
     { name: "Shop", link: "/shop" },
   ];
 
-  let userLinks = [
-    // { name: "My Item", link: "/myitem" },
-    // { name: "Add Item", link: "/add" },
-    // { name: "Manage Inventory", link: "/manageitems" },
-  ];
-
   const logOut = () => {
     toast.success("Logout Successfully");
     signOut(auth);
 
     // localStorage.removeItem("accessToken");
   };
-
+  console.log(cartItem);
   return (
     <nav
       className="
@@ -155,15 +159,32 @@ const Navbar = () => {
         {/* <!-- Collapsible wrapper --> */}
 
         {/* <!-- Right elements --> */}
-        <div className="flex items-center relative">
+        <div className="flex items-center relative gap-2">
           {/* <!-- Icon --> */}
 
-          <a
-            className="text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4"
-            href="#"
-          >
-            <CartIcon />
-          </a>
+          <Link to="/cartlist">
+            <span
+              onClick={() => navigate("/dashboard/cartlist")}
+              className="
+                      text-gray-500
+                      hover:text-gray-700
+                      focus:text-gray-700
+                      mr-4
+                      dropdown-toggle
+                      hidden-arrow
+                      flex items-center
+                    "
+              id="dropdownMenuButton1"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <CartIcon />
+              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+                {cartItem?.length}
+              </span>
+            </span>
+          </Link>
 
           <a
             className="
@@ -186,7 +207,7 @@ const Navbar = () => {
               style={{ fontSize: "22px" }}
             ></ion-icon>
             <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              1
+              00
             </span>
           </a>
 
@@ -209,7 +230,7 @@ const Navbar = () => {
             >
               <Notification />
               <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">
-                1
+                10
               </span>
             </a>
           </div>

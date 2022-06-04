@@ -10,11 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 const ProductSection = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.Reducer.products);
-  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
-
-  useEffect(() => {
-    dispatch(GetApiAction());
-  }, [dispatch, postSuccess]);
 
   return (
     <div>

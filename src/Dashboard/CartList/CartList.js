@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CartListTableRow from "./CartListTableRow";
-
+import { getApiCartListAction } from "../../redux/action/Action";
 const CartList = () => {
+  const dispatch = useDispatch();
+
+  const cartItem = useSelector((state) => state.Reducer.cartitem);
+  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
+
+  useEffect(() => {
+    dispatch(getApiCartListAction());
+  }, [dispatch, postSuccess]);
+
   return (
     <div>
       <div className="dark:bg-black">
@@ -51,7 +61,11 @@ const CartList = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <CartListTableRow></CartListTableRow>
+                      {cartItem?.map((item) => {
+                        return (
+                          <CartListTableRow item={item}></CartListTableRow>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

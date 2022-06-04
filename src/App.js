@@ -16,6 +16,11 @@ import Home from "./Page/Home/Home";
 import Shop from "./Page/Shop/Shop";
 import ServicesPage from "./Page/Services/ServicesPage";
 import Error from "./Page/Error/Error";
+import CartListTableRow from "./Dashboard/CartList/CartListTableRow";
+import CartList from "./Dashboard/CartList/CartList";
+import Profile from "./Dashboard/Profile/Profile";
+import WishList from "./Dashboard/WishList/WishList";
+import MyOrder from "./Dashboard/MyOrder/MyOrder";
 const App = () => {
   const [dark, setDark] = useState(null);
 
@@ -64,12 +69,60 @@ const App = () => {
         />
         {/* Start Dashboard */}
         <Route path="dashboard" element={<Dashboard></Dashboard>}>
-          <Route index element={<MyItem></MyItem>}></Route>
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <Profile></Profile>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="updateprofile/:id"
+            element={
+              <RequireAuth>
+                <AddItem></AddItem>
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="cartlist"
+            element={
+              <RequireAuth>
+                <CartList></CartList>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="wishlist"
+            element={
+              <RequireAuth>
+                <WishList></WishList>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="comparelist"
+            element={
+              <RequireAuth>
+                <WishList></WishList>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="myorder"
+            element={
+              <RequireAuth>
+                <MyOrder></MyOrder>
+              </RequireAuth>
+            }
+          />
         </Route>
-        {/* End dashboard */}
 
         <Route path="*" element={<Error></Error>} />
       </Routes>
+      {/* End dashboard */}
       <Footer></Footer>
     </div>
   );

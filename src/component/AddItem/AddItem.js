@@ -51,11 +51,10 @@ const AddItem = () => {
   };
   return (
     <div>
-      <PageBanner page="Add Products"></PageBanner>
-      <section className="h-full gradient-form bg-gray-200 dark:bg-black">
-        <div className="container mx-auto px-4 md:px-20 py-24 h-full">
+      <section className="h-full gradient-form bg-gray-200 dark:bg-black py-8">
+        <div className="container mx-auto px-4 md:px-20 h-full">
           <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-            <div className="xl:w-10/12">
+            <div className="">
               <div className="block bg-white shadow-lg rounded-lg">
                 <div className="lg:flex lg:flex-wrap g-0">
                   <div className="lg:w-6/12 px-4 md:px-0 dark:bg-black">
@@ -145,7 +144,7 @@ const AddItem = () => {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                        Hello this is a warehouse consectetur adipisicing elit,
+                        Hello this is a Multicart consectetur adipisicing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
                         exercitation ullamco laboris nisi ut aliquip ex ea

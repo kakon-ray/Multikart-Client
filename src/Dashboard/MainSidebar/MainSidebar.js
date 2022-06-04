@@ -1,57 +1,63 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SidebarLink from "../SidebarLink/SidebarLink";
+import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 const MainSidebar = () => {
   return (
     <div>
       <div className="lg:col-span-1 col-span-5 dark:bg-black">
         <div className="w-100 h-screen hidden lg:block border shadow-md bg-white px-1 dark:bg-black dark:text-white">
-          <h1 className="text-3xl text-secondary dark:text-white p-6">
-            Dashboard
+          <h1 className="text-2xl dark:text-white p-5 text-gray-500">
+            Manage My Account
           </h1>
           <ul className="relative">
             <Link to="/dashboard">
               <SidebarLink
                 title="Profile"
-                icon={<ion-icon name="person-circle-outline"></ion-icon>}
+                icon={
+                  <ion-icon
+                    name="person-circle-outline"
+                    style={{ fontSize: "23px" }}
+                  ></ion-icon>
+                }
               />
             </Link>
 
             <>
-              <Link to="/dashboard/addproduct">
+              <Link to="/dashboard/cartlist">
+                <SidebarLink title="Cart List" icon={<CartIcon />} />
+              </Link>
+              <Link to="/dashboard/wishlist">
                 <SidebarLink
-                  title="Add Product"
-                  icon={<ion-icon name="cloud-upload-outline"></ion-icon>}
+                  title="Wish List"
+                  icon={
+                    <ion-icon
+                      name="heart-outline"
+                      style={{ fontSize: "20px" }}
+                    ></ion-icon>
+                  }
                 />
               </Link>
-              <Link to="/dashboard/makeadmin">
+              <Link to="/dashboard/comparelist">
                 <SidebarLink
-                  title="Make Admin"
-                  icon={<ion-icon name="person-add-outline"></ion-icon>}
+                  title="Compare List"
+                  icon={
+                    <FontAwesomeIcon icon={faCodeCompare} className="text-sm" />
+                  }
                 />
               </Link>
-              <Link to="/dashboard/manageAllOrder">
+              <Link to="/dashboard/myorder">
                 <SidebarLink
-                  title="Manage All Order"
-                  icon={<ion-icon name="cut-outline"></ion-icon>}
-                />
-              </Link>
-              <Link to="/dashboard/manageProduct">
-                <SidebarLink
-                  title="Manage Product"
+                  title="My Order"
                   icon={<ion-icon name="build-outline"></ion-icon>}
                 />
               </Link>
             </>
 
             <>
-              <Link to="/dashboard/myorder">
-                <SidebarLink
-                  title="My Order"
-                  icon={<ion-icon name="infinite-outline"></ion-icon>}
-                />
-              </Link>
-              <Link to="/dashboard/dashboardreview">
+              <Link to="/dashboard/addReview">
                 <SidebarLink
                   title="Add Review"
                   icon={<ion-icon name="star-outline"></ion-icon>}

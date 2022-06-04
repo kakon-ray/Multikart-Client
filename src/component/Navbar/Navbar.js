@@ -352,7 +352,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div
-            className="flex items-center mx-2 cursor-pointer lg:hidden"
+            className="flex items-center ml-2 cursor-pointer lg:hidden"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasExample"
@@ -361,7 +361,7 @@ const Navbar = () => {
           >
             <FontAwesomeIcon
               icon={faBars}
-              className="mx-2 text-lg text-orange-600"
+              className="ml-2 text-lg text-orange-600"
             />
           </div>
         </div>

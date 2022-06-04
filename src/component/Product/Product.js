@@ -2,25 +2,20 @@ import React from "react";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
 
 const Product = ({ item }) => {
+  const addToCart = () => {
+    console.log("add to cart list");
+  };
   return (
     <>
       <div class="mb-6 lg:mb-0">
-        <div class="bg-white block rounded-lg shadow-lg">
+        <div class="bg-white border block rounded-lg shadow-lg">
           <div class="relative overflow-hidden bg-no-repeat bg-cover">
             <div className="absolute left-2 top-2">
-              <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-orange-500 text-white rounded-full">
+              <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full">
                 New
               </span>
             </div>
-            <div className="absolute right-2 top-2">
-              <span class="flex gap-3 text-xs  py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold text-orange-600 rounded-full">
-                <CartIcon />
-                <ion-icon
-                  name="heart-outline"
-                  style={{ fontSize: "18px" }}
-                ></ion-icon>
-              </span>
-            </div>
+
             <img
               src={item?.img}
               class="w-full rounded-t-lg"
@@ -43,25 +38,26 @@ const Product = ({ item }) => {
           </div>
           <div className="p-6">
             <div class="flex justify-between">
-              <p class="text-lg">
-                <a href="#!" class="text-gray-500">
-                  Laptops
-                </a>
+              <p class="text-gray-500 mb-0">
+                Available: <span class="font-bold">{item?.abailable}</span>
               </p>
               <p class="text-lg text-red-600">
                 <s>{item?.oldprice}</s>
               </p>
             </div>
             <div class="flex justify-between py-2">
-              <h1 class="mb-0">{item?.productname}</h1>
-              <h1 class="text-gray-500 mb-0">{item?.newprice}</h1>
+              <h2 class="mb-0 text-xl">{item?.productname}</h2>
+              <h2 class="text-gray-500 mb-0 text-xl">{item?.newprice}</h2>
             </div>
             <div class="flex justify-between items-center mb-2">
-              <p class="text-gray-500 mb-0">
-                Available: <span class="font-bold">{item?.abailable}</span>
-              </p>
+              <button className="bg-orange-600 text-white flex justify-center p-2 rounded hover:bg-orange-700 transition">
+                <ion-icon
+                  name="heart-outline"
+                  style={{ fontSize: "18px" }}
+                ></ion-icon>
+              </button>
               <div class="ml-auto text-yellow-600">
-                <ul class="flex justify-center">
+                <ul class="flex justify-center ">
                   <li>
                     <svg
                       aria-hidden="true"
@@ -151,6 +147,13 @@ const Product = ({ item }) => {
               </div>
             </div>
           </div>
+
+          <button
+            className="bg-orange-600 text-white text-sm hover:bg-orange-700 active:bg-orange-700 px-3 py-2 w-full transition"
+            onClick={addToCart}
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </>

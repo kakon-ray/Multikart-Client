@@ -4,6 +4,7 @@ import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
 import {
   AddToCartApiAction,
   AddToWishApiAction,
+  AddToCompareListApiAction,
 } from "../../redux/action/Action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
@@ -32,6 +33,9 @@ const Product = ({ item }) => {
   };
   const addToWishlist = () => {
     dispatch(AddToWishApiAction(product));
+  };
+  const addToCompareList = () => {
+    dispatch(AddToCompareListApiAction(product));
   };
   return (
     <>
@@ -95,7 +99,7 @@ const Product = ({ item }) => {
                   ></ion-icon>
                 </button>
                 <button
-                  onClick={addToWishlist}
+                  onClick={addToCompareList}
                   className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
                 >
                   <FontAwesomeIcon

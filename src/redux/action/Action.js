@@ -5,6 +5,7 @@ import {
   GET_CARTLIST,
   ADD_WISHLIST,
   GET_WISHLIST,
+  ADD_COMPARELIST,
 } from "../type";
 import {
   GetProducts,
@@ -12,6 +13,7 @@ import {
   GetCartList,
   GetWishList,
   AddToWishList,
+  AddToCompareList,
 } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
@@ -76,6 +78,22 @@ const AddToWishApiAction = (request) => {
     });
   };
 };
+const AddToCompareListApiAction = (request) => {
+  console.log(request);
+  return function (dispatch) {
+    dispatch({
+      type: ADD_COMPARELIST,
+      payload: false,
+    });
+    return AddToWishList(request).then((res) => {
+      console.log(res);
+      dispatch({
+        type: ADD_COMPARELIST,
+        payload: true,
+      });
+    });
+  };
+};
 
 export {
   GetApiAction,
@@ -83,4 +101,5 @@ export {
   getApiCartListAction,
   AddToWishApiAction,
   getApiWishListAction,
+  AddToCompareListApiAction,
 };

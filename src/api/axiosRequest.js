@@ -76,6 +76,15 @@ const AddToWishList = async (data) => {
   });
   return postValue;
 };
+const AddToCompareList = async (data) => {
+  const postValue = await axios({
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    url: "http://localhost:3000/comparelist",
+    data: data,
+  });
+  return postValue;
+};
 
 const GetProductById = (id) => {
   const headers = {
@@ -115,5 +124,6 @@ export {
   GetProductById,
   AddToCartList,
   AddToWishList,
+  AddToCompareList,
   DeleteProductById,
 };

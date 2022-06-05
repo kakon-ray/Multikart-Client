@@ -8,7 +8,7 @@ const WishList = () => {
   // get wishlist item
   const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);
   const addWishListResponce = useSelector(
-    (state) => state.Reducer.wishlistITem
+    (state) => state.Reducer.addWishListResponce
   );
 
   useEffect(() => {

@@ -14,6 +14,7 @@ import { ReactComponent as Notification } from "../../assets/svg/notification.sv
 import DashboardSidebar from "../../Dashboard/DashboardSidebar/DashboardSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import SidebarOffCanvas from "../../Dashboard/SidebarOffCanvas/SidebarOffCanvas";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -37,7 +38,7 @@ const Navbar = () => {
   // get wishlist item
   const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);
   const addWishListResponce = useSelector(
-    (state) => state.Reducer.wishlistITem
+    (state) => state.Reducer.addWishListResponce
   );
 
   useEffect(() => {
@@ -223,30 +224,28 @@ const Navbar = () => {
               {wishlistITem?.length}
             </span>
           </a>
-
-          <div className="dropdown relative">
-            <a
-              className="
+          <a
+            className="
                       text-gray-500
                       hover:text-gray-700
                       focus:text-gray-700
-                      mr-4
+                      mr-2
                       dropdown-toggle
                       hidden-arrow
                       flex items-center
                     "
-              href="#"
-              id="dropdownMenuButton1"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <Notification />
-              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">
-                10
-              </span>
-            </a>
-          </div>
+            href="#"
+            id="dropdownMenuButton1"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <FontAwesomeIcon icon={faCodeCompare} className="text-lg " />
+            <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+              {wishlistITem?.length}
+            </span>
+          </a>
+
           <div className="dropdown relative">
             <p className="dropdown-toggle flex items-center hidden-arrow">
               {user && (

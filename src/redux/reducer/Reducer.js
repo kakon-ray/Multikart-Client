@@ -6,6 +6,7 @@ import {
   ADD_WISHLIST,
   GET_WISHLIST,
   ADD_COMPARELIST,
+  GET_COMPARELIST,
 } from "../type";
 
 const initialState = {
@@ -44,6 +45,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         wishlistITem: action.payload,
+      };
+    case GET_COMPARELIST:
+      return {
+        ...state,
+        compareItem: action.payload,
       };
 
     default:

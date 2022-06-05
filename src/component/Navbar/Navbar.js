@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getApiCartListAction,
   getApiWishListAction,
+  getApiCompareListAction,
 } from "../../redux/action/Action";
 
 const Navbar = () => {
@@ -44,6 +45,16 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(getApiWishListAction());
   }, [dispatch, addWishListResponce]);
+
+  // get comparelist item
+  const comparelistITem = useSelector((state) => state.Reducer.compareItem);
+  const addCompareListResponce = useSelector(
+    (state) => state.Reducer.addCompareListResponce
+  );
+
+  useEffect(() => {
+    dispatch(getApiCompareListAction());
+  }, [dispatch, addCompareListResponce]);
 
   let Links = [
     { name: "Home", link: "/" },
@@ -242,7 +253,7 @@ const Navbar = () => {
           >
             <FontAwesomeIcon icon={faCodeCompare} className="text-lg " />
             <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              {wishlistITem?.length}
+              {comparelistITem?.length}
             </span>
           </a>
 

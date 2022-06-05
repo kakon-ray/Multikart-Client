@@ -57,6 +57,19 @@ const GetWishList = async () => {
 
   return getcartValue;
 };
+const GetComareList = async () => {
+  const getcartValue = await axios({
+    url: "http://localhost:3000/comparelist",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {},
+    timeout: 1000,
+  });
+
+  return getcartValue;
+};
 
 const AddToCartList = async (data) => {
   const postValue = await axios({
@@ -126,4 +139,5 @@ export {
   AddToWishList,
   AddToCompareList,
   DeleteProductById,
+  GetComareList,
 };

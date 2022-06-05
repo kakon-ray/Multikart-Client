@@ -6,6 +6,7 @@ import {
   ADD_WISHLIST,
   GET_WISHLIST,
   ADD_COMPARELIST,
+  GET_COMPARELIST,
 } from "../type";
 import {
   GetProducts,
@@ -14,12 +15,12 @@ import {
   GetWishList,
   AddToWishList,
   AddToCompareList,
+  GetComareList,
 } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
   return function (dispatch) {
     return GetProducts().then((res) => {
-      console.log(res);
       dispatch({
         type: GET_PRODUCTS,
         payload: res.data,
@@ -48,6 +49,16 @@ const getApiWishListAction = () => {
     });
   };
 };
+const getApiCompareListAction = () => {
+  return function (dispatch) {
+    return GetComareList().then((res) => {
+      dispatch({
+        type: GET_COMPARELIST,
+        payload: res.data,
+      });
+    });
+  };
+};
 const AddToCartApiAction = (request) => {
   return function (dispatch) {
     dispatch({
@@ -63,14 +74,12 @@ const AddToCartApiAction = (request) => {
   };
 };
 const AddToWishApiAction = (request) => {
-  console.log(request);
   return function (dispatch) {
     dispatch({
       type: ADD_WISHLIST,
       payload: false,
     });
     return AddToWishList(request).then((res) => {
-      console.log(res);
       dispatch({
         type: ADD_WISHLIST,
         payload: true,
@@ -79,14 +88,12 @@ const AddToWishApiAction = (request) => {
   };
 };
 const AddToCompareListApiAction = (request) => {
-  console.log(request);
   return function (dispatch) {
     dispatch({
       type: ADD_COMPARELIST,
       payload: false,
     });
-    return AddToWishList(request).then((res) => {
-      console.log(res);
+    return AddToCompareList(request).then((res) => {
       dispatch({
         type: ADD_COMPARELIST,
         payload: true,
@@ -102,4 +109,5 @@ export {
   AddToWishApiAction,
   getApiWishListAction,
   AddToCompareListApiAction,
+  getApiCompareListAction,
 };

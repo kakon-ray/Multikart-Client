@@ -44,7 +44,7 @@ const Navbar = () => {
 
     // localStorage.removeItem("accessToken");
   };
-  console.log(cartItem);
+
   return (
     <nav
       className="

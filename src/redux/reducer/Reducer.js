@@ -1,5 +1,10 @@
 import Product from "../../component/Product/Product";
-import { GET_PRODUCTS, POST_PRODUCTS, CART_LIST } from "../type";
+import {
+  GET_PRODUCTS,
+  ADD_CARTLIST,
+  GET_CARTLIST,
+  ADD_WISHLIST,
+} from "../type";
 
 const initialState = {
   products: [],
@@ -13,15 +18,20 @@ const Reducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
       };
-    case CART_LIST:
+    case GET_CARTLIST:
       return {
         ...state,
         cartitem: action.payload,
       };
-    case POST_PRODUCTS:
+    case ADD_CARTLIST:
       return {
         ...state,
         postSuccess: action.payload,
+      };
+    case ADD_WISHLIST:
+      return {
+        ...state,
+        addWishListResponce: action.payload,
       };
 
     default:

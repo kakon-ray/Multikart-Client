@@ -54,6 +54,15 @@ const AddToCartList = async (data) => {
   });
   return postValue;
 };
+const AddToWishList = async (data) => {
+  const postValue = await axios({
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    url: "http://localhost:3000/wishlist",
+    data: data,
+  });
+  return postValue;
+};
 
 const GetProductById = (id) => {
   const headers = {
@@ -91,6 +100,6 @@ export {
   GetCartList,
   GetProductById,
   AddToCartList,
-  UpdateApiById,
+  AddToWishList,
   DeleteProductById,
 };

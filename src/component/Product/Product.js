@@ -1,7 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
-import { AddToCartApiAction } from "../../redux/action/Action";
+import {
+  AddToCartApiAction,
+  AddToWishApiAction,
+} from "../../redux/action/Action";
 const Product = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -23,6 +26,9 @@ const Product = ({ item }) => {
 
   const addToCart = () => {
     dispatch(AddToCartApiAction(product));
+  };
+  const addToWishlist = () => {
+    dispatch(AddToWishApiAction(product));
   };
   return (
     <>
@@ -69,7 +75,10 @@ const Product = ({ item }) => {
               <h2 class="text-gray-500 mb-0 text-xl">{item?.newprice}</h2>
             </div>
             <div class="flex justify-between items-center mb-2">
-              <button className="bg-orange-600 text-white flex justify-center p-2 rounded hover:bg-orange-700 transition">
+              <button
+                onClick={addToWishlist}
+                className="bg-orange-600 text-white flex justify-center p-2 rounded hover:bg-orange-700 transition"
+              >
                 <ion-icon
                   name="heart-outline"
                   style={{ fontSize: "18px" }}

@@ -108,6 +108,15 @@ const DeleteToCartList = async (id) => {
   });
   return postValue;
 };
+const DeleteToCompareList = async (id) => {
+  const postValue = await axios({
+    url: "http://localhost:3000/comparelist/" + id,
+    method: "DELETE",
+    headers: { "content-type": "application/json" },
+    date: {},
+  });
+  return postValue;
+};
 
 export {
   GetProducts,
@@ -118,4 +127,5 @@ export {
   AddToCompareList,
   GetComareList,
   DeleteToCartList,
+  DeleteToCompareList,
 };

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiCompareListAction } from "../../redux/action/Action";
 import CompareListTableRow from "./CompareListTableRow";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const CompareList = () => {
   const dispatch = useDispatch();
@@ -10,10 +12,13 @@ const CompareList = () => {
   const addCompareListResponce = useSelector(
     (state) => state.Reducer.addCompareListResponce
   );
+  const deleteCompareListResponce = useSelector(
+    (state) => state.Reducer.deleteCompareListResponce
+  );
 
   useEffect(() => {
     dispatch(getApiCompareListAction());
-  }, [dispatch, addCompareListResponce]);
+  }, [dispatch, addCompareListResponce, deleteCompareListResponce]);
   return (
     <div>
       <div className="dark:bg-black">

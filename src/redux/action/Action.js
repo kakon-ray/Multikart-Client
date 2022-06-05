@@ -8,6 +8,7 @@ import {
   ADD_COMPARELIST,
   GET_COMPARELIST,
   DELTE_CARTLIST,
+  DELTE_COMPARELIST,
 } from "../type";
 import {
   GetProducts,
@@ -18,6 +19,7 @@ import {
   AddToCompareList,
   GetComareList,
   DeleteToCartList,
+  DeleteToCompareList,
 } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
@@ -120,6 +122,22 @@ const DeleteToCartListApiAction = (id) => {
     });
   };
 };
+const DeleteToCompareListApiAction = (id) => {
+  return function (dispatch) {
+    dispatch({
+      type: DELTE_COMPARELIST,
+      payload: false,
+    });
+
+    return DeleteToCompareList(id).then((res) => {
+      console.log(res);
+      dispatch({
+        type: DELTE_COMPARELIST,
+        payload: true,
+      });
+    });
+  };
+};
 export {
   GetApiAction,
   AddToCartApiAction,
@@ -129,4 +147,5 @@ export {
   AddToCompareListApiAction,
   getApiCompareListAction,
   DeleteToCartListApiAction,
+  DeleteToCompareListApiAction,
 };

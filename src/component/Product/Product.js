@@ -5,6 +5,9 @@ import {
   AddToCartApiAction,
   AddToWishApiAction,
 } from "../../redux/action/Action";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
+
 const Product = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -32,7 +35,7 @@ const Product = ({ item }) => {
   };
   return (
     <>
-      <div class="mb-6 lg:mb-0">
+      <div class="mb-6 lg:mb-0 relative">
         <div class="bg-white border block rounded-lg shadow-lg">
           <div class="relative overflow-hidden bg-no-repeat bg-cover">
             <div className="absolute left-2 top-2">
@@ -75,15 +78,32 @@ const Product = ({ item }) => {
               <h2 class="text-gray-500 mb-0 text-xl">{item?.newprice}</h2>
             </div>
             <div class="flex justify-between items-center mb-2">
-              <button
-                onClick={addToWishlist}
-                className="bg-orange-600 text-white flex justify-center p-2 rounded hover:bg-orange-700 transition"
-              >
-                <ion-icon
-                  name="heart-outline"
-                  style={{ fontSize: "18px" }}
-                ></ion-icon>
-              </button>
+              <div className="absolute top-5 right-5 z-1">
+                <button
+                  onClick={addToCart}
+                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <CartIcon />
+                </button>
+                <button
+                  onClick={addToWishlist}
+                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <ion-icon
+                    name="heart-outline"
+                    style={{ fontSize: "16px", fontWeight: "900" }}
+                  ></ion-icon>
+                </button>
+                <button
+                  onClick={addToWishlist}
+                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <FontAwesomeIcon
+                    icon={faCodeCompare}
+                    className="text-white"
+                  />
+                </button>
+              </div>
               <div class="ml-auto text-yellow-600">
                 <ul class="flex justify-center ">
                   <li>

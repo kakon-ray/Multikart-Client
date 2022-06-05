@@ -16,20 +16,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SidebarOffCanvas from "../../Dashboard/SidebarOffCanvas/SidebarOffCanvas";
 import { useDispatch, useSelector } from "react-redux";
-import { getApiCartListAction } from "../../redux/action/Action";
+import {
+  getApiCartListAction,
+  getApiWishListAction,
+} from "../../redux/action/Action";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  // get cartitem
   const cartItem = useSelector((state) => state.Reducer.cartitem);
   const postSuccess = useSelector((state) => state.Reducer.postSuccess);
 
   useEffect(() => {
     dispatch(getApiCartListAction());
   }, [dispatch, postSuccess]);
+
+  // get wishlist item
+  const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);
+  const addWishListResponce = useSelector(
+    (state) => state.Reducer.wishlistITem
+  );
+
+  useEffect(() => {
+    dispatch(getApiWishListAction());
+  }, [dispatch, addWishListResponce]);
 
   let Links = [
     { name: "Home", link: "/" },
@@ -207,7 +220,7 @@ const Navbar = () => {
               style={{ fontSize: "22px" }}
             ></ion-icon>
             <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              00
+              {wishlistITem?.length}
             </span>
           </a>
 

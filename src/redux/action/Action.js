@@ -4,11 +4,13 @@ import {
   ADD_CARTLIST,
   GET_CARTLIST,
   ADD_WISHLIST,
+  GET_WISHLIST,
 } from "../type";
 import {
   GetProducts,
   AddToCartList,
   GetCartList,
+  GetWishList,
   AddToWishList,
 } from "../../api/axiosRequest";
 
@@ -29,6 +31,16 @@ const getApiCartListAction = () => {
     return GetCartList().then((res) => {
       dispatch({
         type: GET_CARTLIST,
+        payload: res.data,
+      });
+    });
+  };
+};
+const getApiWishListAction = () => {
+  return function (dispatch) {
+    return GetWishList().then((res) => {
+      dispatch({
+        type: GET_WISHLIST,
         payload: res.data,
       });
     });
@@ -70,4 +82,5 @@ export {
   AddToCartApiAction,
   getApiCartListAction,
   AddToWishApiAction,
+  getApiWishListAction,
 };

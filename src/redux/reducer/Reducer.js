@@ -4,6 +4,7 @@ import {
   ADD_CARTLIST,
   GET_CARTLIST,
   ADD_WISHLIST,
+  GET_WISHLIST,
 } from "../type";
 
 const initialState = {
@@ -32,6 +33,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         addWishListResponce: action.payload,
+      };
+    case GET_WISHLIST:
+      return {
+        ...state,
+        wishlistITem: action.payload,
       };
 
     default:

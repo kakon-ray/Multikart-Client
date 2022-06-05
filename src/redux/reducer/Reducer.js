@@ -9,6 +9,7 @@ import {
   GET_COMPARELIST,
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
+  DELTE_WISHLIST,
 } from "../type";
 
 const initialState = {
@@ -62,6 +63,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         deleteCompareListResponce: action.payload,
+      };
+    case DELTE_WISHLIST:
+      return {
+        ...state,
+        deleteWishListResponce: action.payload,
       };
 
     default:

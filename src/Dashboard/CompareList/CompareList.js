@@ -12,13 +12,13 @@ const CompareList = () => {
   const addCompareListResponce = useSelector(
     (state) => state.Reducer.addCompareListResponce
   );
-  const deleteCompareListResponce = useSelector(
+  const deleteCompareListRes = useSelector(
     (state) => state.Reducer.deleteCompareListResponce
   );
 
   useEffect(() => {
     dispatch(getApiCompareListAction());
-  }, [dispatch, addCompareListResponce, deleteCompareListResponce]);
+  }, [dispatch, addCompareListResponce, deleteCompareListRes]);
   return (
     <div>
       <div className="dark:bg-black">
@@ -71,7 +71,7 @@ const CompareList = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {comparelistITem.map((item) => {
+                      {comparelistITem?.map((item) => {
                         return (
                           <CompareListTableRow
                             item={item}

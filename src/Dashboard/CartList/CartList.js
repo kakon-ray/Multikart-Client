@@ -8,13 +8,13 @@ const CartList = () => {
 
   const cartItem = useSelector((state) => state.Reducer.cartitem);
   const postSuccess = useSelector((state) => state.Reducer.postSuccess);
-  const deleteCartListResponce = useSelector(
+  const deleteCartListRes = useSelector(
     (state) => state.Reducer.deleteCartListResponce
   );
 
   useEffect(() => {
     dispatch(getApiCartListAction());
-  }, [dispatch, postSuccess, deleteCartListResponce]);
+  }, [dispatch, postSuccess, deleteCartListRes]);
 
   return (
     <div>

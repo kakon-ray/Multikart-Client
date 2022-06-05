@@ -10,10 +10,13 @@ const WishList = () => {
   const addWishListResponce = useSelector(
     (state) => state.Reducer.addWishListResponce
   );
+  const deleteWishListResponce = useSelector(
+    (state) => state.Reducer.deleteWishListResponce
+  );
 
   useEffect(() => {
     dispatch(getApiWishListAction());
-  }, [dispatch, addWishListResponce]);
+  }, [dispatch, addWishListResponce, deleteWishListResponce]);
   return (
     <div>
       <div>

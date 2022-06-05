@@ -1,9 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { DeleteToCartListApiAction } from "../../redux/action/Action";
 
 const CartListTableRow = ({ item }) => {
-  const deleteToCartList = () => {};
+  const dispatch = useDispatch();
+
+  const deleteToCartList = () => {
+    dispatch(DeleteToCartListApiAction(item.id));
+  };
+
   return (
     <tr className="border-b">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">

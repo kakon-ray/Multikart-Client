@@ -99,45 +99,23 @@ const AddToCompareList = async (data) => {
   return postValue;
 };
 
-const GetProductById = (id) => {
-  const headers = {
-    "Content-Type": "application/json",
-  };
-  return AxiosRequest("http://localhost:3000/product" + id, "GET", headers, {});
-};
-
-const UpdateApiById = (data, id) => {
-  const headers = {
-    "content-type": "application/json",
-  };
-  return AxiosRequest(
-    "http://localhost:3000/product" + id,
-    "PUT",
-    headers,
-    data
-  );
-};
-
-const DeleteProductById = (id) => {
-  const headers = {
-    "content-type": "application/json",
-  };
-  return AxiosRequest(
-    "http://localhost:3000/product" + id,
-    "DELETE",
-    headers,
-    {}
-  );
+const DeleteToCartList = async (id) => {
+  const postValue = await axios({
+    url: "http://localhost:3000/cartlist/" + id,
+    method: "DELETE",
+    headers: { "content-type": "application/json" },
+    date: {},
+  });
+  return postValue;
 };
 
 export {
   GetProducts,
   GetCartList,
   GetWishList,
-  GetProductById,
   AddToCartList,
   AddToWishList,
   AddToCompareList,
-  DeleteProductById,
   GetComareList,
+  DeleteToCartList,
 };

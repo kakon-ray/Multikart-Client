@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getApiCompareListAction } from "../../redux/action/Action";
 import CompareListTableRow from "./CompareListTableRow";
 
 const CompareList = () => {
+  const dispatch = useDispatch();
+  // get comparelist item
+  const comparelistITem = useSelector((state) => state.Reducer.compareItem);
+  const addCompareListResponce = useSelector(
+    (state) => state.Reducer.addCompareListResponce
+  );
+
+  useEffect(() => {
+    dispatch(getApiCompareListAction());
+  }, [dispatch, addCompareListResponce]);
   return (
     <div>
       <div className="dark:bg-black">
@@ -51,7 +63,13 @@ const CompareList = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <CompareListTableRow></CompareListTableRow>
+                      {comparelistITem.map((item) => {
+                        return (
+                          <CompareListTableRow
+                            item={item}
+                          ></CompareListTableRow>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

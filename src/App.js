@@ -20,6 +20,7 @@ import CartList from "./Dashboard/CartList/CartList";
 import Profile from "./Dashboard/Profile/Profile";
 import WishList from "./Dashboard/WishList/WishList";
 import MyOrder from "./Dashboard/MyOrder/MyOrder";
+import CompareList from "./Dashboard/CompareList/CompareList";
 
 const App = () => {
   const [dark, setDark] = useState(null);
@@ -104,7 +105,7 @@ const App = () => {
             path="comparelist"
             element={
               <RequireAuth>
-                <WishList></WishList>
+                <CompareList></CompareList>
               </RequireAuth>
             }
           />

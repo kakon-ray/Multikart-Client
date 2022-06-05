@@ -187,31 +187,8 @@ const Navbar = () => {
         <div className="flex items-center relative gap-2">
           {/* <!-- Icon --> */}
 
-          <Link to="/cartlist">
-            <span
-              onClick={() => navigate("/dashboard/cartlist")}
-              className="
-                      text-gray-500
-                      hover:text-gray-700
-                      focus:text-gray-700
-                      mr-4
-                      dropdown-toggle
-                      hidden-arrow
-                      flex items-center
-                    "
-              id="dropdownMenuButton1"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <CartIcon />
-              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-                {cartItem?.length}
-              </span>
-            </span>
-          </Link>
-
-          <a
+          <span
+            onClick={() => navigate("/dashboard/cartlist")}
             className="
                       text-gray-500
                       hover:text-gray-700
@@ -221,7 +198,28 @@ const Navbar = () => {
                       hidden-arrow
                       flex items-center
                     "
-            href="#"
+            id="dropdownMenuButton1"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <CartIcon />
+            <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+              {cartItem?.length}
+            </span>
+          </span>
+
+          <span
+            onClick={() => navigate("/dashboard/wishlist")}
+            className="
+                      text-gray-500
+                      hover:text-gray-700
+                      focus:text-gray-700
+                      mr-4
+                      dropdown-toggle
+                      hidden-arrow
+                      flex items-center
+                    "
             id="dropdownMenuButton1"
             role="button"
             data-bs-toggle="dropdown"
@@ -234,8 +232,10 @@ const Navbar = () => {
             <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
               {wishlistITem?.length}
             </span>
-          </a>
+          </span>
+
           <a
+            onClick={() => navigate("/dashboard/comparelist")}
             className="
                       text-gray-500
                       hover:text-gray-700

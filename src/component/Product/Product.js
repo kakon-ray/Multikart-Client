@@ -68,7 +68,7 @@ const Product = ({ item }) => {
               ></path>
             </svg>
           </div>
-          <div className="p-6">
+          <div className="p-6 pb-2">
             <div class="flex justify-between">
               <p class="text-gray-500 mb-0">
                 Available: <span class="font-bold">{item?.abailable}</span>
@@ -201,7 +201,7 @@ const Product = ({ item }) => {
           </div>
 
           <button
-            className="bg-orange-600 text-white text-sm hover:bg-orange-700 active:bg-orange-700 px-3 py-2 w-full transition"
+            className="bg-orange-600 rounded-b-lg text-white text-sm hover:bg-orange-700 active:bg-orange-700 px-3 py-2 w-full transition"
             onClick={addToCart}
           >
             Add To Cart

@@ -185,11 +185,12 @@ const Navbar = () => {
 
         {/* <!-- Right elements --> */}
         <div className="flex items-center relative gap-2">
-          {/* <!-- Icon --> */}
+          <div className="mr-5 flex items-center relative gap-2">
+            {/* <!-- Icon --> */}
 
-          <span
-            onClick={() => navigate("/dashboard/cartlist")}
-            className="
+            <span
+              onClick={() => navigate("/dashboard/cartlist")}
+              className="
                       text-gray-500
                       hover:text-gray-700
                       focus:text-gray-700
@@ -198,20 +199,20 @@ const Navbar = () => {
                       hidden-arrow
                       flex items-center
                     "
-            id="dropdownMenuButton1"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <CartIcon />
-            <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              {cartItem?.length}
+              id="dropdownMenuButton1"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <CartIcon />
+              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+                {cartItem?.length}
+              </span>
             </span>
-          </span>
 
-          <span
-            onClick={() => navigate("/dashboard/wishlist")}
-            className="
+            <span
+              onClick={() => navigate("/dashboard/wishlist")}
+              className="
                       text-gray-500
                       hover:text-gray-700
                       focus:text-gray-700
@@ -220,23 +221,23 @@ const Navbar = () => {
                       hidden-arrow
                       flex items-center
                     "
-            id="dropdownMenuButton1"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <ion-icon
-              name="heart-outline"
-              style={{ fontSize: "22px" }}
-            ></ion-icon>
-            <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              {wishlistITem?.length}
+              id="dropdownMenuButton1"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <ion-icon
+                name="heart-outline"
+                style={{ fontSize: "22px" }}
+              ></ion-icon>
+              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+                {wishlistITem?.length}
+              </span>
             </span>
-          </span>
 
-          <a
-            onClick={() => navigate("/dashboard/comparelist")}
-            className="
+            <a
+              onClick={() => navigate("/dashboard/comparelist")}
+              className="
                       text-gray-500
                       hover:text-gray-700
                       focus:text-gray-700
@@ -245,17 +246,18 @@ const Navbar = () => {
                       hidden-arrow
                       flex items-center
                     "
-            href="#"
-            id="dropdownMenuButton1"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <FontAwesomeIcon icon={faCodeCompare} className="text-lg " />
-            <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-              {comparelistITem?.length}
-            </span>
-          </a>
+              href="#"
+              id="dropdownMenuButton1"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <FontAwesomeIcon icon={faCodeCompare} className="text-lg " />
+              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
+                {comparelistITem?.length}
+              </span>
+            </a>
+          </div>
 
           <div className="dropdown relative">
             <p className="dropdown-toggle flex items-center hidden-arrow">

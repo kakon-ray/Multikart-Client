@@ -64,11 +64,23 @@ const GetComareList = async () => {
     headers: {
       "Content-Type": "application/json",
     },
-    data: {},
     timeout: 1000,
   });
 
   return getcartValue;
+};
+
+const GetCheckOutData = async () => {
+  const getCheckOutValue = await axios({
+    url: "http://localhost:3000/checkout",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    timeout: 1000,
+  });
+
+  return getCheckOutValue;
 };
 
 const AddToCartList = async (data) => {
@@ -149,6 +161,7 @@ export {
   GetProducts,
   GetCartList,
   GetWishList,
+  GetCheckOutData,
   AddToCartList,
   AddToWishList,
   AddToCompareList,

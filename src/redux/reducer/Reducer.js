@@ -7,6 +7,7 @@ import {
   ADD_WISHLIST,
   GET_CARTLIST,
   GET_WISHLIST,
+  GET_CHECKOUT,
   GET_COMPARELIST,
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
@@ -17,6 +18,7 @@ import {
 const initialState = {
   products: [],
   cartitem: [],
+  checkOutValue: [],
 };
 
 const Reducer = (state = initialState, action) => {
@@ -60,6 +62,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         compareItem: action.payload,
+      };
+    case GET_CHECKOUT:
+      return {
+        ...state,
+        checkOutValue: action.payload,
       };
     case DELTE_CARTLIST:
       return {

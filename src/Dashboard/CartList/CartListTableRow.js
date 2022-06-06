@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
@@ -8,9 +8,15 @@ import {
   DeleteToCheckOutApiAction,
 } from "../../redux/action/Action";
 
-const CartListTableRow = ({ item }) => {
+const CartListTableRow = ({ item, checkOutValue }) => {
   const dispatch = useDispatch();
   const [checkBox, setCheckBox] = useState(false);
+
+  useEffect(() => {
+    if (item.check) {
+      setCheckBox(!checkBox);
+    }
+  }, [checkOutValue]);
 
   const deleteToCartList = () => {
     dispatch(DeleteToCartListApiAction(item.id));
@@ -29,8 +35,6 @@ const CartListTableRow = ({ item }) => {
       dispatch(DeleteToCheckOutApiAction(item.id));
     }
   };
-
-  console.log(checkBox);
 
   return (
     <tr className="border-b">

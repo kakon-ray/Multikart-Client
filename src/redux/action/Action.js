@@ -12,6 +12,7 @@ import {
   DELTE_WISHLIST,
   DELTE_CHECKOUT,
   ADD_CHECKOUT,
+  GET_CHECKOUT,
 } from "../type";
 import {
   GetProducts,
@@ -26,6 +27,7 @@ import {
   DeleteToCompareList,
   DeleteToWishList,
   DeleteTOCheckOut,
+  GetCheckOutData,
 } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
@@ -64,6 +66,17 @@ const getApiCompareListAction = () => {
     return GetComareList().then((res) => {
       dispatch({
         type: GET_COMPARELIST,
+        payload: res.data,
+      });
+    });
+  };
+};
+const getApiCheckOutAction = () => {
+  return function (dispatch) {
+    return GetCheckOutData().then((res) => {
+      console.log(res);
+      dispatch({
+        type: GET_CHECKOUT,
         payload: res.data,
       });
     });
@@ -201,4 +214,5 @@ export {
   DeleteToWishListApiAction,
   AddToCheckOutApiAction,
   DeleteToCheckOutApiAction,
+  getApiCheckOutAction,
 };

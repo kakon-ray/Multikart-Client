@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartListTableRow from "./CartListTableRow";
-import { getApiCartListAction } from "../../redux/action/Action";
+import {
+  getApiCartListAction,
+  getApiCheckOutAction,
+} from "../../redux/action/Action";
 
 const CartList = () => {
   const dispatch = useDispatch();
@@ -15,6 +18,26 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getApiCartListAction());
   }, [dispatch, postSuccess, deleteCartListRes]);
+
+  // get checkout value
+  const checkOutValue = useSelector((state) => state.Reducer.checkOutValue);
+  const addCheckOutRes = useSelector(
+    (state) => state.Reducer.addCheckOutResponce
+  );
+  const deleteCheckOutRes = useSelector(
+    (state) => state.Reducer.deleteCheckOutResponce
+  );
+  useEffect(() => {
+    dispatch(getApiCheckOutAction());
+  }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
+
+  for (let i of cartItem) {
+    for (let j of checkOutValue) {
+      if (i.id === j.id) {
+        i.check = true;
+      }
+    }
+  }
 
   return (
     <div>
@@ -95,7 +118,10 @@ const CartList = () => {
                     <tbody>
                       {cartItem?.map((item) => {
                         return (
-                          <CartListTableRow item={item}></CartListTableRow>
+                          <CartListTableRow
+                            item={item}
+                            checkOutValue={checkOutValue}
+                          ></CartListTableRow>
                         );
                       })}
                     </tbody>

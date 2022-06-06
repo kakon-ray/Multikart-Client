@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   DeleteToCartListApiAction,
   AddToCheckOutApiAction,
+  DeleteToCheckOutApiAction,
 } from "../../redux/action/Action";
 
 const CartListTableRow = ({ item }) => {
@@ -23,6 +24,9 @@ const CartListTableRow = ({ item }) => {
     };
     if (!checkBox) {
       dispatch(AddToCheckOutApiAction(checkOutData));
+    }
+    if (checkBox) {
+      dispatch(DeleteToCheckOutApiAction(item.id));
     }
   };
 

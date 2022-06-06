@@ -10,6 +10,7 @@ import {
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
   DELTE_WISHLIST,
+  DELTE_CHECKOUT,
   ADD_CHECKOUT,
 } from "../type";
 import {
@@ -24,6 +25,7 @@ import {
   DeleteToCartList,
   DeleteToCompareList,
   DeleteToWishList,
+  DeleteTOCheckOut,
 } from "../../api/axiosRequest";
 
 const GetApiAction = () => {
@@ -170,6 +172,22 @@ const DeleteToWishListApiAction = (id) => {
     });
   };
 };
+
+const DeleteToCheckOutApiAction = (id) => {
+  return function (dispatch) {
+    dispatch({
+      type: DELTE_CHECKOUT,
+      payload: false,
+    });
+    return DeleteTOCheckOut(id).then((res) => {
+      console.log(res);
+      dispatch({
+        type: DELTE_CHECKOUT,
+        payload: true,
+      });
+    });
+  };
+};
 export {
   GetApiAction,
   AddToCartApiAction,
@@ -182,4 +200,5 @@ export {
   DeleteToCompareListApiAction,
   DeleteToWishListApiAction,
   AddToCheckOutApiAction,
+  DeleteToCheckOutApiAction,
 };

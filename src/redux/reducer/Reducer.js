@@ -11,6 +11,7 @@ import {
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
   DELTE_WISHLIST,
+  DELTE_CHECKOUT,
 } from "../type";
 
 const initialState = {
@@ -74,6 +75,12 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         deleteWishListResponce: action.payload,
+      };
+
+    case DELTE_CHECKOUT:
+      return {
+        ...state,
+        deleteCheckOutResponce: action.payload,
       };
 
     default:

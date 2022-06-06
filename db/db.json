@@ -63,6 +63,42 @@
       "rating": "5",
       "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
       "id": "PNYShVg"
+    },
+    {
+      "productname": "Belted Dress",
+      "oldprice": "109",
+      "newprice": "90",
+      "abailable": "6",
+      "rating": "5",
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "J88NMrf"
+    },
+    {
+      "productname": "Belted Dress",
+      "oldprice": "109",
+      "newprice": "90",
+      "abailable": "6",
+      "rating": "5",
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "tS5QNDf"
+    },
+    {
+      "productname": "Belted Dress",
+      "oldprice": "109",
+      "newprice": "90",
+      "abailable": "6",
+      "rating": "5",
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "j2oWaXG"
+    },
+    {
+      "productname": "Belted Dress",
+      "oldprice": "109",
+      "newprice": "90",
+      "abailable": "6",
+      "rating": "5",
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "wjDW3O0"
     }
   ],
   "wishlist": [
@@ -82,25 +118,7 @@
       "abailable": "6",
       "rating": "5",
       "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
-      "id": "xuepABH"
-    },
-    {
-      "productname": "Belted Dress",
-      "oldprice": "109",
-      "newprice": "90",
-      "abailable": "6",
-      "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
       "id": "eyFgj1t"
-    },
-    {
-      "productname": "Belted Dress",
-      "oldprice": "109",
-      "newprice": "90",
-      "abailable": "6",
-      "rating": "5",
-      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
-      "id": "_2Jv9Y5"
     }
   ],
   "comparelist": [
@@ -112,6 +130,21 @@
       "rating": "5",
       "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
       "id": "KJQGRLU"
+    },
+    {
+      "productname": "Belted Dress",
+      "oldprice": "109",
+      "newprice": "90",
+      "abailable": "6",
+      "rating": "5",
+      "img": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg",
+      "id": "GFSBy4b"
+    }
+  ],
+  "checkout": [
+    {
+      "id": "TvmLliO",
+      "newprice": "90"
     }
   ]
 }

@@ -4,6 +4,12 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
+.carousel-control-prev {
+  display: none !important;
+}
+.carousel-control-next {
+  display: none !important;
+}
 
 @tailwind base;
 @tailwind components;

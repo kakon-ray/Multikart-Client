@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
@@ -6,10 +6,17 @@ import { DeleteToCartListApiAction } from "../../redux/action/Action";
 
 const CartListTableRow = ({ item }) => {
   const dispatch = useDispatch();
+  const [checkBox, setCheckBox] = useState(false);
 
   const deleteToCartList = () => {
     dispatch(DeleteToCartListApiAction(item.id));
   };
+
+  const handleCheckBox = () => {
+    setCheckBox(!checkBox);
+  };
+
+  console.log(checkBox);
 
   return (
     <tr className="border-b">
@@ -18,7 +25,8 @@ const CartListTableRow = ({ item }) => {
           <input
             class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
             type="checkbox"
-            value=""
+            checked={checkBox}
+            onChange={handleCheckBox}
             id="flexCheckDefault"
           />
           <label

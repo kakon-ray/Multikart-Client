@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { DeleteToCartListApiAction } from "../../redux/action/Action";
+import {
+  DeleteToCartListApiAction,
+  AddToCheckOutApiAction,
+} from "../../redux/action/Action";
 
 const CartListTableRow = ({ item }) => {
   const dispatch = useDispatch();
@@ -14,6 +17,13 @@ const CartListTableRow = ({ item }) => {
 
   const handleCheckBox = () => {
     setCheckBox(!checkBox);
+    const checkOutData = {
+      id: item.id,
+      newprice: item.newprice,
+    };
+    if (!checkBox) {
+      dispatch(AddToCheckOutApiAction(checkOutData));
+    }
   };
 
   console.log(checkBox);

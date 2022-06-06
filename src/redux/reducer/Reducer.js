@@ -2,10 +2,11 @@ import Product from "../../component/Product/Product";
 import {
   GET_PRODUCTS,
   ADD_CARTLIST,
-  GET_CARTLIST,
-  ADD_WISHLIST,
-  GET_WISHLIST,
   ADD_COMPARELIST,
+  ADD_CHECKOUT,
+  ADD_WISHLIST,
+  GET_CARTLIST,
+  GET_WISHLIST,
   GET_COMPARELIST,
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
@@ -43,6 +44,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         addCompareListResponce: action.payload,
+      };
+    case ADD_CHECKOUT:
+      return {
+        ...state,
+        addCheckOutResponce: action.payload,
       };
     case GET_WISHLIST:
       return {

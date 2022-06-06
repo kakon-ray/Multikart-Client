@@ -98,6 +98,15 @@ const AddToCompareList = async (data) => {
   });
   return postValue;
 };
+const AddToCheckOut = async (data) => {
+  const postValue = await axios({
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    url: "http://localhost:3000/checkout",
+    data: data,
+  });
+  return postValue;
+};
 
 const DeleteToCartList = async (id) => {
   const postValue = await axios({
@@ -134,6 +143,7 @@ export {
   AddToCartList,
   AddToWishList,
   AddToCompareList,
+  AddToCheckOut,
   GetComareList,
   DeleteToCartList,
   DeleteToCompareList,

@@ -10,6 +10,7 @@ import {
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
   DELTE_WISHLIST,
+  ADD_CHECKOUT,
 } from "../type";
 import {
   GetProducts,
@@ -18,6 +19,7 @@ import {
   GetWishList,
   AddToWishList,
   AddToCompareList,
+  AddToCheckOut,
   GetComareList,
   DeleteToCartList,
   DeleteToCompareList,
@@ -107,6 +109,21 @@ const AddToCompareListApiAction = (request) => {
     });
   };
 };
+const AddToCheckOutApiAction = (request) => {
+  return function (dispatch) {
+    dispatch({
+      type: ADD_CHECKOUT,
+      payload: false,
+    });
+    return AddToCheckOut(request).then((res) => {
+      console.log(res);
+      dispatch({
+        type: ADD_CHECKOUT,
+        payload: true,
+      });
+    });
+  };
+};
 
 const DeleteToCartListApiAction = (id) => {
   return function (dispatch) {
@@ -164,4 +181,5 @@ export {
   DeleteToCartListApiAction,
   DeleteToCompareListApiAction,
   DeleteToWishListApiAction,
+  AddToCheckOutApiAction,
 };

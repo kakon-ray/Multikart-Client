@@ -8,6 +8,7 @@ import {
 } from "../../redux/action/Action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
+import "./Product.css";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
@@ -39,20 +40,28 @@ const Product = ({ item }) => {
   };
   return (
     <>
-      <div class="mb-6 lg:mb-0 relative">
+      <div class="mb-6 lg:mb-0 relative card">
         <div class="bg-white border block rounded-lg shadow-lg">
           <div class="relative overflow-hidden bg-no-repeat bg-cover">
-            <div className="absolute left-2 top-2">
-              <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full">
+            <div className="absolute left-2 top-2 new">
+              <span class="text-xs inline-block  py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full">
                 New
               </span>
             </div>
 
-            <img
-              src={item?.img}
-              class="w-full rounded-t-lg"
-              style={{ height: "300px" }}
-            />
+            <div>
+              <img
+                src="https://multikart-react.vercel.app/assets/images/pro3/2.jpg"
+                class="w-full main-image"
+                style={{ height: "300px" }}
+              />
+              <img
+                src="https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
+                class="w-full hover-image"
+                style={{ height: "300px" }}
+              />
+            </div>
+
             <a href="#!">
               <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
             </a>
@@ -81,17 +90,17 @@ const Product = ({ item }) => {
               <h2 class="mb-0 text-xl">{item?.productname}</h2>
               <h2 class="text-gray-500 mb-0 text-xl">{item?.newprice}</h2>
             </div>
-            <div class="flex justify-between items-center mb-2">
+            <div class="flex justify-between items-center mb-2 icon-section">
               <div className="absolute top-5 right-5 z-1">
                 <button
                   onClick={addToCart}
-                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
                 >
                   <CartIcon />
                 </button>
                 <button
                   onClick={addToWishlist}
-                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
                 >
                   <ion-icon
                     name="heart-outline"
@@ -100,7 +109,7 @@ const Product = ({ item }) => {
                 </button>
                 <button
                   onClick={addToCompareList}
-                  className="bg-orange-600 m-1 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
                 >
                   <FontAwesomeIcon
                     icon={faCodeCompare}

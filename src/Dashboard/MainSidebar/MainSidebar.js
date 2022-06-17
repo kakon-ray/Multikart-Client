@@ -7,9 +7,9 @@ import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 const MainSidebar = () => {
   return (
     <div>
-      <div className="lg:col-span-1 col-span-5 dark:bg-black">
+      <div className="lg:col-span-1 col-span-5 dark:bg-black sticky top-12 z-0">
         <div className="w-100 h-screen hidden lg:block border shadow-md bg-white px-1 dark:bg-black dark:text-white">
-          <h1 className="text-2xl dark:text-white p-5 text-gray-500">
+          <h1 className="text-4xl dark:text-white p-5 pt-10 text-gray-500">
             Manage My Account
           </h1>
           <ul className="relative">
@@ -67,7 +67,7 @@ const MainSidebar = () => {
 
             <li className="relative">
               <a
-                className="flex items-center text-lg py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                className="flex items-center text-2xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                 href="#!"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="dark"

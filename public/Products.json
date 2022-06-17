@@ -4,7 +4,8 @@
     "supplierName": "Jessica Bonner",
     "price": "38.00",
     "quantity": 15,
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png",
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/6.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/15.jpg",
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?"
   },
   {
@@ -13,7 +14,8 @@
     "price": "78.00",
     "quantity": 12,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/7.jpg",
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/15.jpg"
   },
 
   {
@@ -22,7 +24,8 @@
     "price": "98.00",
     "quantity": 20,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/8.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/16.jpg"
   },
   {
     "name": "Maxi Dress",
@@ -30,7 +33,8 @@
     "price": "43.00",
     "quantity": 15,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/1.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/2.jpg"
   },
   {
     "name": "Fit-Flare Dress",
@@ -38,7 +42,8 @@
     "price": "53.00",
     "quantity": 32,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/3.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
   },
   {
     "name": "Easy Dress",
@@ -46,7 +51,8 @@
     "price": "57.00",
     "quantity": 20,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/5.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/6.jpg"
   },
   {
     "name": "V-Neck Dress",
@@ -54,7 +60,8 @@
     "price": "58.00",
     "quantity": 10,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/7.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/8.jpg"
   },
   {
     "name": "Fit-Flare Dress",
@@ -62,202 +69,80 @@
     "price": "60.00",
     "quantity": 15,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/9.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/10.jpg"
   },
-  {
-    "name": "Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 20,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "Couple Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 54,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-
   {
     "name": "orange Dress For Woman",
     "supplierName": "Jessica Bonner",
     "price": "38.00",
-    "quantity": 12,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
+    "quantity": 15,
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/6.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/15.jpg",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?"
   },
   {
     "name": "T-Shirt For Men",
-    "supplierName": "Jessica Bonner",
+    "supplierName": "Petter Dust",
     "price": "78.00",
-    "quantity": 8,
+    "quantity": 12,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/6.jpg",
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/15.jpg"
   },
 
   {
     "name": "V-Neck Dress",
-    "supplierName": "Jessica Bonner",
+    "supplierName": "Patrick Owner",
     "price": "98.00",
-    "quantity": 10,
+    "quantity": 20,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/8.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/16.jpg"
   },
   {
     "name": "Maxi Dress",
     "supplierName": "Jessica Bonner",
     "price": "43.00",
-    "quantity": 17,
+    "quantity": 15,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/1.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/2.jpg"
   },
   {
     "name": "Fit-Flare Dress",
     "supplierName": "Jessica Bonner",
     "price": "53.00",
-    "quantity": 65,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "Easy Chair ",
-    "supplierName": "Jessica Bonner",
-    "price": "57.00",
-    "quantity": 55,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-  {
-    "name": "V-Neck Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "58.00",
-    "quantity": 66,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
-  },
-  {
-    "name": "Fit-Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "60.00",
     "quantity": 32,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/3.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
   },
   {
-    "name": "Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 20,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "Couple Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 43,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-  {
-    "name": "Couple Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 12,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-
-  {
-    "name": "orange Dress For Woman",
-    "supplierName": "Jessica Bonner",
-    "price": "38.00",
-    "quantity": 43,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "T-Shirt For Men",
-    "supplierName": "Jessica Bonner",
-    "price": "78.00",
-    "quantity": 23,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-
-  {
-    "name": "V-Neck Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "98.00",
-    "quantity": 44,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
-  },
-  {
-    "name": "Maxi Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "43.00",
-    "quantity": 12,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
-  },
-  {
-    "name": "Fit-Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "53.00",
-    "quantity": 10,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "Easy Chair ",
+    "name": "Easy Dress",
     "supplierName": "Jessica Bonner",
     "price": "57.00",
     "quantity": 20,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/5.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/6.jpg"
   },
   {
     "name": "V-Neck Dress",
     "supplierName": "Jessica Bonner",
     "price": "58.00",
-    "quantity": 20,
+    "quantity": 10,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product7.6533a8ae.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/7.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/8.jpg"
   },
   {
     "name": "Fit-Flare Dress",
     "supplierName": "Jessica Bonner",
     "price": "60.00",
-    "quantity": 20,
+    "quantity": 15,
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product6.f19b14e6.png"
-  },
-  {
-    "name": "Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 20,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
-  },
-  {
-    "name": "Couple Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "20.00",
-    "quantity": 20,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product9.60333e3e.png"
-  },
-  {
-    "name": "Fit-Flare Dress",
-    "supplierName": "Jessica Bonner",
-    "price": "53.00",
-    "quantity": 20,
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente non expedita molestias at eveniet. Cupiditate accusamussoluta iste harum aspernatur?",
-    "img": "https://andshop-react.netlify.app/static/media/product10.d71c44ec.png"
+    "img": "https://multikart-react.vercel.app/assets/images/pro3/9.jpg",
+    "img2": "https://multikart-react.vercel.app/assets/images/pro3/10.jpg"
   }
 ]

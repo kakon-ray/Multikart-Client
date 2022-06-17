@@ -9,41 +9,27 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import "./Product.css";
+import { useEffect } from "react";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
 
-  const productname = item.productname;
-  const oldprice = item.oldprice;
-  const newprice = item.newprice;
-  const abailable = item.abailable;
-  const rating = item.rating;
-  const img = item.img;
-
-  const product = {
-    productname,
-    oldprice,
-    newprice,
-    abailable,
-    rating,
-    img,
-  };
-
   const addToCart = () => {
-    dispatch(AddToCartApiAction(product));
+    dispatch(AddToCartApiAction(item));
   };
   const addToWishlist = () => {
-    dispatch(AddToWishApiAction(product));
+    dispatch(AddToWishApiAction(item));
   };
   const addToCompareList = () => {
-    dispatch(AddToCompareListApiAction(product));
+    dispatch(AddToCompareListApiAction(item));
   };
+
   return (
     <>
       <div class="mb-6 lg:mb-0 relative card">
         <div class="bg-white border block rounded-lg shadow-lg">
           <div class="relative overflow-hidden bg-no-repeat bg-cover">
-            <div className="absolute left-2 top-2 new">
+            <div className="absolute left-2 top-2 new z-10">
               <span class="text-xs inline-block  py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full">
                 New
               </span>
@@ -51,12 +37,12 @@ const Product = ({ item }) => {
 
             <div>
               <img
-                src="https://multikart-react.vercel.app/assets/images/pro3/2.jpg"
+                src={item.img}
                 class="w-full main-image"
                 style={{ height: "300px" }}
               />
               <img
-                src="https://multikart-react.vercel.app/assets/images/pro3/4.jpg"
+                src={item.img2}
                 class="w-full hover-image"
                 style={{ height: "300px" }}
               />

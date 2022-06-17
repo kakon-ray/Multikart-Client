@@ -20,10 +20,12 @@ export async function AxiosRequest(url, method, headers, params) {
 
 const GetProducts = async () => {
   const getProductValue = await axios({
-    url: "http://localhost:3000/product",
+    url: "http://localhost:5000/products",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     data: {},
     timeout: 1000,
@@ -33,10 +35,12 @@ const GetProducts = async () => {
 };
 const GetCartList = async () => {
   const getcartValue = await axios({
-    url: "http://localhost:3000/cartlist",
+    url: "http://localhost:5000/cartlist",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     data: {},
     timeout: 1000,
@@ -46,7 +50,7 @@ const GetCartList = async () => {
 };
 const GetWishList = async () => {
   const getcartValue = await axios({
-    url: "http://localhost:3000/wishlist",
+    url: "http://localhost:5000/wishlist",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -59,7 +63,7 @@ const GetWishList = async () => {
 };
 const GetComareList = async () => {
   const getcartValue = await axios({
-    url: "http://localhost:3000/comparelist",
+    url: "http://localhost:5000/comparelist",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +76,7 @@ const GetComareList = async () => {
 
 const GetCheckOutData = async () => {
   const getCheckOutValue = await axios({
-    url: "http://localhost:3000/checkout",
+    url: "http://localhost:5000/checkout",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,8 +90,12 @@ const GetCheckOutData = async () => {
 const AddToCartList = async (data) => {
   const postValue = await axios({
     method: "POST",
-    headers: { "content-type": "application/json" },
-    url: "http://localhost:3000/cartlist",
+    headers: {
+      "content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+    url: "http://localhost:5000/cartlist",
     data: data,
   });
   return postValue;
@@ -96,7 +104,7 @@ const AddToWishList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:3000/wishlist",
+    url: "http://localhost:5000/wishlist",
     data: data,
   });
   return postValue;
@@ -105,7 +113,7 @@ const AddToCompareList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:3000/comparelist",
+    url: "http://localhost:5000/comparelist",
     data: data,
   });
   return postValue;
@@ -114,7 +122,7 @@ const AddToCheckOut = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:3000/checkout",
+    url: "http://localhost:5000/checkout",
     data: data,
   });
   return postValue;

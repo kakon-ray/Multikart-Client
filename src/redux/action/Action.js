@@ -44,6 +44,7 @@ const GetApiAction = () => {
 const getApiCartListAction = () => {
   return function (dispatch) {
     return GetCartList().then((res) => {
+      console.log(res);
       dispatch({
         type: GET_CARTLIST,
         payload: res.data,

@@ -33,21 +33,7 @@ const GetProducts = async () => {
 
   return getProductValue;
 };
-const GetCartList = async () => {
-  const getcartValue = await axios({
-    url: "http://localhost:5000/cartlist",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-    },
-    data: {},
-    timeout: 1000,
-  });
 
-  return getcartValue;
-};
 const GetWishList = async () => {
   const getcartValue = await axios({
     url: "http://localhost:5000/wishlist",
@@ -167,7 +153,6 @@ const DeleteTOCheckOut = async (id) => {
 
 export {
   GetProducts,
-  GetCartList,
   GetWishList,
   GetCheckOutData,
   AddToCartList,

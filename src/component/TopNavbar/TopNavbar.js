@@ -8,8 +8,11 @@ import { faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
 const TopNavbar = ({ sendDataToParent }) => {
   const [user, loading, error] = useAuthState(auth);
+
+  console.log(user);
 
   return (
     <section>
@@ -36,7 +39,10 @@ const TopNavbar = ({ sendDataToParent }) => {
                 </div>
               </Link>
 
-              <div className="flex items-center">
+              <div
+                className="flex items-center cursor-pointer"
+                onClick={() => signOut(auth)}
+              >
                 <FontAwesomeIcon
                   icon={faSignOut}
                   className="mx-1 text-lg text-white"
@@ -46,20 +52,24 @@ const TopNavbar = ({ sendDataToParent }) => {
             </>
           ) : (
             <>
-              <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faSignInAlt}
-                  className="mx-1 text-lg text-white"
-                />
-                <span className="text-white ">Login</span>
-              </div>
-              <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faRegistered}
-                  className="mx-1 text-lg text-white"
-                />
-                <span className="text-white ">Registation</span>
-              </div>
+              <Link to="login">
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faSignInAlt}
+                    className="mx-1 text-lg text-white"
+                  />
+                  <span className="text-white ">Login</span>
+                </div>
+              </Link>
+              <Link to="registation">
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faRegistered}
+                    className="mx-1 text-lg text-white"
+                  />
+                  <span className="text-white ">Registation</span>
+                </div>
+              </Link>
             </>
           )}
         </div>

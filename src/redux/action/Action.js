@@ -17,7 +17,6 @@ import {
 import {
   GetProducts,
   AddToCartList,
-  GetCartList,
   GetWishList,
   AddToWishList,
   AddToCompareList,
@@ -41,17 +40,6 @@ const GetApiAction = () => {
   };
 };
 
-const getApiCartListAction = () => {
-  return function (dispatch) {
-    return GetCartList().then((res) => {
-      console.log(res);
-      dispatch({
-        type: GET_CARTLIST,
-        payload: res.data,
-      });
-    });
-  };
-};
 const getApiWishListAction = () => {
   return function (dispatch) {
     return GetWishList().then((res) => {
@@ -205,7 +193,6 @@ const DeleteToCheckOutApiAction = (id) => {
 export {
   GetApiAction,
   AddToCartApiAction,
-  getApiCartListAction,
   AddToWishApiAction,
   getApiWishListAction,
   AddToCompareListApiAction,

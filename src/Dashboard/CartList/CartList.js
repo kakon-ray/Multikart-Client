@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartListTableRow from "./CartListTableRow";
-import {
-  getApiCartListAction,
-  getApiCheckOutAction,
-} from "../../redux/action/Action";
+import { getApiCheckOutAction } from "../../redux/action/Action";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { async } from "@firebase/util";
+import axios from "axios";
+import useCartList from "../../Hook/useCartList";
 
 const CartList = () => {
   const dispatch = useDispatch();
 
-  const cartItem = useSelector((state) => state.Reducer.cartitem);
-  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
-  const deleteCartListRes = useSelector(
-    (state) => state.Reducer.deleteCartListResponce
-  );
+  const [user, loading, error] = useAuthState(auth);
+  const [cartItem, setCart] = useCartList();
 
-  useEffect(() => {
-    dispatch(getApiCartListAction());
-  }, [dispatch, postSuccess, deleteCartListRes]);
+  console.log(cartItem);
 
   // get checkout value
   const checkOutValue = useSelector((state) => state.Reducer.checkOutValue);
@@ -30,14 +27,6 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getApiCheckOutAction());
   }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
-
-  for (let i of cartItem) {
-    for (let j of checkOutValue) {
-      if (i.id === j.id) {
-        i.check = true;
-      }
-    }
-  }
 
   return (
     <div>

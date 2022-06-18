@@ -22,19 +22,23 @@ import {
   getApiWishListAction,
   getApiCompareListAction,
 } from "../../redux/action/Action";
+import useCartList from "../../Hook/useCartList";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // get cartitem
-  const cartItem = useSelector((state) => state.Reducer.cartitem);
-  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
+  const [cartItem, setCart] = useCartList();
 
-  useEffect(() => {
-    dispatch(getApiCartListAction());
-  }, [dispatch, postSuccess]);
+  if (!cartItem) {
+    return <Loading />;
+  }
+
+  console.log(cartItem);
+  // get cartitem
+
+  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
 
   // get wishlist item
   const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);

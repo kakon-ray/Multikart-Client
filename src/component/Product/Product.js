@@ -10,18 +10,41 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import "./Product.css";
 import { useEffect } from "react";
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
+  const [user, loading, error] = useAuthState(auth);
+
+  const name = item.name;
+  const supplierName = item.supplierName;
+  const price = item.price;
+  const quantity = item.quantity;
+  const text = item.text;
+  const img2 = item.img2;
+  const img = item.img;
+  const email = user?.email;
+
+  const addValue = {
+    name,
+    supplierName,
+    price,
+    quantity,
+    text,
+    img2,
+    img,
+    email,
+  };
 
   const addToCart = () => {
-    dispatch(AddToCartApiAction(item));
+    dispatch(AddToCartApiAction(addValue));
   };
   const addToWishlist = () => {
-    dispatch(AddToWishApiAction(item));
+    dispatch(AddToWishApiAction(addValue));
   };
   const addToCompareList = () => {
-    dispatch(AddToCompareListApiAction(item));
+    dispatch(AddToCompareListApiAction(addValue));
   };
 
   return (

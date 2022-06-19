@@ -5,10 +5,7 @@ import {
   ADD_COMPARELIST,
   ADD_CHECKOUT,
   ADD_WISHLIST,
-  GET_CARTLIST,
-  GET_WISHLIST,
   GET_CHECKOUT,
-  GET_COMPARELIST,
   DELTE_CARTLIST,
   DELTE_COMPARELIST,
   DELTE_WISHLIST,
@@ -28,11 +25,7 @@ const Reducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
       };
-    case GET_CARTLIST:
-      return {
-        ...state,
-        cartitem: action.payload,
-      };
+
     case ADD_CARTLIST:
       return {
         ...state,
@@ -53,16 +46,7 @@ const Reducer = (state = initialState, action) => {
         ...state,
         addCheckOutResponce: action.payload,
       };
-    case GET_WISHLIST:
-      return {
-        ...state,
-        wishlistITem: action.payload,
-      };
-    case GET_COMPARELIST:
-      return {
-        ...state,
-        compareItem: action.payload,
-      };
+
     case GET_CHECKOUT:
       return {
         ...state,

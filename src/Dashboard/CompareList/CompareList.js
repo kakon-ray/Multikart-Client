@@ -4,21 +4,10 @@ import { getApiCompareListAction } from "../../redux/action/Action";
 import CompareListTableRow from "./CompareListTableRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import useCompareList from "../../Hook/useCompareList";
 
 const CompareList = () => {
-  const dispatch = useDispatch();
-  // get comparelist item
-  const comparelistITem = useSelector((state) => state.Reducer.compareItem);
-  const addCompareListResponce = useSelector(
-    (state) => state.Reducer.addCompareListResponce
-  );
-  const deleteCompareListRes = useSelector(
-    (state) => state.Reducer.deleteCompareListResponce
-  );
-
-  useEffect(() => {
-    dispatch(getApiCompareListAction());
-  }, [dispatch, addCompareListResponce, deleteCompareListRes]);
+  const [compareList, setCompareList] = useCompareList();
   return (
     <div>
       <div className="dark:bg-black">
@@ -71,7 +60,7 @@ const CompareList = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {comparelistITem?.map((item) => {
+                      {compareList?.map((item) => {
                         return (
                           <CompareListTableRow
                             item={item}

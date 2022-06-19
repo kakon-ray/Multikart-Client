@@ -40,26 +40,6 @@ const GetApiAction = () => {
   };
 };
 
-const getApiWishListAction = () => {
-  return function (dispatch) {
-    return GetWishList().then((res) => {
-      dispatch({
-        type: GET_WISHLIST,
-        payload: res.data,
-      });
-    });
-  };
-};
-const getApiCompareListAction = () => {
-  return function (dispatch) {
-    return GetComareList().then((res) => {
-      dispatch({
-        type: GET_COMPARELIST,
-        payload: res.data,
-      });
-    });
-  };
-};
 const getApiCheckOutAction = () => {
   return function (dispatch) {
     return GetCheckOutData().then((res) => {
@@ -194,9 +174,7 @@ export {
   GetApiAction,
   AddToCartApiAction,
   AddToWishApiAction,
-  getApiWishListAction,
   AddToCompareListApiAction,
-  getApiCompareListAction,
   DeleteToCartListApiAction,
   DeleteToCompareListApiAction,
   DeleteToWishListApiAction,

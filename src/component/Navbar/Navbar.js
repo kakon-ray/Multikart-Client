@@ -23,6 +23,8 @@ import {
   getApiCompareListAction,
 } from "../../redux/action/Action";
 import useCartList from "../../Hook/useCartList";
+import useWishList from "../../Hook/useWishList";
+import useCompareList from "../../Hook/useCompareList";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -30,35 +32,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cartItem, setCart] = useCartList();
-
-  if (!cartItem) {
-    return <Loading />;
-  }
-
-  console.log(cartItem);
-  // get cartitem
-
-  const postSuccess = useSelector((state) => state.Reducer.postSuccess);
-
-  // get wishlist item
-  const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);
-  const addWishListResponce = useSelector(
-    (state) => state.Reducer.addWishListResponce
-  );
-
-  useEffect(() => {
-    dispatch(getApiWishListAction());
-  }, [dispatch, addWishListResponce]);
-
-  // get comparelist item
-  const comparelistITem = useSelector((state) => state.Reducer.compareItem);
-  const addCompareListResponce = useSelector(
-    (state) => state.Reducer.addCompareListResponce
-  );
-
-  useEffect(() => {
-    dispatch(getApiCompareListAction());
-  }, [dispatch, addCompareListResponce]);
+  const [wishItem, setWishList] = useWishList();
+  const [compareList, setCompareList] = useCompareList();
 
   let Links = [
     { name: "Home", link: "/" },
@@ -235,7 +210,7 @@ const Navbar = () => {
                 style={{ fontSize: "22px" }}
               ></ion-icon>
               <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-                {wishlistITem?.length}
+                {wishItem?.length}
               </span>
             </span>
 
@@ -258,7 +233,7 @@ const Navbar = () => {
             >
               <FontAwesomeIcon icon={faCodeCompare} className="text-lg " />
               <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-3 ml-3 py-0 px-1.5">
-                {comparelistITem?.length}
+                {compareList?.length}
               </span>
             </a>
           </div>

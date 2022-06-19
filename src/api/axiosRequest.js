@@ -34,32 +34,6 @@ const GetProducts = async () => {
   return getProductValue;
 };
 
-const GetWishList = async () => {
-  const getcartValue = await axios({
-    url: "http://localhost:5000/wishlist",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: {},
-    timeout: 1000,
-  });
-
-  return getcartValue;
-};
-const GetComareList = async () => {
-  const getcartValue = await axios({
-    url: "http://localhost:5000/comparelist",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    timeout: 1000,
-  });
-
-  return getcartValue;
-};
-
 const GetCheckOutData = async () => {
   const getCheckOutValue = await axios({
     url: "http://localhost:5000/checkout",
@@ -116,7 +90,7 @@ const AddToCheckOut = async (data) => {
 
 const DeleteToCartList = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:3000/cartlist/" + id,
+    url: `http://localhost:5000/cartlist?id=${id}`,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -125,7 +99,7 @@ const DeleteToCartList = async (id) => {
 };
 const DeleteToCompareList = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:3000/comparelist/" + id,
+    url: "http://localhost:5000/comparelist/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -134,7 +108,8 @@ const DeleteToCompareList = async (id) => {
 };
 const DeleteToWishList = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:3000/wishlist/" + id,
+    url: `http://localhost:5000/wishlist/` + id,
+
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -143,7 +118,7 @@ const DeleteToWishList = async (id) => {
 };
 const DeleteTOCheckOut = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:3000/checkout/" + id,
+    url: "http://localhost:5000/checkout/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
   });
@@ -153,13 +128,11 @@ const DeleteTOCheckOut = async (id) => {
 
 export {
   GetProducts,
-  GetWishList,
   GetCheckOutData,
   AddToCartList,
   AddToWishList,
   AddToCompareList,
   AddToCheckOut,
-  GetComareList,
   DeleteToCartList,
   DeleteToCompareList,
   DeleteToWishList,

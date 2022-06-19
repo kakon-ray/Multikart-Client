@@ -8,7 +8,7 @@ const WiahListTableRow = ({ item }) => {
   const dispatch = useDispatch();
 
   const deleteToWishlist = () => {
-    dispatch(DeleteToWishListApiAction(item.id));
+    dispatch(DeleteToWishListApiAction(item._id));
   };
   return (
     <tr className="border-b">

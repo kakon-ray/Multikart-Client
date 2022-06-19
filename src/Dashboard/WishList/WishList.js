@@ -1,22 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useWishList from "../../Hook/useWishList";
 import { getApiWishListAction } from "../../redux/action/Action";
 import WiahListTableRow from "./WiahListTableRow";
 
 const WishList = () => {
-  const dispatch = useDispatch();
-  // get wishlist item
-  const wishlistITem = useSelector((state) => state.Reducer.wishlistITem);
-  const addWishListResponce = useSelector(
-    (state) => state.Reducer.addWishListResponce
-  );
-  const deleteWishListResponce = useSelector(
-    (state) => state.Reducer.deleteWishListResponce
-  );
-
-  useEffect(() => {
-    dispatch(getApiWishListAction());
-  }, [dispatch, addWishListResponce, deleteWishListResponce]);
+  const [wishItem, setWishList] = useWishList();
   return (
     <div>
       <div>
@@ -70,7 +59,7 @@ const WishList = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {wishlistITem.map((item) => {
+                        {wishItem.map((item) => {
                           return <WiahListTableRow item={item} />;
                         })}
                       </tbody>

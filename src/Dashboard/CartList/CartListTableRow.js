@@ -19,7 +19,7 @@ const CartListTableRow = ({ item, checkOutValue }) => {
   }, [checkOutValue]);
 
   const deleteToCartList = () => {
-    dispatch(DeleteToCartListApiAction(item.id));
+    dispatch(DeleteToCartListApiAction(item._id));
   };
 
   const handleCheckBox = () => {

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
@@ -8,6 +8,7 @@ import useToken from "../../../Hook/useToken";
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [token] = useToken(user);
+  const [currentuser] = useAuthState(auth);
 
   const signinGoogle = () => {
     signInWithGoogle();
@@ -18,7 +19,7 @@ const SocialLogin = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  if (token) {
+  if (currentuser) {
     toast.success("Login Successed");
     setTimeout(() => {
       navigate(from, { replace: true });

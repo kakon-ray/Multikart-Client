@@ -7,7 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const CompareListTableRow = ({ item }) => {
   const dispatch = useDispatch();
   const DeleteToCompareListById = () => {
-    dispatch(DeleteToCompareListApiAction(item.id));
+    dispatch(DeleteToCompareListApiAction(item._id));
   };
   return (
     <tr className="border-b">

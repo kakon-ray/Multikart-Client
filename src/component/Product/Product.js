@@ -60,43 +60,70 @@ const Product = ({ item }) => {
           showConfirmButton: false,
         });
       }
-    }, 1000);
+    }, 3000);
   }, [addCartListRes]);
 
   const addToCart = () => {
     dispatch(AddToCartApiAction(addValue));
   };
 
+  var addWishListRes = useSelector(
+    (state) => state.Reducer.addWishListResponce
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (addWishListRes == 1) {
+        Swal.fire({
+          title: "Add Wishlist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+      if (addWishListRes == 2 || addWishListRes == false) {
+        Swal.fire({
+          title: "Already add this item Wishlist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+    }, 3000);
+  }, [addWishListRes]);
+
   const addToWishlist = () => {
     dispatch(AddToWishApiAction(addValue));
   };
-  const addWishListRes = useSelector(
-    (state) => state.Reducer.addWishListResponce
-  );
-  if (addWishListRes) {
-    Swal.fire({
-      title: "Add Wishlist Successed!",
-      icon: "success",
-      timer: 1500,
-      showConfirmButton: false,
-    });
-  }
 
   const addToCompareList = () => {
     dispatch(AddToCompareListApiAction(addValue));
   };
 
-  const addCompareListRes = useSelector(
+  var compareListRes = useSelector(
     (state) => state.Reducer.addCompareListResponce
   );
-  if (addCompareListRes) {
-    Swal.fire({
-      title: "Add Compare List Successed!",
-      icon: "success",
-      timer: 1500,
-      showConfirmButton: false,
-    });
-  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (compareListRes == 1) {
+        Swal.fire({
+          title: "Add Wishlist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+      if (compareListRes == 2 || compareListRes == false) {
+        Swal.fire({
+          title: "Already add this item Wishlist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+    }, 3000);
+  }, [compareListRes]);
 
   return (
     <>

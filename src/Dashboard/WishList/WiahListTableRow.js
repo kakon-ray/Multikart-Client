@@ -3,12 +3,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { DeleteToWishListApiAction } from "../../redux/action/Action";
+import Swal from "sweetalert2";
 
 const WiahListTableRow = ({ item }) => {
   const dispatch = useDispatch();
 
   const deleteToWishlist = () => {
-    dispatch(DeleteToWishListApiAction(item._id));
+    Swal.fire({
+      title: "Do you delete Wishlist item?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        dispatch(DeleteToWishListApiAction(item._id));
+      }
+    });
   };
   return (
     <tr className="border-b">

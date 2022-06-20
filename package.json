@@ -26,7 +26,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.4.10",
+    "sweetalert2": "^11.4.18",
     "tailwindcss-textshadow": "^2.1.3",
     "tw-elements": "^1.0.0-alpha12",
     "validator": "^13.7.0",

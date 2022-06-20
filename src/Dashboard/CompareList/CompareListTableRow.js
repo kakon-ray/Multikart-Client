@@ -3,11 +3,23 @@ import { useDispatch } from "react-redux";
 import { DeleteToCompareListApiAction } from "../../redux/action/Action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 const CompareListTableRow = ({ item }) => {
   const dispatch = useDispatch();
   const DeleteToCompareListById = () => {
-    dispatch(DeleteToCompareListApiAction(item._id));
+    Swal.fire({
+      title: "Do you delete Comparelist item?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        dispatch(DeleteToCompareListApiAction(item._id));
+      }
+    });
   };
   return (
     <tr className="border-b">

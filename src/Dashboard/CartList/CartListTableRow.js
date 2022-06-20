@@ -7,6 +7,7 @@ import {
   AddToCheckOutApiAction,
   DeleteToCheckOutApiAction,
 } from "../../redux/action/Action";
+import Swal from "sweetalert2";
 
 const CartListTableRow = ({ item, checkOutValue }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,18 @@ const CartListTableRow = ({ item, checkOutValue }) => {
   }, [checkOutValue]);
 
   const deleteToCartList = () => {
-    dispatch(DeleteToCartListApiAction(item._id));
+    Swal.fire({
+      title: "Do you delete Cartlist item ?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        dispatch(DeleteToCartListApiAction(item._id));
+      }
+    });
   };
 
   const handleCheckBox = () => {

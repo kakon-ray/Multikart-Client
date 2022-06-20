@@ -12,6 +12,7 @@ import "./Product.css";
 import { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Swal from "sweetalert2";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Product = ({ item }) => {
   const img2 = item.img2;
   const img = item.img;
   const email = user?.email;
+  const id = item._id;
 
   const addValue = {
     name,
@@ -35,17 +37,52 @@ const Product = ({ item }) => {
     img2,
     img,
     email,
+    id,
   };
 
   const addToCart = () => {
     dispatch(AddToCartApiAction(addValue));
   };
+  const addCartListRes = useSelector((state) => state.Reducer.postSuccess);
+  if (addCartListRes) {
+    Swal.fire({
+      title: "Add Cartlist Successed!",
+      icon: "success",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+  }
+
   const addToWishlist = () => {
     dispatch(AddToWishApiAction(addValue));
   };
+  const addWishListRes = useSelector(
+    (state) => state.Reducer.addWishListResponce
+  );
+  if (addWishListRes) {
+    Swal.fire({
+      title: "Add Wishlist Successed!",
+      icon: "success",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+  }
+
   const addToCompareList = () => {
     dispatch(AddToCompareListApiAction(addValue));
   };
+
+  const addCompareListRes = useSelector(
+    (state) => state.Reducer.addCompareListResponce
+  );
+  if (addCompareListRes) {
+    Swal.fire({
+      title: "Add Compare List Successed!",
+      icon: "success",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+  }
 
   return (
     <>

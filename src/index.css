@@ -2,7 +2,9 @@ html,
 body {
   overflow-x: hidden;
   height: 100%;
+  width: 100% !important;
   box-sizing: border-box;
+  padding: 0 !important;
 }
 .carousel-control-prev {
   display: none !important;
@@ -17,8 +19,8 @@ body {
 
 ::-webkit-scrollbar {
   background-color: rgb(234 88 12);
-  width: 6px;
-  height: 4px;
+  width: 8px;
+  position: fixed;
 }
 
 /* Track */

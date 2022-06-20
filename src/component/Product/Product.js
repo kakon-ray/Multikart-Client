@@ -7,7 +7,7 @@ import {
   AddToCompareListApiAction,
 } from "../../redux/action/Action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
+import { faCodeCompare, faL } from "@fortawesome/free-solid-svg-icons";
 import "./Product.css";
 import { useEffect } from "react";
 import auth from "../../firebase.init";
@@ -40,18 +40,32 @@ const Product = ({ item }) => {
     id,
   };
 
+  var addCartListRes = useSelector((state) => state.Reducer.postSuccess);
+  console.log(addCartListRes);
+  useEffect(() => {
+    setTimeout(() => {
+      if (addCartListRes == 1) {
+        Swal.fire({
+          title: "Add Cartlist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+      if (addCartListRes == 2 || addCartListRes == false) {
+        Swal.fire({
+          title: "Already add this item Cartlist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+    }, 1000);
+  }, [addCartListRes]);
+
   const addToCart = () => {
     dispatch(AddToCartApiAction(addValue));
   };
-  const addCartListRes = useSelector((state) => state.Reducer.postSuccess);
-  if (addCartListRes) {
-    Swal.fire({
-      title: "Add Cartlist Successed!",
-      icon: "success",
-      timer: 1500,
-      showConfirmButton: false,
-    });
-  }
 
   const addToWishlist = () => {
     dispatch(AddToWishApiAction(addValue));

@@ -14,8 +14,6 @@ const CartList = () => {
   const [user, loading, error] = useAuthState(auth);
   const [cartItem, setCart] = useCartList();
 
-  console.log(cartItem);
-
   // get checkout value
   const checkOutValue = useSelector((state) => state.Reducer.checkOutValue);
   const addCheckOutRes = useSelector(

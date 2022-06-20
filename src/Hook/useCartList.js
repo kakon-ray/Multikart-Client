@@ -27,7 +27,7 @@ const useCartList = () => {
         data: {},
         timeout: 1000,
       });
-      console.log(getcartValue);
+
       setCart(getcartValue.data);
     };
 

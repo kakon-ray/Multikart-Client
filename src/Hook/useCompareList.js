@@ -29,7 +29,7 @@ const useCompareList = () => {
         data: {},
         timeout: 1000,
       });
-      console.log(getcartValue);
+
       setCompareList(getcartValue.data);
     };
 

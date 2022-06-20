@@ -60,7 +60,7 @@ const AddToCartApiAction = (request) => {
     return AddToCartList(request).then((res) => {
       dispatch({
         type: ADD_CARTLIST,
-        payload: true,
+        payload: res ? 1 : 2,
       });
     });
   };

@@ -9,9 +9,6 @@ import Loading from "../../component/Loading/Loading";
 const CompareList = () => {
   const [compareList, setCompareList] = useCompareList();
 
-  if (compareList.length == 0) {
-    return <Loading />;
-  }
   return (
     <div>
       <div className="dark:bg-black">
@@ -79,6 +76,7 @@ const CompareList = () => {
                       })}
                     </tbody>
                   </table>
+                  <div>{compareList.length <= 0 ? <Loading /> : ""}</div>
                 </div>
               </div>
             </div>

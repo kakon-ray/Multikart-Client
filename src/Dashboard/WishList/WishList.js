@@ -8,10 +8,6 @@ import Loading from "../../component/Loading/Loading";
 const WishList = () => {
   const [wishItem, setWishList] = useWishList();
 
-  if (wishItem.length == 0) {
-    return <Loading />;
-  }
-
   return (
     <div>
       <div>
@@ -76,6 +72,8 @@ const WishList = () => {
                         })}
                       </tbody>
                     </table>
+
+                    <div>{wishItem.length <= 0 ? <Loading /> : ""}</div>
                   </div>
                 </div>
               </div>

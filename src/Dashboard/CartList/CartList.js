@@ -27,9 +27,6 @@ const CartList = () => {
   }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
 
   console.log(cartItem);
-  if (cartItem.length == 0) {
-    return <Loading />;
-  }
 
   return (
     <div>
@@ -118,6 +115,7 @@ const CartList = () => {
                       })}
                     </tbody>
                   </table>
+                  <div>{cartItem.length <= 0 ? <Loading /> : ""}</div>
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ export async function AxiosRequest(url, method, headers, params) {
 
 const GetProducts = async () => {
   const getProductValue = await axios({
-    url: "http://localhost:5000/products",
+    url: "https://fast-shore-34376.herokuapp.com/products",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const GetProducts = async () => {
 
 const GetCheckOutData = async () => {
   const getCheckOutValue = await axios({
-    url: "http://localhost:5000/checkout",
+    url: "https://fast-shore-34376.herokuapp.com/checkout",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const AddToCartList = async (data) => {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    url: "http://localhost:5000/cartlist",
+    url: "https://fast-shore-34376.herokuapp.com/cartlist",
     data: data,
   });
   return postValue;
@@ -62,7 +62,7 @@ const AddToWishList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:5000/wishlist",
+    url: "https://fast-shore-34376.herokuapp.com/wishlist",
     data: data,
   });
   return postValue;
@@ -71,7 +71,7 @@ const AddToCompareList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:5000/comparelist",
+    url: "https://fast-shore-34376.herokuapp.com/comparelist",
     data: data,
   });
   return postValue;
@@ -80,7 +80,7 @@ const AddToCheckOut = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "http://localhost:5000/checkout",
+    url: "https://fast-shore-34376.herokuapp.com/checkout",
     data: data,
   });
   return postValue;
@@ -88,7 +88,7 @@ const AddToCheckOut = async (data) => {
 
 const DeleteToCartList = async (id) => {
   const postValue = await axios({
-    url: `http://localhost:5000/cartlist?id=${id}`,
+    url: `https://fast-shore-34376.herokuapp.com/cartlist?id=${id}`,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -97,7 +97,7 @@ const DeleteToCartList = async (id) => {
 };
 const DeleteToCompareList = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:5000/comparelist/" + id,
+    url: "https://fast-shore-34376.herokuapp.com/comparelist/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -106,7 +106,7 @@ const DeleteToCompareList = async (id) => {
 };
 const DeleteToWishList = async (id) => {
   const postValue = await axios({
-    url: `http://localhost:5000/wishlist/` + id,
+    url: `https://fast-shore-34376.herokuapp.com/wishlist/` + id,
 
     method: "DELETE",
     headers: { "content-type": "application/json" },
@@ -116,7 +116,7 @@ const DeleteToWishList = async (id) => {
 };
 const DeleteTOCheckOut = async (id) => {
   const postValue = await axios({
-    url: "http://localhost:5000/checkout/" + id,
+    url: "https://fast-shore-34376.herokuapp.com/checkout/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
   });

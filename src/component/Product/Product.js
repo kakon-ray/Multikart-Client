@@ -47,9 +47,11 @@ const Product = ({ item }) => {
   };
 
   const addToCart = () => {
+    console.log("cartItem:", cartItem, "Item:", item);
     let cartListCheck = cartItem.filter(
       (cartListItem) => cartListItem.id == item._id
     );
+    console.log(cartListCheck);
     if (cartListCheck.length > 0) {
       Swal.fire({
         title: "Already add cartlist",
@@ -58,6 +60,7 @@ const Product = ({ item }) => {
         showConfirmButton: false,
       });
     } else {
+      setCart(addValue);
       dispatch(AddToCartApiAction(addValue));
       Swal.fire({
         title: "Add Cartlist Successed!",

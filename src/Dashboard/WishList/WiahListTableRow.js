@@ -40,7 +40,7 @@ const WiahListTableRow = ({ item }) => {
 
   const addToCart = () => {
     let cartListCheck = cartItem.filter(
-      (cartListItem) => cartListItem.id == item._id
+      (cartListItem) => cartListItem.id == item.id
     );
     if (cartListCheck.length > 0) {
       Swal.fire({

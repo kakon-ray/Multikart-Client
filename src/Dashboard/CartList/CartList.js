@@ -4,11 +4,7 @@ import CartListTableRow from "./CartListTableRow";
 import { getApiCheckOutAction } from "../../redux/action/Action";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { async } from "@firebase/util";
-import axios from "axios";
-import useCartList from "../../Hook/useCartList";
 import Loading from "../../component/Loading/Loading";
-
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 const CartList = () => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import {
   AddToCartApiAction,
@@ -7,14 +7,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
-import useCartList from "../../Hook/useCartList";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { CartContext } from "../../Context/CartContext";
 
 const CompareListTableRow = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
-  const [cartItem, setCart] = useCartList();
+  const [cartItem, setCart] = useContext(CartContext);
 
   const name = item.name;
   const supplierName = item.supplierName;

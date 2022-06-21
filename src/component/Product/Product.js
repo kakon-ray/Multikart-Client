@@ -13,7 +13,6 @@ import { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
-import useCartList from "../../Hook/useCartList";
 import useWishList from "../../Hook/useWishList";
 import useCompareList from "../../Hook/useCompareList";
 import { useContext } from "react";
@@ -22,7 +21,7 @@ import { CartContext } from "../../Context/CartContext";
 const Product = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
-  // const [cartItem, setCart] = useCartList();
+
   const [cartItem, setCart] = useContext(CartContext);
   const [wishItem, setWishList] = useWishList();
   const [compareList, setCompareList] = useCompareList();

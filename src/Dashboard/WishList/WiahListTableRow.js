@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,12 +9,13 @@ import {
 import Swal from "sweetalert2";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import useCartList from "../../Hook/useCartList";
+
+import { CartContext } from "../../Context/CartContext";
 const WiahListTableRow = ({ item }) => {
   const dispatch = useDispatch();
 
   const [user, loading, error] = useAuthState(auth);
-  const [cartItem, setCart] = useCartList();
+  const [cartItem, setCart] = useContext(CartContext);
 
   const name = item.name;
   const supplierName = item.supplierName;

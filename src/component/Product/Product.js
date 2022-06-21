@@ -63,7 +63,6 @@ const Product = ({ item }) => {
         showConfirmButton: false,
       });
     } else {
-      setCart(addValue);
       dispatch(AddToCartApiAction(addValue));
       Swal.fire({
         title: "Add Cartlist Successed!",

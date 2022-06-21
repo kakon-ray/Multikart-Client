@@ -1,37 +1,28 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import Button from "../Button";
 import CustomLink from "../CustomeLink/CustomeLink";
 import CustomLinkMobile from "../CustomeLink/CustomeLinkMobile";
 import userPhoto from "../../assets/img/user.png";
 import { toast } from "react-toastify";
 import logo from "../../assets/img/logo.png";
 import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
-import { ReactComponent as Notification } from "../../assets/svg/notification.svg";
-import DashboardSidebar from "../../Dashboard/DashboardSidebar/DashboardSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
-import SidebarOffCanvas from "../../Dashboard/SidebarOffCanvas/SidebarOffCanvas";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getApiCartListAction,
-  getApiWishListAction,
-  getApiCompareListAction,
-} from "../../redux/action/Action";
-import useCartList from "../../Hook/useCartList";
+import { useDispatch } from "react-redux";
 import useWishList from "../../Hook/useWishList";
 import useCompareList from "../../Hook/useCompareList";
+import { CartContext } from "../../Context/CartContext";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   let [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [cartItem, setCart] = useCartList();
+  const [cartItem, setCart] = useContext(CartContext);
   const [wishItem, setWishList] = useWishList();
   const [compareList, setCompareList] = useCompareList();
 

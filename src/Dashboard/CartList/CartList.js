@@ -8,11 +8,15 @@ import { async } from "@firebase/util";
 import axios from "axios";
 import useCartList from "../../Hook/useCartList";
 import Loading from "../../component/Loading/Loading";
+
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
 const CartList = () => {
   const dispatch = useDispatch();
 
   const [user, loading, error] = useAuthState(auth);
-  const [cartItem, setCart] = useCartList();
+
+  const [cartItem, setCart] = useContext(CartContext);
 
   // get checkout value
   const checkOutValue = useSelector((state) => state.Reducer.checkOutValue);
@@ -25,8 +29,6 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getApiCheckOutAction());
   }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
-
-  console.log(cartItem);
 
   return (
     <div>

@@ -16,11 +16,14 @@ import Swal from "sweetalert2";
 import useCartList from "../../Hook/useCartList";
 import useWishList from "../../Hook/useWishList";
 import useCompareList from "../../Hook/useCompareList";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
-  const [cartItem, setCart] = useCartList();
+  // const [cartItem, setCart] = useCartList();
+  const [cartItem, setCart] = useContext(CartContext);
   const [wishItem, setWishList] = useWishList();
   const [compareList, setCompareList] = useCompareList();
 
@@ -47,11 +50,11 @@ const Product = ({ item }) => {
   };
 
   const addToCart = () => {
-    console.log("cartItem:", cartItem, "Item:", item);
+    console.log(cartItem);
     let cartListCheck = cartItem.filter(
       (cartListItem) => cartListItem.id == item._id
     );
-    console.log(cartListCheck);
+
     if (cartListCheck.length > 0) {
       Swal.fire({
         title: "Already add cartlist",

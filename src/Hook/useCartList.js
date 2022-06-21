@@ -17,7 +17,7 @@ const useCartList = () => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `http://localhost:5000/cartlist?email=${email}`,
+        url: `https://fast-shore-34376.herokuapp.com/cartlist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -25,14 +25,13 @@ const useCartList = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         },
         data: {},
-        timeout: 1000,
       });
 
       setCart(getcartValue.data);
     };
 
     getCart();
-  }, [user, dispatch, postSuccess, deleteCartListRes]);
+  }, [user, postSuccess, deleteCartListRes]);
 
   return [cartItem, setCart];
 };

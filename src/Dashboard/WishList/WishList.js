@@ -3,9 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import useWishList from "../../Hook/useWishList";
 import { getApiWishListAction } from "../../redux/action/Action";
 import WiahListTableRow from "./WiahListTableRow";
+import Loading from "../../component/Loading/Loading";
 
 const WishList = () => {
   const [wishItem, setWishList] = useWishList();
+
+  if (wishItem.length == 0) {
+    return <Loading />;
+  }
+
   return (
     <div>
       <div>

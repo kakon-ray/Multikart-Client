@@ -5,9 +5,13 @@ import CompareListTableRow from "./CompareListTableRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import useCompareList from "../../Hook/useCompareList";
-
+import Loading from "../../component/Loading/Loading";
 const CompareList = () => {
   const [compareList, setCompareList] = useCompareList();
+
+  if (compareList.length == 0) {
+    return <Loading />;
+  }
   return (
     <div>
       <div className="dark:bg-black">

@@ -7,7 +7,7 @@ import auth from "../../firebase.init";
 import { async } from "@firebase/util";
 import axios from "axios";
 import useCartList from "../../Hook/useCartList";
-
+import Loading from "../../component/Loading/Loading";
 const CartList = () => {
   const dispatch = useDispatch();
 
@@ -25,6 +25,10 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getApiCheckOutAction());
   }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
+
+  if (cartItem.length == 0) {
+    return <Loading />;
+  }
 
   return (
     <div>

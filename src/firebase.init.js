@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCwQ96Tv8n1YYMqOeEKNvYNmkAavCykTA8",
-  authDomain: "logika-warehouse.firebaseapp.com",
-  projectId: "logika-warehouse",
-  storageBucket: "logika-warehouse.appspot.com",
-  messagingSenderId: "695710377574",
-  appId: "1:695710377574:web:97e4ba877ca1c6207b2fa7",
+  apiKey: "AIzaSyDSlcGdFdzdcVCPlx-p2eUyKyYYIWTGW0c",
+  authDomain: "multicart-baa75.firebaseapp.com",
+  projectId: "multicart-baa75",
+  storageBucket: "multicart-baa75.appspot.com",
+  messagingSenderId: "938820771667",
+  appId: "1:938820771667:web:f2b568ebe082e77a05cba6",
 };
 
 // Initialize Firebase

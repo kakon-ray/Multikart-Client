@@ -19,7 +19,7 @@ const useCompareList = () => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `http://localhost:5000/comparelist?email=${email}`,
+        url: `https://fast-shore-34376.herokuapp.com/comparelist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,6 @@ const useCompareList = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         },
         data: {},
-        timeout: 1000,
       });
 
       setCompareList(getcartValue.data);

@@ -60,7 +60,13 @@ const WishList = () => {
                             scope="col"
                             className="text-x font-bold text-orange-900 uppercase px-6 py-4"
                           >
-                            Remove Cart List
+                            Remove Wishlist
+                          </th>
+                          <th
+                            scope="col"
+                            className="text-x font-bold text-orange-900 uppercase px-6 py-4"
+                          >
+                            Add To Cartlist
                           </th>
                         </tr>
                       </thead>

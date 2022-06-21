@@ -13,10 +13,16 @@ import { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
+import useCartList from "../../Hook/useCartList";
+import useWishList from "../../Hook/useWishList";
+import useCompareList from "../../Hook/useCompareList";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
+  const [cartItem, setCart] = useCartList();
+  const [wishItem, setWishList] = useWishList();
+  const [compareList, setCompareList] = useCompareList();
 
   const name = item.name;
   const supplierName = item.supplierName;
@@ -40,90 +46,71 @@ const Product = ({ item }) => {
     id,
   };
 
-  var addCartListRes = useSelector((state) => state.Reducer.postSuccess);
-  console.log(addCartListRes);
-  useEffect(() => {
-    setTimeout(() => {
-      if (addCartListRes == 1) {
-        Swal.fire({
-          title: "Add Cartlist Successed!",
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-      if (addCartListRes == 2 || addCartListRes == false) {
-        Swal.fire({
-          title: "Already add this item Cartlist",
-          icon: "error",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-    }, 3000);
-  }, [addCartListRes]);
-
   const addToCart = () => {
-    dispatch(AddToCartApiAction(addValue));
+    let cartListCheck = cartItem.filter(
+      (cartListItem) => cartListItem.id == item._id
+    );
+    if (cartListCheck.length > 0) {
+      Swal.fire({
+        title: "Already add cartlist",
+        icon: "error",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } else {
+      dispatch(AddToCartApiAction(addValue));
+      Swal.fire({
+        title: "Add Cartlist Successed!",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
   };
 
-  var addWishListRes = useSelector(
-    (state) => state.Reducer.addWishListResponce
-  );
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (addWishListRes == 1) {
-        Swal.fire({
-          title: "Add Wishlist Successed!",
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-      if (addWishListRes == 2 || addWishListRes == false) {
-        Swal.fire({
-          title: "Already add this item Wishlist",
-          icon: "error",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-    }, 3000);
-  }, [addWishListRes]);
-
   const addToWishlist = () => {
-    dispatch(AddToWishApiAction(addValue));
+    let wishlistCheck = wishItem.filter(
+      (cartListItem) => cartListItem.id == item._id
+    );
+    if (wishlistCheck.length > 0) {
+      Swal.fire({
+        title: "Already add Wishlist",
+        icon: "error",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } else {
+      dispatch(AddToWishApiAction(addValue));
+      Swal.fire({
+        title: "Add Wishlist Successed!",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
   };
 
   const addToCompareList = () => {
-    dispatch(AddToCompareListApiAction(addValue));
+    let compareListCheck = compareList.filter(
+      (cartListItem) => cartListItem.id == item._id
+    );
+    if (compareListCheck.length > 0) {
+      Swal.fire({
+        title: "Already add Comparelist",
+        icon: "error",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } else {
+      dispatch(AddToCompareListApiAction(addValue));
+      Swal.fire({
+        title: "Add Comparelist Successed!",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
   };
-
-  var compareListRes = useSelector(
-    (state) => state.Reducer.addCompareListResponce
-  );
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (compareListRes == 1) {
-        Swal.fire({
-          title: "Add Wishlist Successed!",
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-      if (compareListRes == 2 || compareListRes == false) {
-        Swal.fire({
-          title: "Already add this item Wishlist",
-          icon: "error",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-    }, 3000);
-  }, [compareListRes]);
 
   return (
     <>

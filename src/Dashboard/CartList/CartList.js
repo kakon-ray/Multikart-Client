@@ -26,6 +26,7 @@ const CartList = () => {
     dispatch(getApiCheckOutAction());
   }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
 
+  console.log(cartItem);
   if (cartItem.length == 0) {
     return <Loading />;
   }

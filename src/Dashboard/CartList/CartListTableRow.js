@@ -76,14 +76,14 @@ const CartListTableRow = ({ item, checkOutValue }) => {
         />
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
-        {item.productname}
+        {item.name}
       </td>
 
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        {item.abailable}
+        {item.quantity}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        {item.newprice}
+        {item.price}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
         <input

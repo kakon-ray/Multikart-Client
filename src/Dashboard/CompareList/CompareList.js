@@ -59,7 +59,13 @@ const CompareList = () => {
                           scope="col"
                           className="text-x font-bold text-orange-900 uppercase px-6 py-4"
                         >
-                          Remove Cart List
+                          Remove Comparelist
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-x font-bold text-orange-900 uppercase px-6 py-4"
+                        >
+                          Add Cartsist
                         </th>
                       </tr>
                     </thead>

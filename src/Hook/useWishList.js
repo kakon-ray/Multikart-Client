@@ -17,7 +17,7 @@ const useWishList = () => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `https://fast-shore-34376.herokuapp.com/wishlist?email=${email}`,
+        url: `http://localhost:5000/wishlist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const useWishList = () => {
         },
         data: {},
       });
-      console.log(getcartValue);
+
       setWishList(getcartValue.data);
     };
 

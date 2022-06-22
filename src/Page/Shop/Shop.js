@@ -60,7 +60,7 @@ const Shop = () => {
         <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12 dark:text-slate-200 pt-8">
           All Products
         </h1>
-        {products?.length === 0 ? (
+        {/* {products?.length === 0 ? (
           <div className="flex justify-center items-center space-x-2">
             <div
               className="
@@ -82,7 +82,7 @@ const Shop = () => {
               );
             })}
           </div>
-        )}
+        )} */}
 
         <div className="pt-12 flex justify-center overflow-auto">
           <ReactPaginate

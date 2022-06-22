@@ -7,7 +7,6 @@ import Loading from "../../component/Loading/Loading";
 
 const WishList = () => {
   const [wishItem, setWishList] = useWishList();
-
   return (
     <div>
       <div>

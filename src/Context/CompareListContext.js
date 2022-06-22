@@ -1,13 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import auth from "../firebase.init";
 export const CompareListContext = createContext();
 
 export const CompareListProvider = (props) => {
   const [compareList, setCompareList] = useState([]);
   const [user, loading, error] = useAuthState(auth);
+  const dispatch = useDispatch();
   const email = user?.email;
   const postSuccess = useSelector(
     (state) => state.Reducer.addCompareListResponce
@@ -33,7 +34,7 @@ export const CompareListProvider = (props) => {
     };
 
     getCart();
-  }, [user, postSuccess, deleteCompareListRes]);
+  }, [user, compareList, postSuccess, deleteCompareListRes]);
 
   return (
     <CompareListContext.Provider value={[compareList, setCompareList]}>

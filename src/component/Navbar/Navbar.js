@@ -13,9 +13,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import useWishList from "../../Hook/useWishList";
 import useCompareList from "../../Hook/useCompareList";
 import { CartContext } from "../../Context/CartContext";
+import { WishListContext } from "../../Context/WishListContext";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -23,7 +23,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cartItem, setCart] = useContext(CartContext);
-  const [wishItem, setWishList] = useWishList();
+  const [wishItem, setWishList] = useContext(WishListContext);
   const [compareList, setCompareList] = useCompareList();
 
   let Links = [

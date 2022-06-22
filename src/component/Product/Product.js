@@ -9,21 +9,20 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare, faL } from "@fortawesome/free-solid-svg-icons";
 import "./Product.css";
-import { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
-import useWishList from "../../Hook/useWishList";
 import useCompareList from "../../Hook/useCompareList";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { WishListContext } from "../../Context/WishListContext";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
 
   const [cartItem, setCart] = useContext(CartContext);
-  const [wishItem, setWishList] = useWishList();
+  const [wishItem, setWishList] = useContext(WishListContext);
   const [compareList, setCompareList] = useCompareList();
 
   const name = item.name;
@@ -62,6 +61,7 @@ const Product = ({ item }) => {
         showConfirmButton: false,
       });
     } else {
+      setCart([...cartItem, addValue]);
       dispatch(AddToCartApiAction(addValue));
       Swal.fire({
         title: "Add Cartlist Successed!",
@@ -84,6 +84,7 @@ const Product = ({ item }) => {
         showConfirmButton: false,
       });
     } else {
+      setWishList([...wishItem, addValue]);
       dispatch(AddToWishApiAction(addValue));
       Swal.fire({
         title: "Add Wishlist Successed!",

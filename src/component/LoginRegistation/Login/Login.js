@@ -3,6 +3,7 @@ import PageBanner from "../../PageBanner/PageBanner";
 import {
   useSignInWithEmailAndPassword,
   useSendPasswordResetEmail,
+  useAuthState,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -21,6 +22,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetPasError] =
     useSendPasswordResetEmail(auth);
+  const [currentuser] = useAuthState(auth);
 
   const [token] = useToken(user);
 
@@ -47,7 +49,7 @@ const Login = () => {
     // get data jwt web token and save token localstroge
   };
 
-  if (token) {
+  if (currentuser) {
     Swal.fire({
       icon: "success",
       title: "Login Successed",
@@ -116,7 +118,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="inline-block px-7 py-3 rounded-full bg-orange-700 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                  className="inline-block px-7 py-3 rounded-full bg-orange-600 text-white font-medium text-sm leading-snug uppercase shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
                 >

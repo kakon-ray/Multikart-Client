@@ -23,6 +23,7 @@ const Registaion = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, errorupdate] = useUpdateProfile(auth);
+  const [currentuser] = useAuthState(auth);
 
   const [token] = useToken(user);
   // redirect page
@@ -74,7 +75,7 @@ const Registaion = () => {
     localStorage.setItem("accessToken", data.accessToken);
   };
 
-  if (token) {
+  if (currentuser) {
     Swal.fire({
       icon: "success",
       title: "Registation Successed",

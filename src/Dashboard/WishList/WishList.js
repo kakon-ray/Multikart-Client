@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import useWishList from "../../Hook/useWishList";
-import { getApiWishListAction } from "../../redux/action/Action";
+import React, { useContext } from "react";
 import WiahListTableRow from "./WiahListTableRow";
 import Loading from "../../component/Loading/Loading";
+import { WishListContext } from "../../Context/WishListContext";
 
 const WishList = () => {
-  const [wishItem, setWishList] = useWishList();
+  const [wishItem, setWishList] = useContext(WishListContext);
   return (
     <div>
       <div>

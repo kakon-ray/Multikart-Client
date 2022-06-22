@@ -1,12 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import auth from "../firebase.init";
 
-const useWishList = () => {
+export const WishListContext = createContext();
+
+export const WishListProvider = (props) => {
   const [wishItem, setWishList] = useState([]);
-  const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
   const email = user?.email;
   const postSuccess = useSelector((state) => state.Reducer.addWishListResponce);
@@ -31,9 +32,11 @@ const useWishList = () => {
     };
 
     getCart();
-  }, [user, dispatch, postSuccess, deleteWishListRes]);
+  }, [user, postSuccess, deleteWishListRes]);
 
-  return [wishItem, setWishList];
+  return (
+    <WishListContext.Provider value={[wishItem, setWishList]}>
+      {props.children}
+    </WishListContext.Provider>
+  );
 };
-
-export default useWishList;

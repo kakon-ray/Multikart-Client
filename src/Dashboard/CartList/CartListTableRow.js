@@ -115,9 +115,9 @@ const CartListTableRow = ({ item, checkOutValue }) => {
         <button
           onClick={deleteToCartList}
           type="button"
-          className="inline-block font-bold text-center  mr-2 px-4 py-2 rounded border border-gray-500 text-orange-500 font-medium text-xs leading-tight bg-orange-600 hover:bg-red-600 text-neutral-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+          className="inline-block font-bold text-center  mr-2 rounded  text-orange-500 font-medium text-xs leading-tight text-orange-600 hover:text-orange-700  focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
         >
-          <FontAwesomeIcon icon={faTrash} className="text-lg " />
+          <FontAwesomeIcon icon={faTrash} className="text-xl " />
         </button>
       </td>
     </tr>

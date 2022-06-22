@@ -1,12 +1,12 @@
+import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import auth from "../firebase.init";
+export const CompareListContext = createContext();
 
-const useCompareList = () => {
+export const CompareListProvider = (props) => {
   const [compareList, setCompareList] = useState([]);
-  const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
   const email = user?.email;
   const postSuccess = useSelector(
@@ -33,9 +33,11 @@ const useCompareList = () => {
     };
 
     getCart();
-  }, [user, dispatch, postSuccess, deleteCompareListRes]);
+  }, [user, postSuccess, deleteCompareListRes]);
 
-  return [compareList, setCompareList];
+  return (
+    <CompareListContext.Provider value={[compareList, setCompareList]}>
+      {props.children}
+    </CompareListContext.Provider>
+  );
 };
-
-export default useCompareList;

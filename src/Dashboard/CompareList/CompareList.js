@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getApiCompareListAction } from "../../redux/action/Action";
+import React, { useContext, useEffect } from "react";
 import CompareListTableRow from "./CompareListTableRow";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import useCompareList from "../../Hook/useCompareList";
 import Loading from "../../component/Loading/Loading";
+import { CompareListContext } from "../../Context/CompareListContext";
 const CompareList = () => {
-  const [compareList, setCompareList] = useCompareList();
+  const [compareList, setCompareList] = useContext(CompareListContext);
 
   return (
     <div>

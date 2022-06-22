@@ -12,10 +12,10 @@ import "./Product.css";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
-import useCompareList from "../../Hook/useCompareList";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { WishListContext } from "../../Context/WishListContext";
+import { CompareListContext } from "../../Context/CompareListContext";
 
 const Product = ({ item }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Product = ({ item }) => {
 
   const [cartItem, setCart] = useContext(CartContext);
   const [wishItem, setWishList] = useContext(WishListContext);
-  const [compareList, setCompareList] = useCompareList();
+  const [compareList, setCompareList] = useContext(CompareListContext);
 
   const name = item.name;
   const supplierName = item.supplierName;
@@ -107,6 +107,7 @@ const Product = ({ item }) => {
         showConfirmButton: false,
       });
     } else {
+      setCompareList([...compareList, addValue]);
       dispatch(AddToCompareListApiAction(addValue));
       Swal.fire({
         title: "Add Comparelist Successed!",

@@ -54,9 +54,9 @@ const Shop = () => {
   };
 
   return (
-    <div className="py-12 dark:bg-black">
+    <div className="dark:bg-black">
       <PageBanner page="Shop" />
-      <div className="container mx-auto px-4 md:px-20 py-30 dark:bg-black">
+      <div className="container mx-auto px-4 md:px-20 py-30 dark:bg-black pt-8">
         <h1 className="text-3xl text-stone-900 font-bold uppercase text-center mx-auto mb-12 dark:text-slate-200 pt-8">
           All Products
         </h1>

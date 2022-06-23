@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import CustomLink from "../CustomeLink/CustomeLink";
 import CustomLinkMobile from "../CustomeLink/CustomeLinkMobile";
@@ -256,11 +256,14 @@ const Navbar = () => {
                   "
                     aria-labelledby="dropdownMenuButton1"
                   >
-                    <li>
-                      <a className="nav-link" href="#">
-                        Action
-                      </a>
-                    </li>
+                    <Link to="dashboard">
+                      <li>
+                        <a className="nav-link" href="#">
+                          Profile
+                        </a>
+                      </li>
+                    </Link>
+
                     <li>
                       <a
                         className="
@@ -268,12 +271,12 @@ const Navbar = () => {
                       "
                         href="#"
                       >
-                        Another action
+                        Add Review
                       </a>
                     </li>
                     <li>
                       <a className="nav-link" href="#">
-                        Something else here
+                        Log out
                       </a>
                     </li>
                   </ul>

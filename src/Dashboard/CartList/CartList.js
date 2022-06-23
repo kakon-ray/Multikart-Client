@@ -14,18 +14,9 @@ const CartList = () => {
 
   const [cartItem, setCart] = useContext(CartContext);
 
-  // get checkout value
-  const checkOutValue = useSelector((state) => state.Reducer.checkOutValue);
-  const addCheckOutRes = useSelector(
-    (state) => state.Reducer.addCheckOutResponce
-  );
-  const deleteCheckOutRes = useSelector(
-    (state) => state.Reducer.deleteCheckOutResponce
-  );
-  useEffect(() => {
-    dispatch(getApiCheckOutAction());
-  }, [dispatch, addCheckOutRes, deleteCheckOutRes]);
-
+  const passData = (value, id) => {
+    console.log(value, id);
+  };
   return (
     <div>
       <div className="dark:bg-black">
@@ -107,7 +98,7 @@ const CartList = () => {
                         return (
                           <CartListTableRow
                             item={item}
-                            checkOutValue={checkOutValue}
+                            passData={passData}
                           ></CartListTableRow>
                         );
                       })}

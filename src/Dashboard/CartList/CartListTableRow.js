@@ -9,15 +9,9 @@ import {
 } from "../../redux/action/Action";
 import Swal from "sweetalert2";
 
-const CartListTableRow = ({ item, checkOutValue }) => {
+const CartListTableRow = ({ item, passData }) => {
   const dispatch = useDispatch();
   const [checkBox, setCheckBox] = useState(false);
-
-  useEffect(() => {
-    if (item.check) {
-      setCheckBox(!checkBox);
-    }
-  }, [checkOutValue]);
 
   const deleteToCartList = () => {
     Swal.fire({
@@ -36,16 +30,7 @@ const CartListTableRow = ({ item, checkOutValue }) => {
 
   const handleCheckBox = () => {
     setCheckBox(!checkBox);
-    const checkOutData = {
-      id: item.id,
-      newprice: item.newprice,
-    };
-    if (!checkBox) {
-      dispatch(AddToCheckOutApiAction(checkOutData));
-    }
-    if (checkBox) {
-      dispatch(DeleteToCheckOutApiAction(item.id));
-    }
+    passData(!checkBox, item._id);
   };
 
   return (

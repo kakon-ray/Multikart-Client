@@ -6,7 +6,7 @@ const CompareList = () => {
   const [compareList, setCompareList] = useContext(CompareListContext);
 
   return (
-    <div>
+    <>
       <div className="dark:bg-black">
         <div className="container mx-auto px-4 md:px-20 pt-3">
           <h1 className="text-2xl text-orange-600 font-bold text-center uppercase mb-5">
@@ -79,7 +79,7 @@ const CompareList = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

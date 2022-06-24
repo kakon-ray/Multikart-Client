@@ -10,7 +10,7 @@ import { useContext } from "react";
 const CartList = () => {
   const dispatch = useDispatch();
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const [cartItem, setCart] = useContext(CartContext);
 

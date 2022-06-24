@@ -19,7 +19,7 @@ export const CartContextProvider = (props) => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `https://fast-shore-34376.herokuapp.com/cartlist?email=${email}`,
+        url: `http://localhost:5000/cartlist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",

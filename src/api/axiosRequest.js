@@ -88,6 +88,27 @@ const UpdateTOCheckBoxUpdate = async (value, id) => {
       return fail(error);
     });
 };
+
+const UpdateToAllCheckBox = async (value) => {
+  const url = `http://localhost:5000/cartlist?id=${value}`;
+
+  axios
+    .put(
+      url,
+      {},
+      {
+        params: {
+          value,
+        },
+      }
+    )
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return fail(error);
+    });
+};
 const AddToWishList = async (data) => {
   const postValue = await axios({
     method: "POST",
@@ -149,6 +170,7 @@ export {
   GetCheckOutData,
   AddToCartList,
   UpdateTOCheckBoxUpdate,
+  UpdateToAllCheckBox,
   AddToWishList,
   AddToCompareList,
   AddToCheckOut,

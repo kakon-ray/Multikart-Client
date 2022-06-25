@@ -3,6 +3,7 @@ import {
   GET_PRODUCTS,
   ADD_CARTLIST,
   UPDATE_CARTLIST,
+  UPDATE_ALL_CARTLIST,
   GET_CARTLIST,
   ADD_WISHLIST,
   GET_WISHLIST,
@@ -19,6 +20,7 @@ import {
   GetProducts,
   AddToCartList,
   UpdateTOCheckBoxUpdate,
+  UpdateToAllCheckBox,
   GetWishList,
   AddToWishList,
   AddToCompareList,
@@ -77,6 +79,20 @@ const UpdateToCartApiAction = (id, value) => {
     return UpdateTOCheckBoxUpdate(value, id).then((res) => {
       dispatch({
         type: UPDATE_CARTLIST,
+        payload: true,
+      });
+    });
+  };
+};
+const UpdateToALLCartApiAction = (value) => {
+  return function (dispatch) {
+    dispatch({
+      type: UPDATE_ALL_CARTLIST,
+      payload: false,
+    });
+    return UpdateToAllCheckBox(value).then((res) => {
+      dispatch({
+        type: UPDATE_ALL_CARTLIST,
         payload: true,
       });
     });
@@ -191,6 +207,7 @@ export {
   GetApiAction,
   AddToCartApiAction,
   UpdateToCartApiAction,
+  UpdateToALLCartApiAction,
   AddToWishApiAction,
   AddToCompareListApiAction,
   DeleteToCartListApiAction,

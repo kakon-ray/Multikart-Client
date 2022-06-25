@@ -16,6 +16,13 @@ export const CartContextProvider = (props) => {
     (state) => state.Reducer.deleteCartListResponce
   );
 
+  const updateAllCartListCheckBox = useSelector(
+    (state) => state.Reducer.updateAllCartList
+  );
+  const updateCartListBox = useSelector(
+    (state) => state.Reducer.updateCartListResPonce
+  );
+
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
@@ -33,7 +40,13 @@ export const CartContextProvider = (props) => {
     };
 
     getCart();
-  }, [user, postSuccess, deleteCartListRes]);
+  }, [
+    user,
+    updateAllCartListCheckBox,
+    updateCartListBox,
+    postSuccess,
+    deleteCartListRes,
+  ]);
 
   return (
     <CartContext.Provider value={[cartItem, setCart]}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   DeleteToCartListApiAction,
   AddToCheckOutApiAction,
@@ -12,6 +12,10 @@ import Swal from "sweetalert2";
 const CartListTableRow = ({ item, passData }) => {
   const dispatch = useDispatch();
   const [checkBox, setCheckBox] = useState(false);
+
+  const updateAllCartListCheckBox = useSelector(
+    (state) => state.Reducer.updateAllCartList
+  );
 
   const deleteToCartList = () => {
     Swal.fire({
@@ -40,7 +44,7 @@ const CartListTableRow = ({ item, passData }) => {
     } else {
       setCheckBox(false);
     }
-  }, []);
+  }, [updateAllCartListCheckBox, item]);
 
   return (
     <tr className="border-b">

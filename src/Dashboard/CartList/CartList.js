@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartListTableRow from "./CartListTableRow";
-import { UpdateToCartApiAction } from "../../redux/action/Action";
+import {
+  UpdateToALLCartApiAction,
+  UpdateToCartApiAction,
+} from "../../redux/action/Action";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../component/Loading/Loading";
@@ -9,13 +12,31 @@ import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 const CartList = () => {
   const dispatch = useDispatch();
+  const [allCheckBox, setAllCheckBox] = useState(false);
 
   const [user, loading, error] = useAuthState(auth);
 
   const [cartItem, setCart] = useContext(CartContext);
+  let checkBox = cartItem.filter((item) => item.check == "true");
+
+  useEffect(() => {
+    if (cartItem.length > 0) {
+      if (checkBox.length != cartItem.length) {
+        setAllCheckBox(false);
+      } else {
+        setAllCheckBox(true);
+      }
+    }
+    return;
+  }, [cartItem]);
 
   const passData = (value, id) => {
     dispatch(UpdateToCartApiAction(id, value));
+  };
+
+  const handleALlCheckBox = () => {
+    setAllCheckBox(!allCheckBox);
+    dispatch(UpdateToALLCartApiAction(!allCheckBox));
   };
 
   return (
@@ -40,8 +61,9 @@ const CartList = () => {
                           <div class="flex space-between mx-auto items-center">
                             <input
                               class="form-check-input appearance-none h-6 w-6 border border-gray-300 rounded-sm bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 pt-0 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                              checked={allCheckBox}
                               type="checkbox"
-                              value=""
+                              onChange={handleALlCheckBox}
                               id="flexCheckDefault"
                             />
                             <label

@@ -58,12 +58,52 @@ const AddToCartList = async (data) => {
   });
   return postValue;
 };
+const DeleteToCartList = async (id) => {
+  const postValue = await axios({
+    url: `http://localhost:5000/cartlist?id=${id}`,
+    method: "DELETE",
+    headers: { "content-type": "application/json" },
+    date: {},
+  });
+  return postValue;
+};
+const UpdateTOCheckBoxUpdate = async (value, id) => {
+  const url = `http://localhost:5000/cartlist?id=${(id, value)}`;
+
+  axios
+    .patch(
+      url,
+      {},
+      {
+        params: {
+          id,
+          value,
+        },
+      }
+    )
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return fail(error);
+    });
+};
 const AddToWishList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
     url: "http://localhost:5000/wishlist",
     data: data,
+  });
+  return postValue;
+};
+const DeleteToWishList = async (id) => {
+  const postValue = await axios({
+    url: `http://localhost:5000/wishlist/` + id,
+
+    method: "DELETE",
+    headers: { "content-type": "application/json" },
+    date: {},
   });
   return postValue;
 };
@@ -76,25 +116,6 @@ const AddToCompareList = async (data) => {
   });
   return postValue;
 };
-const AddToCheckOut = async (data) => {
-  const postValue = await axios({
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    url: "http://localhost:5000/checkout",
-    data: data,
-  });
-  return postValue;
-};
-
-const DeleteToCartList = async (id) => {
-  const postValue = await axios({
-    url: `http://localhost:5000/cartlist?id=${id}`,
-    method: "DELETE",
-    headers: { "content-type": "application/json" },
-    date: {},
-  });
-  return postValue;
-};
 const DeleteToCompareList = async (id) => {
   const postValue = await axios({
     url: "http://localhost:5000/comparelist/" + id,
@@ -104,13 +125,12 @@ const DeleteToCompareList = async (id) => {
   });
   return postValue;
 };
-const DeleteToWishList = async (id) => {
+const AddToCheckOut = async (data) => {
   const postValue = await axios({
-    url: `http://localhost:5000/wishlist/` + id,
-
-    method: "DELETE",
+    method: "POST",
     headers: { "content-type": "application/json" },
-    date: {},
+    url: "http://localhost:5000/checkout",
+    data: data,
   });
   return postValue;
 };
@@ -128,6 +148,7 @@ export {
   GetProducts,
   GetCheckOutData,
   AddToCartList,
+  UpdateTOCheckBoxUpdate,
   AddToWishList,
   AddToCompareList,
   AddToCheckOut,

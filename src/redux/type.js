@@ -1,5 +1,6 @@
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const ADD_CARTLIST = "ADD_CARTLIST";
+export const UPDATE_CARTLIST = "UPDATE_CARTLIST";
 export const ADD_WISHLIST = "ADD_WISHLIST";
 export const ADD_COMPARELIST = "ADD_COMPARELIST";
 export const ADD_CHECKOUT = "ADD_CHECKOUT";

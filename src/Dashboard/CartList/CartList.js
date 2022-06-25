@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartListTableRow from "./CartListTableRow";
-import { getApiCheckOutAction } from "../../redux/action/Action";
+import { UpdateToCartApiAction } from "../../redux/action/Action";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../component/Loading/Loading";
@@ -15,8 +15,9 @@ const CartList = () => {
   const [cartItem, setCart] = useContext(CartContext);
 
   const passData = (value, id) => {
-    console.log(value, id);
+    dispatch(UpdateToCartApiAction(id, value));
   };
+
   return (
     <div>
       <div className="dark:bg-black">

@@ -33,7 +33,7 @@ export const WishListProvider = (props) => {
     };
 
     getCart();
-  }, [user, wishItem, postSuccess, deleteWishListRes]);
+  }, [user, postSuccess, deleteWishListRes]);
 
   return (
     <WishListContext.Provider value={[wishItem, setWishList]}>

@@ -30,8 +30,17 @@ const CartListTableRow = ({ item, passData }) => {
 
   const handleCheckBox = () => {
     setCheckBox(!checkBox);
+
     passData(!checkBox, item._id);
   };
+
+  useEffect(() => {
+    if (item.check == "true") {
+      setCheckBox(true);
+    } else {
+      setCheckBox(false);
+    }
+  }, []);
 
   return (
     <tr className="border-b">

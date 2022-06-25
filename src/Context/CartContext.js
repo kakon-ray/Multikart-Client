@@ -33,7 +33,7 @@ export const CartContextProvider = (props) => {
     };
 
     getCart();
-  }, [user, cartItem, postSuccess, deleteCartListRes]);
+  }, [user, postSuccess, deleteCartListRes]);
 
   return (
     <CartContext.Provider value={[cartItem, setCart]}>

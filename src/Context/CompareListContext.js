@@ -34,7 +34,7 @@ export const CompareListProvider = (props) => {
     };
 
     getCart();
-  }, [user, compareList, postSuccess, deleteCompareListRes]);
+  }, [user, postSuccess, deleteCompareListRes]);
 
   return (
     <CompareListContext.Provider value={[compareList, setCompareList]}>

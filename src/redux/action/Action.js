@@ -2,6 +2,7 @@ import React from "react";
 import {
   GET_PRODUCTS,
   ADD_CARTLIST,
+  UPDATE_CARTLIST,
   GET_CARTLIST,
   ADD_WISHLIST,
   GET_WISHLIST,
@@ -17,6 +18,7 @@ import {
 import {
   GetProducts,
   AddToCartList,
+  UpdateTOCheckBoxUpdate,
   GetWishList,
   AddToWishList,
   AddToCompareList,
@@ -60,6 +62,21 @@ const AddToCartApiAction = (request) => {
     return AddToCartList(request).then((res) => {
       dispatch({
         type: ADD_CARTLIST,
+        payload: true,
+      });
+    });
+  };
+};
+const UpdateToCartApiAction = (id, value) => {
+  console.log(id, value);
+  return function (dispatch) {
+    dispatch({
+      type: UPDATE_CARTLIST,
+      payload: false,
+    });
+    return UpdateTOCheckBoxUpdate(value, id).then((res) => {
+      dispatch({
+        type: UPDATE_CARTLIST,
         payload: true,
       });
     });
@@ -173,6 +190,7 @@ const DeleteToCheckOutApiAction = (id) => {
 export {
   GetApiAction,
   AddToCartApiAction,
+  UpdateToCartApiAction,
   AddToWishApiAction,
   AddToCompareListApiAction,
   DeleteToCartListApiAction,

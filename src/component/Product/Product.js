@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { WishListContext } from "../../Context/WishListContext";
 import { CompareListContext } from "../../Context/CompareListContext";
-
+import { useNavigate, useLocation } from "react-router-dom";
 const Product = ({ item }) => {
   const dispatch = useDispatch();
   const [user, loading, error] = useAuthState(auth);
@@ -35,6 +35,8 @@ const Product = ({ item }) => {
   const email = user?.email;
   const id = item._id;
 
+  let navigate = useNavigate();
+
   const addValue = {
     name,
     supplierName,
@@ -48,73 +50,85 @@ const Product = ({ item }) => {
   };
 
   const addToCart = () => {
-    console.log(cartItem);
-    let cartListCheck = cartItem.filter(
-      (cartListItem) => cartListItem.id == item._id
-    );
+    if (user) {
+      console.log(cartItem);
+      let cartListCheck = cartItem.filter(
+        (cartListItem) => cartListItem.id == item._id
+      );
 
-    if (cartListCheck.length > 0) {
-      Swal.fire({
-        title: "Already add cartlist",
-        icon: "error",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+      if (cartListCheck.length > 0) {
+        Swal.fire({
+          title: "Already add cartlist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      } else {
+        setCart([...cartItem, addValue]);
+        dispatch(AddToCartApiAction(addValue));
+        Swal.fire({
+          title: "Add Cartlist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
     } else {
-      setCart([...cartItem, addValue]);
-      dispatch(AddToCartApiAction(addValue));
-      Swal.fire({
-        title: "Add Cartlist Successed!",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+      navigate("/login");
     }
   };
 
   const addToWishlist = () => {
-    let wishlistCheck = wishItem.filter(
-      (cartListItem) => cartListItem.id == item._id
-    );
-    if (wishlistCheck.length > 0) {
-      Swal.fire({
-        title: "Already add Wishlist",
-        icon: "error",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+    if (user) {
+      let wishlistCheck = wishItem.filter(
+        (cartListItem) => cartListItem.id == item._id
+      );
+      if (wishlistCheck.length > 0) {
+        Swal.fire({
+          title: "Already add Wishlist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      } else {
+        setWishList([...wishItem, addValue]);
+        dispatch(AddToWishApiAction(addValue));
+        Swal.fire({
+          title: "Add Wishlist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
     } else {
-      setWishList([...wishItem, addValue]);
-      dispatch(AddToWishApiAction(addValue));
-      Swal.fire({
-        title: "Add Wishlist Successed!",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+      navigate("/login");
     }
   };
 
   const addToCompareList = () => {
-    let compareListCheck = compareList.filter(
-      (cartListItem) => cartListItem.id == item._id
-    );
-    if (compareListCheck.length > 0) {
-      Swal.fire({
-        title: "Already add Comparelist",
-        icon: "error",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+    if (user) {
+      let compareListCheck = compareList.filter(
+        (cartListItem) => cartListItem.id == item._id
+      );
+      if (compareListCheck.length > 0) {
+        Swal.fire({
+          title: "Already add Comparelist",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      } else {
+        setCompareList([...compareList, addValue]);
+        dispatch(AddToCompareListApiAction(addValue));
+        Swal.fire({
+          title: "Add Comparelist Successed!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
     } else {
-      setCompareList([...compareList, addValue]);
-      dispatch(AddToCompareListApiAction(addValue));
-      Swal.fire({
-        title: "Add Comparelist Successed!",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
-      });
+      navigate("login");
     }
   };
 

@@ -14,13 +14,6 @@ const Profile = () => {
             <p>Email Address</p>
             <p>kakonroy043@gmail.com</p>
           </div>
-          <div className="py-4">
-            <Link to="/dashboard/updateprofile/id">
-              <button className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">
-                Edit Profile
-              </button>
-            </Link>
-          </div>
         </div>
         <div>
           <div className="py-4">
@@ -41,6 +34,13 @@ const Profile = () => {
             <p>Address</p>
             <p>Brittikhalbunia, Batiaghata, Khulna</p>
           </div>
+        </div>
+        <div className="py-4">
+          <Link to="/dashboard/updateprofile/id">
+            <button className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">
+              Edit Profile
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   padding: 0 !important;
 }
+
 .carousel-control-prev {
   display: none !important;
 }

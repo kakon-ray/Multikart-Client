@@ -24,6 +24,7 @@ import CompareList from "./Dashboard/CompareList/CompareList";
 import { CartContextProvider } from "./Context/CartContext";
 import { WishListProvider } from "./Context/WishListContext";
 import { CompareListProvider } from "./Context/CompareListContext";
+import UpdateProfile from "./Dashboard/Profile/UpdateProfile";
 
 const App = () => {
   const [dark, setDark] = useState(null);
@@ -86,7 +87,7 @@ const App = () => {
                   path="updateprofile/:id"
                   element={
                     <RequireAuth>
-                      <AddItem></AddItem>
+                      <UpdateProfile></UpdateProfile>
                     </RequireAuth>
                   }
                 />

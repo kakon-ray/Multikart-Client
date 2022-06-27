@@ -88,9 +88,6 @@ const WiahListTableRow = ({ item }) => {
       </td>
 
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        {item.quantity}
-      </td>
-      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
         {item.price}
       </td>
 

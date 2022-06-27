@@ -35,12 +35,7 @@ const CompareList = () => {
                         >
                           Name
                         </th>
-                        <th
-                          scope="col"
-                          className="text-x font-bold text-orange-900 uppercase px-6 py-4 border-r"
-                        >
-                          Abailable
-                        </th>
+
                         <th
                           scope="col"
                           className="text-x font-bold text-orange-900 uppercase px-6 py-4 border-r"

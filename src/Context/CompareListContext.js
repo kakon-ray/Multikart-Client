@@ -20,7 +20,7 @@ export const CompareListProvider = (props) => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `http://localhost:5000/comparelist?email=${email}`,
+        url: ` https://fast-shore-34376.herokuapp.com/comparelist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",

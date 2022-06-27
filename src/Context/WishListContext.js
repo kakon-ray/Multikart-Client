@@ -19,7 +19,7 @@ export const WishListProvider = (props) => {
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `http://localhost:5000/wishlist?email=${email}`,
+        url: ` https://fast-shore-34376.herokuapp.com/wishlist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",

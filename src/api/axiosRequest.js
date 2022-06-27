@@ -20,7 +20,7 @@ export async function AxiosRequest(url, method, headers, params) {
 
 const GetProducts = async () => {
   const getProductValue = await axios({
-    url: "https://fast-shore-34376.herokuapp.com/products",
+    url: "http://localhost:5000/products",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const GetProducts = async () => {
 
 const GetCheckOutData = async () => {
   const getCheckOutValue = await axios({
-    url: "https://fast-shore-34376.herokuapp.com/checkout",
+    url: "http://localhost:5000/checkout",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -53,14 +53,14 @@ const AddToCartList = async (data) => {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    url: "https://fast-shore-34376.herokuapp.com/cartlist",
+    url: "http://localhost:5000/cartlist",
     data: data,
   });
   return postValue;
 };
 const DeleteToCartList = async (id) => {
   const postValue = await axios({
-    url: `https://fast-shore-34376.herokuapp.com/cartlist?id=${id}`,
+    url: `http://localhost:5000/cartlist?id=${id}`,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -68,9 +68,7 @@ const DeleteToCartList = async (id) => {
   return postValue;
 };
 const UpdateTOCheckBoxUpdate = async (value, id) => {
-  const url = `https://fast-shore-34376.herokuapp.com/cartlist?id=${
-    (id, value)
-  }`;
+  const url = `http://localhost:5000/cartlist?id=${(id, value)}`;
 
   axios
     .patch(
@@ -90,9 +88,23 @@ const UpdateTOCheckBoxUpdate = async (value, id) => {
       return fail(error);
     });
 };
+const UpdateQuantityUpdate = async (value, id) => {
+  const getProductValue = await axios({
+    url: "http://localhost:5000/cartlist/quantity",
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+    data: { value, id },
+  });
+
+  return getProductValue;
+};
 
 const UpdateToAllCheckBox = async (value) => {
-  const url = `https://fast-shore-34376.herokuapp.com/cartlist?id=${value}`;
+  const url = `http://localhost:5000/cartlist?id=${value}`;
 
   axios
     .put(
@@ -115,14 +127,14 @@ const AddToWishList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "https://fast-shore-34376.herokuapp.com/wishlist",
+    url: "http://localhost:5000/wishlist",
     data: data,
   });
   return postValue;
 };
 const DeleteToWishList = async (id) => {
   const postValue = await axios({
-    url: `https://fast-shore-34376.herokuapp.com/wishlist/` + id,
+    url: `http://localhost:5000/wishlist/` + id,
 
     method: "DELETE",
     headers: { "content-type": "application/json" },
@@ -134,14 +146,14 @@ const AddToCompareList = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "https://fast-shore-34376.herokuapp.com/comparelist",
+    url: "http://localhost:5000/comparelist",
     data: data,
   });
   return postValue;
 };
 const DeleteToCompareList = async (id) => {
   const postValue = await axios({
-    url: "https://fast-shore-34376.herokuapp.com/comparelist/" + id,
+    url: "http://localhost:5000/comparelist/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
     date: {},
@@ -152,14 +164,14 @@ const AddToCheckOut = async (data) => {
   const postValue = await axios({
     method: "POST",
     headers: { "content-type": "application/json" },
-    url: "https://fast-shore-34376.herokuapp.com/checkout",
+    url: "http://localhost:5000/checkout",
     data: data,
   });
   return postValue;
 };
 const DeleteTOCheckOut = async (id) => {
   const postValue = await axios({
-    url: "https://fast-shore-34376.herokuapp.com/checkout/" + id,
+    url: "http://localhost:5000/checkout/" + id,
     method: "DELETE",
     headers: { "content-type": "application/json" },
   });
@@ -172,6 +184,7 @@ export {
   GetCheckOutData,
   AddToCartList,
   UpdateTOCheckBoxUpdate,
+  UpdateQuantityUpdate,
   UpdateToAllCheckBox,
   AddToWishList,
   AddToCompareList,

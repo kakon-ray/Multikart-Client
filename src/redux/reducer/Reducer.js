@@ -4,6 +4,7 @@ import {
   ADD_CARTLIST,
   UPDATE_CARTLIST,
   UPDATE_ALL_CARTLIST,
+  UPDATE_QUANTITY,
   ADD_COMPARELIST,
   ADD_CHECKOUT,
   ADD_WISHLIST,
@@ -37,6 +38,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         updateCartListResPonce: action.payload,
+      };
+    case UPDATE_QUANTITY:
+      return {
+        ...state,
+        updateQuantityRes: action.payload,
       };
     case UPDATE_ALL_CARTLIST:
       return {

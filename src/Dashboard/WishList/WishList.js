@@ -48,13 +48,13 @@ const WishList = () => {
                           >
                             Price
                           </th>
-
                           <th
                             scope="col"
-                            className="text-x font-bold text-orange-900 uppercase px-6 py-4"
+                            className="text-x font-bold text-orange-900 uppercase px-6 py-4 border-r"
                           >
-                            Remove Wishlist
+                            Remove
                           </th>
+
                           <th
                             scope="col"
                             className="text-x font-bold text-orange-900 uppercase px-6 py-4"

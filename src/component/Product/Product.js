@@ -25,10 +25,11 @@ const Product = ({ item }) => {
   const [wishItem, setWishList] = useContext(WishListContext);
   const [compareList, setCompareList] = useContext(CompareListContext);
 
-  const name = item.name;
+  const name = item.productName;
   const supplierName = item.supplierName;
   const price = item.price;
-  const quantity = item.quantity;
+  const totalPrice = price;
+  const quantity = 1;
   const text = item.text;
   const img2 = item.img2;
   const img = item.img;
@@ -41,6 +42,7 @@ const Product = ({ item }) => {
     name,
     supplierName,
     price,
+    totalPrice,
     quantity,
     text,
     img2,
@@ -171,47 +173,18 @@ const Product = ({ item }) => {
               ></path>
             </svg>
           </div>
-          <div className="p-6 pb-2">
+          <div className="px-4 pb-2">
+            <h2 class="mb-4 text-lg text-center">{item?.productName}</h2>
             <div class="flex justify-between">
               <p class="text-gray-500 mb-0">
-                Available: <span class="font-bold">{item?.abailable}</span>
+                Available: <span class="font-bold">{item?.quantity}</span>
               </p>
               <p class="text-lg text-red-600">
-                <s>{item?.oldprice}</s>
+                <s>{item?.oldprice}$</s>
               </p>
             </div>
-            <div class="flex justify-between py-2">
-              <h2 class="mb-0 text-xl">{item?.productname}</h2>
-              <h2 class="text-gray-500 mb-0 text-xl">{item?.newprice}</h2>
-            </div>
-            <div class="flex justify-between items-center mb-2 icon-section">
-              <div className="absolute top-5 right-5 z-1">
-                <button
-                  onClick={addToCart}
-                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
-                >
-                  <CartIcon />
-                </button>
-                <button
-                  onClick={addToWishlist}
-                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
-                >
-                  <ion-icon
-                    name="heart-outline"
-                    style={{ fontSize: "16px", fontWeight: "900" }}
-                  ></ion-icon>
-                </button>
-                <button
-                  onClick={addToCompareList}
-                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
-                >
-                  <FontAwesomeIcon
-                    icon={faCodeCompare}
-                    className="text-white"
-                  />
-                </button>
-              </div>
-              <div class="ml-auto text-yellow-600">
+            <div class="flex justify-between items-center py-2">
+              <div class="text-yellow-600">
                 <ul class="flex justify-center ">
                   <li>
                     <svg
@@ -299,6 +272,37 @@ const Product = ({ item }) => {
                     </svg>
                   </li>
                 </ul>
+              </div>
+
+              <h2 class="text-gray-500 mb-0 text-lg">{item?.price}$</h2>
+            </div>
+
+            <div class="flex justify-between items-center mb-2 icon-section">
+              <div className="absolute top-5 right-5 z-1">
+                <button
+                  onClick={addToCart}
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <CartIcon />
+                </button>
+                <button
+                  onClick={addToWishlist}
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <ion-icon
+                    name="heart-outline"
+                    style={{ fontSize: "16px", fontWeight: "900" }}
+                  ></ion-icon>
+                </button>
+                <button
+                  onClick={addToCompareList}
+                  className="bg-orange-600 m-2 text-white flex justify-center p-1 rounded hover:bg-orange-700 transition"
+                >
+                  <FontAwesomeIcon
+                    icon={faCodeCompare}
+                    className="text-white"
+                  />
+                </button>
               </div>
             </div>
           </div>

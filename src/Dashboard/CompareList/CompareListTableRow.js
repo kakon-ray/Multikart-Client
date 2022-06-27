@@ -19,6 +19,7 @@ const CompareListTableRow = ({ item }) => {
   const name = item.name;
   const supplierName = item.supplierName;
   const price = item.price;
+  const totalPrice = price;
   const quantity = item.quantity;
   const text = item.text;
   const img2 = item.img2;
@@ -30,6 +31,7 @@ const CompareListTableRow = ({ item }) => {
     name,
     supplierName,
     price,
+    totalPrice,
     quantity,
     text,
     img2,

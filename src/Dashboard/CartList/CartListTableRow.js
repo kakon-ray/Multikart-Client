@@ -9,7 +9,7 @@ import {
 } from "../../redux/action/Action";
 import Swal from "sweetalert2";
 
-const CartListTableRow = ({ item, passData }) => {
+const CartListTableRow = ({ item, passData, handleInputNumber }) => {
   const dispatch = useDispatch();
   const [checkBox, setCheckBox] = useState(false);
 
@@ -73,16 +73,17 @@ const CartListTableRow = ({ item, passData }) => {
           className="mx-auto"
         />
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
+      <td className="px-6 w-48 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-200 border-r">
         {item.name}
+      </td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
+        {item.price}$
       </td>
 
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        {item.quantity}
+        {item.totalPrice}.00$
       </td>
-      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
-        {item.price}
-      </td>
+
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap dark:text-slate-200 border-r">
         <input
           type="number"
@@ -105,7 +106,9 @@ const CartListTableRow = ({ item, passData }) => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                 "
           id="exampleText0"
-          defaultValue={1}
+          onChange={(e) => handleInputNumber(e, item)}
+          min="1"
+          defaultValue={item.quantity}
         />
       </td>
 

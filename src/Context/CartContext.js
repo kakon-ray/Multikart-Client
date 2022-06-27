@@ -22,11 +22,14 @@ export const CartContextProvider = (props) => {
   const updateCartListBox = useSelector(
     (state) => state.Reducer.updateCartListResPonce
   );
+  const updateQuantityRes = useSelector(
+    (state) => state.Reducer.updateQuantityRes
+  );
 
   useEffect(() => {
     const getCart = async () => {
       const getcartValue = await axios({
-        url: `https://fast-shore-34376.herokuapp.com/cartlist?email=${email}`,
+        url: `http://localhost:5000/cartlist?email=${email}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +47,7 @@ export const CartContextProvider = (props) => {
     user,
     updateAllCartListCheckBox,
     updateCartListBox,
+    updateQuantityRes,
     postSuccess,
     deleteCartListRes,
   ]);

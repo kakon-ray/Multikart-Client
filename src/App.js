@@ -25,6 +25,7 @@ import { CartContextProvider } from "./Context/CartContext";
 import { WishListProvider } from "./Context/WishListContext";
 import { CompareListProvider } from "./Context/CompareListContext";
 import UpdateProfile from "./Dashboard/Profile/UpdateProfile";
+import CheckOut from "./Page/CheckOut/CheckOut";
 
 const App = () => {
   const [dark, setDark] = useState(null);
@@ -97,6 +98,14 @@ const App = () => {
                   element={
                     <RequireAuth>
                       <CartList></CartList>
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="checkout"
+                  element={
+                    <RequireAuth>
+                      <CheckOut></CheckOut>
                     </RequireAuth>
                   }
                 />

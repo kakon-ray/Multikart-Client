@@ -11,6 +11,8 @@ import auth from "../../firebase.init";
 import Loading from "../../component/Loading/Loading";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 const CartList = () => {
   const dispatch = useDispatch();
   const [allCheckBox, setAllCheckBox] = useState(false);
@@ -158,12 +160,14 @@ const CartList = () => {
                 <h1>{checkOutPementSum}$</h1>
               </div>
               <div className="py-3">
-                <button
-                  type="button"
-                  class="inline-block mx-auto px-7 py-3 bg-orange-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                  Check Out
-                </button>
+                <Link to="/dashboard/checkout">
+                  <button
+                    type="button"
+                    class="inline-block mx-auto px-7 py-3 bg-orange-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-700 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Check Out
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

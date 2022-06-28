@@ -8,7 +8,7 @@ const MainSidebar = () => {
   return (
     <div>
       <div className="lg:col-span-1 col-span-5 dark:bg-black sticky top-12 z-0">
-        <div className="w-100 h-screen hidden lg:block border shadow-md bg-white px-1 dark:bg-black dark:text-white">
+        <div className="w-100 h-screen hidden lg:block   bg-white px-1 dark:bg-black dark:text-white">
           <h1 className="text-2xl dark:text-white p-5 pt-10 text-gray-500">
             Manage My Account
           </h1>
@@ -28,6 +28,9 @@ const MainSidebar = () => {
             <>
               <Link to="/dashboard/cartlist">
                 <SidebarLink title="Cart List" icon={<CartIcon />} />
+              </Link>
+              <Link to="/dashboard/checkout">
+                <SidebarLink title="Check Out" icon={<CartIcon />} />
               </Link>
               <Link to="/dashboard/wishlist">
                 <SidebarLink

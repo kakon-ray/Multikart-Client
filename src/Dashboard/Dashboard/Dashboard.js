@@ -10,7 +10,7 @@ const Dashboard = () => {
           <div className="lg:col-span-1 col-span-4 z-0">
             <MainSidebar></MainSidebar>
           </div>
-          <div className="lg:col-span-3 col-span-4">
+          <div className="lg:col-span-3 col-span-4 border">
             <Outlet />
           </div>
         </div>

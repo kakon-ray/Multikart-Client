@@ -274,7 +274,7 @@ const Navbar = () => {
                         Add Review
                       </a>
                     </li>
-                    <li>
+                    <li onClick={() => signOut(auth)}>
                       <a className="nav-link" href="#">
                         Log out
                       </a>

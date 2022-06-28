@@ -60,7 +60,11 @@ const WishList = () => {
                       </thead>
                       <tbody>
                         {wishItem.map((item) => {
-                          return <WiahListTableRow item={item} />;
+                          return (
+                            <React.Fragment key={item._id}>
+                              <WiahListTableRow item={item} />
+                            </React.Fragment>
+                          );
                         })}
                       </tbody>
                     </table>

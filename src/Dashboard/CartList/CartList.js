@@ -135,11 +135,13 @@ const CartList = () => {
                     <tbody>
                       {cartItem?.map((item) => {
                         return (
-                          <CartListTableRow
-                            item={item}
-                            passData={passData}
-                            handleInputNumber={handleInputNumber}
-                          ></CartListTableRow>
+                          <React.Fragment key={item._id}>
+                            <CartListTableRow
+                              item={item}
+                              passData={passData}
+                              handleInputNumber={handleInputNumber}
+                            ></CartListTableRow>
+                          </React.Fragment>
                         );
                       })}
                     </tbody>

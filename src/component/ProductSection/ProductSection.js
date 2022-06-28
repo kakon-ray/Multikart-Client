@@ -25,7 +25,11 @@ const ProductSection = () => {
 
         <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-x-4 ">
           {product?.map((item) => {
-            return <Product img={product} item={item} />;
+            return (
+              <React.Fragment key={item._id}>
+                <Product img={product} item={item} />
+              </React.Fragment>
+            );
           })}
         </div>
       </div>

@@ -60,9 +60,11 @@ const CompareList = () => {
                     <tbody>
                       {compareList?.map((item) => {
                         return (
-                          <CompareListTableRow
-                            item={item}
-                          ></CompareListTableRow>
+                          <React.Fragment key={item._id}>
+                            <CompareListTableRow
+                              item={item}
+                            ></CompareListTableRow>
+                          </React.Fragment>
                         );
                       })}
                     </tbody>

@@ -1,47 +1,72 @@
+import { async } from "@firebase/util";
 import React from "react";
+import { useRef } from "react";
+import { useAuthState, useUpdateProfile } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const UpdateProfile = () => {
+  const [updateProfile, updating, error] = useUpdateProfile(auth);
+  const [user, loading, currentUserError] = useAuthState(auth);
+
+  const usename = useRef();
+  const useemail = useRef();
+  const usegender = useRef();
+  const usemobile = useRef();
+  const useaddress = useRef();
+
+  const handleSubmit = async () => {
+    const nameResult = usename.current?.value;
+    const emailResult = useemail.current?.value;
+    const genderResult = usegender.current?.value;
+    const mobileResult = usemobile.current?.value;
+    const addressResult = useaddress.current?.value;
+
+    await updateProfile({
+      displayName: nameResult,
+      email: emailResult,
+      gender: genderResult,
+      phoneNumber: mobileResult,
+      address: addressResult,
+    });
+
+    console.log(user);
+  };
+
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 text-gray-500 p-8">
         <div>
           <div className="py-4">
-            <p>
-              Change Name{" "}
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Change Name </p>
             <input
               type="text"
               name="name"
               className="form-control block w-full px-3 py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border focus:outline-0  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white"
               id="exampleFormControlInput2"
-              placeholder="Kakon Ray"
+              placeholder={user?.displayName}
+              ref={usename}
               required
             />
           </div>
           <div className="py-4">
-            <p>
-              Change Email{" "}
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Change Email </p>
             <input
               type="text"
               name="name"
               className="form-control block w-full px-3 py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border focus:outline-0  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white"
               id="exampleFormControlInput2"
-              placeholder="kakonrot043@gmail.com"
+              placeholder={user?.email}
+              ref={useemail}
               required
             />
           </div>
         </div>
         <div>
           <div className="py-4">
-            <p>
-              Gender
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Gender</p>
             <select
+              ref={usegender}
               className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-600 bg-white bg-clip-padding border focus:outline-0  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white"
               aria-label="Default select example"
             >
@@ -50,29 +75,24 @@ const UpdateProfile = () => {
             </select>
           </div>
           <div className="py-4">
-            <p>
-              Change Mobile{" "}
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Change Mobile </p>
             <input
-              type="text"
-              name="name"
+              type="phone"
+              name="phone"
+              ref={usemobile}
               className="form-control block w-full px-3 py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border focus:outline-0  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white"
               id="exampleFormControlInput2"
-              placeholder="01707500512"
+              placeholder={user?.phoneNumber}
               required
             />
           </div>
         </div>
         <div>
           <div>
-            <p>
-              Image
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Image</p>
             <div className="mb-4 flex">
               <img
-                src="https://i.ibb.co/VpppGtD/124489889-369962447570149-4781988956737706303-n-1.jpg"
+                src={user?.photoURL}
                 alt=""
                 style={{ width: "50px", height: "50" }}
                 className="rounded-full"
@@ -87,13 +107,11 @@ const UpdateProfile = () => {
             </div>
           </div>
           <div className="py-4">
-            <p>
-              Address{" "}
-              <span className="text-green-600 underline ml-2">Change</span>
-            </p>
+            <p>Address </p>
             <input
               type="text"
               name="name"
+              ref={useaddress}
               className="form-control block w-full px-3 py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border focus:outline-0  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white"
               id="exampleFormControlInput2"
               placeholder="Brittikhalbunia, Batiaghata, Khulna"
@@ -101,11 +119,12 @@ const UpdateProfile = () => {
           </div>
         </div>
         <div>
-          <Link to="/dashboard/updateupdateprofile/id">
-            <button className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">
-              Save
-            </button>
-          </Link>
+          <button
+            className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600"
+            onClick={handleSubmit}
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>
